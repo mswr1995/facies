@@ -1,0 +1,55 @@
+{
+  "validation": {
+    "Peloid": {
+      "precision": 0.9600886917960089,
+      "recall": 0.941304347826087,
+      "pr_auc": 0.9936122905185409,
+      "support": 460
+    },
+    "Ooid": {
+      "precision": 0.6530612244897959,
+      "recall": 0.7619047619047619,
+      "pr_auc": 0.7737817556722812,
+      "support": 42
+    },
+    "Broken ooid": {
+      "precision": 0.5,
+      "recall": 0.5,
+      "pr_auc": 0.431041181041181,
+      "support": 6
+    },
+    "Intraclast": {
+      "precision": 0.36363636363636365,
+      "recall": 0.4,
+      "pr_auc": 0.35123660524167793,
+      "support": 20
+    }
+  },
+  "test": {
+    "Peloid": {
+      "precision": 0.9564270152505446,
+      "recall": 0.9543478260869566,
+      "pr_auc": 0.9912813437288003,
+      "support": 460
+    },
+    "Ooid": {
+      "precision": 0.6862745098039216,
+      "recall": 0.8333333333333334,
+      "pr_auc": 0.8227081053925037,
+      "support": 42
+    },
+    "Broken ooid": {
+      "precision": 0.6666666666666666,
+      "recall": 0.3333333333333333,
+      "pr_auc": 0.5936671187462326,
+      "support": 6
+    },
+    "Intraclast": {
+      "precision": 0.3125,
+      "recall": 0.23809523809523808,
+      "pr_auc": 0.24692553898308628,
+      "support": 21
+    }
+  },
+  "checkpoint": "checkpoints/exp4_efficientnet/best_model_overall_acc_0.9015.pth"
+}

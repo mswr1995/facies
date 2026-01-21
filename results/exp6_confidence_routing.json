@@ -1,0 +1,141 @@
+{
+  "confidence_threshold": 0.7,
+  "validation": {
+    "accuracy": 0.03598484848484849,
+    "per_class_metrics": {
+      "Peloid": {
+        "precision": 0.23076923076923078,
+        "recall": 0.0391304347826087,
+        "pr_auc": 0.6997802173003428,
+        "support": 460
+      },
+      "Ooid": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "pr_auc": 0.04123351149318986,
+        "support": 42
+      },
+      "Broken": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "pr_auc": 0.006141713981695739,
+        "support": 6
+      },
+      "Intraclast": {
+        "precision": 0.002967359050445104,
+        "recall": 0.05,
+        "pr_auc": 0.019861953742169498,
+        "support": 20
+      }
+    },
+    "confusion_matrix": [
+      [
+        18,
+        0,
+        108,
+        334
+      ],
+      [
+        40,
+        0,
+        0,
+        2
+      ],
+      [
+        6,
+        0,
+        0,
+        0
+      ],
+      [
+        14,
+        0,
+        5,
+        1
+      ]
+    ],
+    "routing_stats": {
+      "exp3_Intraclast": 113,
+      "exp2_Intraclast": 106,
+      "exp3_Peloid": 37,
+      "baseline_Peloid": 30,
+      "exp2_Broken": 71,
+      "baseline_Intraclast": 118,
+      "exp3_Broken": 11,
+      "exp2_Peloid": 11,
+      "baseline_Broken": 31
+    }
+  },
+  "test": {
+    "accuracy": 0.045368620037807186,
+    "per_class_metrics": {
+      "Peloid": {
+        "precision": 0.2823529411764706,
+        "recall": 0.05217391304347826,
+        "pr_auc": 0.6980197382773723,
+        "support": 460
+      },
+      "Ooid": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "pr_auc": 0.040971260878489096,
+        "support": 42
+      },
+      "Broken": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "pr_auc": 0.006179008238882763,
+        "support": 6
+      },
+      "Intraclast": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "pr_auc": 0.021174855207771907,
+        "support": 21
+      }
+    },
+    "confusion_matrix": [
+      [
+        24,
+        1,
+        107,
+        328
+      ],
+      [
+        37,
+        0,
+        0,
+        5
+      ],
+      [
+        6,
+        0,
+        0,
+        0
+      ],
+      [
+        18,
+        0,
+        3,
+        0
+      ]
+    ],
+    "routing_stats": {
+      "exp2_Intraclast": 105,
+      "exp3_Broken": 16,
+      "exp3_Intraclast": 112,
+      "baseline_Peloid": 26,
+      "baseline_Intraclast": 116,
+      "exp2_Broken": 69,
+      "baseline_Broken": 25,
+      "exp2_Peloid": 19,
+      "exp3_Peloid": 40,
+      "baseline_Ooid": 1
+    }
+  },
+  "checkpoint_paths": {
+    "baseline": "/Users/mswr/dev/facies/checkpoints/new_split_v2/best_model_overall_acc_0.9337.pth",
+    "exp2": "/Users/mswr/dev/facies/checkpoints/exp2_augmented/best_model_overall_acc_0.9280.pth",
+    "exp3": "/Users/mswr/dev/facies/checkpoints/exp3_weighted/best_model_overall_acc_0.9413.pth"
+  }
+}

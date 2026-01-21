@@ -8,6 +8,7 @@ import numpy as np
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 import cv2
+import base64
 
 
 # Valid grain classes (excludes rare bioclasts and minerals)
@@ -38,13 +39,29 @@ def load_image_from_labelme(json_data: Dict, image_dir: Path) -> np.ndarray:
     """
     Load the corresponding image for a labelme annotation.
     
+    First tries to load from embedded base64 imageData.
+    Falls back to loading from file path if imageData is not present.
+    
     Args:
         json_data: Parsed labelme JSON
-        image_dir: Directory containing images
+        image_dir: Directory containing images (used as fallback)
         
     Returns:
         RGB image as numpy array (H, W, 3)
     """
+    # Try loading from embedded base64 data first
+    if 'imageData' in json_data and json_data['imageData']:
+        try:
+            image_data = base64.b64decode(json_data['imageData'])
+            image_array = np.frombuffer(image_data, dtype=np.uint8)
+            image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            return image
+        except Exception as e:
+            print(f"Warning: Failed to decode embedded image data: {e}")
+            # Fall through to file loading
+    
+    # Fallback: load from file
     image_path = image_dir / json_data['imagePath']
     
     # Try case-insensitive search if exact match fails

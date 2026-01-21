@@ -1,0 +1,178 @@
+{
+  "validation": {
+    "accuracy": 0.9981060606060606,
+    "per_class_metrics": {
+      "Peloid": {
+        "precision": 1.0,
+        "recall": 0.9978260869565218,
+        "pr_auc": 0.9999765994019119,
+        "support": 460
+      },
+      "Ooid": {
+        "precision": 0.9767441860465116,
+        "recall": 1.0,
+        "pr_auc": 0.9944079379635098,
+        "support": 42
+      },
+      "Broken": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "pr_auc": 1.0,
+        "support": 6
+      },
+      "Intraclast": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "pr_auc": 1.0,
+        "support": 20
+      }
+    },
+    "confusion_matrix": [
+      [
+        459,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        42,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        6,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        20
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.9300567107750473,
+    "per_class_metrics": {
+      "Peloid": {
+        "precision": 0.9652173913043478,
+        "recall": 0.9652173913043478,
+        "pr_auc": 0.9932845712875082,
+        "support": 460
+      },
+      "Ooid": {
+        "precision": 0.825,
+        "recall": 0.7857142857142857,
+        "pr_auc": 0.9080040198367386,
+        "support": 42
+      },
+      "Broken": {
+        "precision": 0.8,
+        "recall": 0.6666666666666666,
+        "pr_auc": 0.7871453505644682,
+        "support": 6
+      },
+      "Intraclast": {
+        "precision": 0.4583333333333333,
+        "recall": 0.5238095238095238,
+        "pr_auc": 0.4530132273390208,
+        "support": 21
+      }
+    },
+    "confusion_matrix": [
+      [
+        444,
+        3,
+        0,
+        13
+      ],
+      [
+        8,
+        33,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        4,
+        0
+      ],
+      [
+        7,
+        3,
+        0,
+        11
+      ]
+    ]
+  },
+  "metadata": {
+    "checkpoint_paths": {
+      "baseline": "checkpoints/new_split_v2/best_model_overall_acc_0.9337.pth",
+      "exp2": "checkpoints/exp2_augmented/best_model_overall_acc_0.9280.pth",
+      "exp3": "checkpoints/exp3_weighted/best_model_overall_acc_0.9413.pth",
+      "exp4": "checkpoints/exp4_efficientnet/best_model_overall_acc_0.9015.pth"
+    },
+    "model_types": {
+      "baseline": "resnet",
+      "exp2": "resnet",
+      "exp3": "resnet",
+      "exp4": "efficientnet"
+    },
+    "feature_dim": 16,
+    "num_classes": 4,
+    "class_names": [
+      "Peloid",
+      "Ooid",
+      "Broken",
+      "Intraclast"
+    ],
+    "val_accuracy": 0.9981060606060606,
+    "xgboost_params": {
+      "objective": "multi:softprob",
+      "base_score": null,
+      "booster": null,
+      "callbacks": null,
+      "colsample_bylevel": null,
+      "colsample_bynode": null,
+      "colsample_bytree": 0.8,
+      "device": "cpu",
+      "early_stopping_rounds": null,
+      "enable_categorical": false,
+      "eval_metric": "mlogloss",
+      "feature_types": null,
+      "feature_weights": null,
+      "gamma": null,
+      "grow_policy": null,
+      "importance_type": null,
+      "interaction_constraints": null,
+      "learning_rate": 0.05,
+      "max_bin": null,
+      "max_cat_threshold": null,
+      "max_cat_to_onehot": null,
+      "max_delta_step": null,
+      "max_depth": 5,
+      "max_leaves": null,
+      "min_child_weight": null,
+      "missing": NaN,
+      "monotone_constraints": null,
+      "multi_strategy": null,
+      "n_estimators": 200,
+      "n_jobs": null,
+      "num_parallel_tree": null,
+      "random_state": 42,
+      "reg_alpha": null,
+      "reg_lambda": null,
+      "sampling_method": null,
+      "scale_pos_weight": null,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "validate_parameters": null,
+      "verbosity": null,
+      "num_class": 4
+    }
+  }
+}

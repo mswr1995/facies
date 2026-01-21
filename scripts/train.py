@@ -14,6 +14,7 @@ import sys
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.data.dataset import GrainDataset
+from src.data.samplers import HierarchicalBalancedSampler, StageWiseBatchSampler
 from src.models.hierarchical_model import HierarchicalGrainClassifier
 from src.training.trainer import Trainer
 
@@ -30,8 +31,16 @@ def load_fold_config(fold: int):
     return fold_data
 
 
-def create_data_loaders(fold: int, batch_size: int = 32, num_workers: int = 0):
-    """Create train and validation data loaders."""
+def create_data_loaders(fold: int, batch_size: int = 32, num_workers: int = 0, 
+                        use_sampler: str = 'none'):
+    """Create train and validation data loaders.
+    
+    Args:
+        fold: Fold number
+        batch_size: Batch size
+        num_workers: Number of data loader workers
+        use_sampler: Sampling strategy ('none', 'weighted', 'stagewise')
+    """
     metadata_path = f'data/processed/fold_{fold}_metadata.json'
     patches_dir = 'data/processed/patches'
     
@@ -48,15 +57,47 @@ def create_data_loaders(fold: int, batch_size: int = 32, num_workers: int = 0):
         split='val'
     )
     
-    # Create data loaders
-    train_loader = DataLoader(
-        train_dataset,
-        batch_size=batch_size,
-        shuffle=True,
-        num_workers=num_workers,
-        pin_memory=torch.cuda.is_available()
-    )
+    # Create train data loader with optional sampler
+    if use_sampler == 'weighted':
+        print("\nUsing HierarchicalBalancedSampler (weighted sampling)")
+        train_sampler = HierarchicalBalancedSampler(
+            train_dataset,
+            samples_per_epoch=len(train_dataset) * 2,
+            stage1_balance=0.5,
+            stage3_broken_weight=5.0
+        )
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=batch_size,
+            sampler=train_sampler,
+            num_workers=num_workers,
+            pin_memory=torch.cuda.is_available()
+        )
+    elif use_sampler == 'stagewise':
+        print("\nUsing StageWiseBatchSampler (batch-level balance)")
+        batch_sampler = StageWiseBatchSampler(
+            train_dataset,
+            batch_size=batch_size,
+            peloid_ratio=0.5,
+            broken_ooid_oversample=3
+        )
+        train_loader = DataLoader(
+            train_dataset,
+            batch_sampler=batch_sampler,
+            num_workers=num_workers,
+            pin_memory=torch.cuda.is_available()
+        )
+    else:
+        print("\nUsing standard random sampling (no class-aware sampling)")
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=batch_size,
+            shuffle=True,
+            num_workers=num_workers,
+            pin_memory=torch.cuda.is_available()
+        )
     
+    # Validation loader always uses standard sampling
     val_loader = DataLoader(
         val_dataset,
         batch_size=batch_size,
@@ -69,6 +110,7 @@ def create_data_loaders(fold: int, batch_size: int = 32, num_workers: int = 0):
     print(f"  Train samples: {len(train_dataset)}")
     print(f"  Val samples: {len(val_dataset)}")
     print(f"  Batch size: {batch_size}")
+    print(f"  Sampling strategy: {use_sampler}")
     
     return train_loader, val_loader
 
@@ -83,7 +125,8 @@ def main(args):
     train_loader, val_loader = create_data_loaders(
         fold=args.fold,
         batch_size=args.batch_size,
-        num_workers=args.num_workers
+        num_workers=args.num_workers,
+        use_sampler=args.sampler
     )
     
     # Create model
@@ -129,7 +172,8 @@ def main(args):
         'weight_decay': args.weight_decay,
         'num_epochs': args.epochs,
         'pretrained': args.pretrained,
-        'device': device
+        'device': device,
+        'sampler': args.sampler
     }
     
     # Train
@@ -150,6 +194,9 @@ if __name__ == '__main__':
     parser.add_argument('--fold', type=int, default=0, help='Fold number (0-4)')
     parser.add_argument('--batch-size', type=int, default=32, help='Batch size')
     parser.add_argument('--num-workers', type=int, default=0, help='Number of data loader workers')
+    parser.add_argument('--sampler', type=str, default='stagewise', 
+                       choices=['none', 'weighted', 'stagewise'],
+                       help='Sampling strategy: none (random), weighted (class-weighted), stagewise (batch-level balance)')
     
     # Model parameters
     parser.add_argument('--pretrained', action='store_true', help='Use pretrained backbone')
