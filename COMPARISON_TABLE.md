@@ -16,6 +16,7 @@ How many of each class were correctly identified:
 | + Heavy Oversample (15x) | 450/460 (98%) | 37/42 (88%) | 5/6 (83%) | 16/21 (76%) | 96.0% |
 | + Heavy Oversample (15x) + TTA | 451/460 (98%) | 39/42 (93%) | 5/6 (83%) | 14/21 (67%) | 96.2% |
 | + Test-Time Augmentation (TTA) | 454/460 (99%) | 34/42 (81%) | 5/6 (83%) | 13/21 (62%) | 95.7% |
+| SupCon Pre-train + Fine-tune | 436/460 (95%) | 38/42 (90%) | 4/6 (67%) | 16/21 (76%) | 93.4% |
 
 ## Confusion Matrices
 
@@ -107,6 +108,16 @@ Peloid      454     2     0      4
 Ooid          7    34     1      0
 Broken        0     0     5      1
 Intraclast    5     3     0     13
+```
+
+### SupCon Pre-train + Fine-tune
+```
+              Predicted
+Actual      Pel  Ooid  Brok  Intra
+Peloid      436     7     1     16
+Ooid          3    38     1      0
+Broken        0     1     4      1
+Intraclast    4     1     0     16
 ```
 
 ## Test Set Class Distribution
