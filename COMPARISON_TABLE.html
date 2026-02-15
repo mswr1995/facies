@@ -365,44 +365,9 @@ code {
           : 'default'
     });
   </script>
-<h1 id="test-set-performance-comparison">Test Set Performance Comparison</h1>
-<h2 id="overall-accuracy">Overall Accuracy</h2>
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>Test Accuracy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Baseline</td>
-<td>94.90%</td>
-</tr>
-<tr>
-<td>Exp 1 (Threshold)</td>
-<td>94.90%</td>
-</tr>
-<tr>
-<td>Exp 2 (Augmented)</td>
-<td>92.25%</td>
-</tr>
-<tr>
-<td>Exp 3 (Weighted)</td>
-<td>92.64%</td>
-</tr>
-<tr>
-<td>Exp 4 (EfficientNet)</td>
-<td>89.42%</td>
-</tr>
-<tr>
-<td>Exp 5 (Ensemble)</td>
-<td>93.01%</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="precision-test-set">Precision (Test Set)</h2>
+<h1 id="test-set-results">Test Set Results</h1>
+<h2 id="per-class-accuracy-recall">Per-Class Accuracy (Recall)</h2>
+<p>How many of each class were correctly identified:</p>
 <table>
 <thead>
 <tr>
@@ -411,245 +376,134 @@ code {
 <th>Ooid</th>
 <th>Broken</th>
 <th>Intraclast</th>
+<th>Overall</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Baseline</td>
-<td>96.79%</td>
-<td>86.84%</td>
-<td>83.33%</td>
-<td>66.67%</td>
+<td>ResNet18-Hierarchical (default)</td>
+<td>452/460 (98%)</td>
+<td>33/42 (79%)</td>
+<td>5/6 (83%)</td>
+<td>12/21 (57%)</td>
+<td>94.9%</td>
 </tr>
 <tr>
-<td>Exp 1</td>
-<td>96.79%</td>
-<td>86.84%</td>
-<td>83.33%</td>
-<td>66.67%</td>
+<td>+ Tuned Thresholds</td>
+<td>452/460 (98%)</td>
+<td>33/42 (79%)</td>
+<td>5/6 (83%)</td>
+<td>12/21 (57%)</td>
+<td>94.9%</td>
 </tr>
 <tr>
-<td>Exp 2</td>
-<td>96.53%</td>
-<td>71.15%</td>
-<td>33.33%</td>
-<td>69.23%</td>
+<td>+ Strong Augmentation</td>
+<td>445/460 (97%)</td>
+<td>37/42 (88%)</td>
+<td>1/6 (17%)</td>
+<td>9/21 (43%)</td>
+<td>92.3%</td>
 </tr>
 <tr>
-<td>Exp 3</td>
-<td>97.79%</td>
-<td>77.78%</td>
-<td>83.33%</td>
-<td>52.00%</td>
+<td>+ Class Weights</td>
+<td>443/460 (96%)</td>
+<td>35/42 (83%)</td>
+<td>5/6 (83%)</td>
+<td>13/21 (62%)</td>
+<td>92.6%</td>
 </tr>
 <tr>
-<td>Exp 4</td>
-<td>95.64%</td>
-<td>68.63%</td>
-<td>66.67%</td>
-<td>31.25%</td>
+<td>EfficientNet-B0 + Attention</td>
+<td>439/460 (95%)</td>
+<td>35/42 (83%)</td>
+<td>2/6 (33%)</td>
+<td>5/21 (24%)</td>
+<td>89.4%</td>
 </tr>
 <tr>
-<td>Exp 5</td>
-<td>96.52%</td>
-<td>82.50%</td>
-<td>80.00%</td>
-<td>45.83%</td>
+<td>XGBoost Ensemble (4 models)</td>
+<td>444/460 (97%)</td>
+<td>33/42 (79%)</td>
+<td>4/6 (67%)</td>
+<td>11/21 (52%)</td>
+<td>93.0%</td>
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="recall-test-set">Recall (Test Set)</h2>
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>Peloid</th>
-<th>Ooid</th>
-<th>Broken</th>
-<th>Intraclast</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Baseline</td>
-<td>98.26%</td>
-<td>78.57%</td>
-<td>83.33%</td>
-<td>57.14%</td>
-</tr>
-<tr>
-<td>Exp 1</td>
-<td>98.26%</td>
-<td>78.57%</td>
-<td>83.33%</td>
-<td>57.14%</td>
-</tr>
-<tr>
-<td>Exp 2</td>
-<td>96.74%</td>
-<td>88.10%</td>
-<td>16.67%</td>
-<td>42.86%</td>
-</tr>
-<tr>
-<td>Exp 3</td>
-<td>96.30%</td>
-<td>83.33%</td>
-<td>83.33%</td>
-<td>61.90%</td>
-</tr>
-<tr>
-<td>Exp 4</td>
-<td>95.43%</td>
-<td>83.33%</td>
-<td>33.33%</td>
-<td>23.81%</td>
-</tr>
-<tr>
-<td>Exp 5</td>
-<td>96.52%</td>
-<td>78.57%</td>
-<td>66.67%</td>
-<td>52.38%</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="pr-auc-test-set">PR-AUC (Test Set)</h2>
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>Peloid</th>
-<th>Ooid</th>
-<th>Broken</th>
-<th>Intraclast</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Baseline</td>
-<td>0.9940</td>
-<td>0.7430</td>
-<td>0.7324</td>
-<td>0.3758</td>
-</tr>
-<tr>
-<td>Exp 1</td>
-<td>0.9940</td>
-<td>0.7430</td>
-<td>0.7324</td>
-<td>0.3758</td>
-</tr>
-<tr>
-<td>Exp 2</td>
-<td>0.9622</td>
-<td>0.6363</td>
-<td>0.0650</td>
-<td>0.3194</td>
-</tr>
-<tr>
-<td>Exp 3</td>
-<td>0.9739</td>
-<td>0.6614</td>
-<td>0.6963</td>
-<td>0.3370</td>
-</tr>
-<tr>
-<td>Exp 4</td>
-<td>0.9913</td>
-<td>0.8227</td>
-<td>0.5937</td>
-<td>0.2469</td>
-</tr>
-<tr>
-<td>Exp 5</td>
-<td>0.9933</td>
-<td>0.9080</td>
-<td>0.7871</td>
-<td>0.4530</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="confusion-matrices-test-set">Confusion Matrices (Test Set)</h2>
-<h3 id="baseline">Baseline</h3>
-<pre class="hljs"><code><div>True\Pred      Peloid  Ooid  Broken  Intraclast
-Peloid            452     3       0           5
-Ooid                8    33       1           0
-Broken              0     0       5           1
-Intraclast          7     2       0          12
+<h2 id="confusion-matrices">Confusion Matrices</h2>
+<h3 id="resnet18-hierarchical-default">ResNet18-Hierarchical (default)</h3>
+<pre class="hljs"><code><div>              Predicted
+Actual      Pel  Ooid  Brok  Intra
+Peloid      452     3     0      5
+Ooid          8    33     1      0
+Broken        0     0     5      1
+Intraclast    7     2     0     12
 </div></code></pre>
-<h3 id="exp-1-threshold-tuning">Exp 1 (Threshold Tuning)</h3>
-<pre class="hljs"><code><div>True\Pred      Peloid  Ooid  Broken  Intraclast
-Peloid            452     3       0           5
-Ooid                8    33       1           0
-Broken              0     0       5           1
-Intraclast          7     2       0          12
+<h3 id="strong-augmentation">+ Strong Augmentation</h3>
+<pre class="hljs"><code><div>              Predicted
+Actual      Pel  Ooid  Brok  Intra
+Peloid      445     7     2      6
+Ooid          5    37     0      0
+Broken        1     0     1      4
+Intraclast    9     9     0      3
 </div></code></pre>
-<h3 id="exp-2-data-augmentation">Exp 2 (Data Augmentation)</h3>
-<pre class="hljs"><code><div>True\Pred      Peloid  Ooid  Broken  Intraclast
-Peloid            445     7       2           6
-Ooid                5    37       0           0
-Broken              1     0       1           4
-Intraclast          9     9       0           3
+<h3 id="class-weights">+ Class Weights</h3>
+<pre class="hljs"><code><div>              Predicted
+Actual      Pel  Ooid  Brok  Intra
+Peloid      443     5     1     11
+Ooid          7    35     0      0
+Broken        1     0     5      0
+Intraclast    7     1     0     13
 </div></code></pre>
-<h3 id="exp-3-class-weighting">Exp 3 (Class Weighting)</h3>
-<pre class="hljs"><code><div>True\Pred      Peloid  Ooid  Broken  Intraclast
-Peloid            443     5       1          11
-Ooid                7    35       0           0
-Broken              1     0       5           0
-Intraclast          7     1       0          13
+<h3 id="efficientnet-b0--attention">EfficientNet-B0 + Attention</h3>
+<pre class="hljs"><code><div>              Predicted
+Actual      Pel  Ooid  Brok  Intra
+Peloid      439    13     0      8
+Ooid          7    35     0      0
+Broken        4     0     2      0
+Intraclast   16     4     0      1
 </div></code></pre>
-<h3 id="exp-4-efficientnet">Exp 4 (EfficientNet)</h3>
-<pre class="hljs"><code><div>True\Pred      Peloid  Ooid  Broken  Intraclast
-Peloid            439    13       0           8
-Ooid                7    35       0           0
-Broken              4     0       2           0
-Intraclast         16     4       0           1
+<h3 id="xgboost-ensemble">XGBoost Ensemble</h3>
+<pre class="hljs"><code><div>              Predicted
+Actual      Pel  Ooid  Brok  Intra
+Peloid      444     3     0     13
+Ooid          8    33     1      0
+Broken        1     1     4      0
+Intraclast    7     3     0     11
 </div></code></pre>
-<h3 id="exp-5-xgboost-ensemble">Exp 5 (XGBoost Ensemble)</h3>
-<pre class="hljs"><code><div>True\Pred      Peloid  Ooid  Broken  Intraclast
-Peloid            444     3       0          13
-Ooid                8    33       1           0
-Broken              1     1       4           0
-Intraclast          7     3       0          11
-</div></code></pre>
-<hr>
-<h2 id="class-distribution-test-set">Class Distribution (Test Set)</h2>
+<h2 id="test-set-class-distribution">Test Set Class Distribution</h2>
 <table>
 <thead>
 <tr>
 <th>Class</th>
 <th>Count</th>
-<th>Percentage</th>
+<th>%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Peloid</td>
 <td>460</td>
-<td>86.96%</td>
+<td>87%</td>
 </tr>
 <tr>
 <td>Ooid</td>
 <td>42</td>
-<td>7.94%</td>
-</tr>
-<tr>
-<td>Broken</td>
-<td>6</td>
-<td>1.13%</td>
+<td>8%</td>
 </tr>
 <tr>
 <td>Intraclast</td>
 <td>21</td>
-<td>3.97%</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>Broken</td>
+<td>6</td>
+<td>1%</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Total Test Samples:</strong> 529</p>
+<p>Total: 529 samples</p>
 
 </body>
 </html>

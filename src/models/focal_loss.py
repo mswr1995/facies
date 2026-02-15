@@ -43,14 +43,18 @@ class FocalLoss(nn.Module):
         Returns:
             Focal loss value
         """
-        # Ensure inputs are 1D
+        # Ensure inputs are 1D (but keep at least 1 dim for single samples)
         if inputs.dim() > 1:
-            inputs = inputs.squeeze()
-        
+            inputs = inputs.squeeze(-1)
+        if inputs.dim() == 0:
+            inputs = inputs.unsqueeze(0)
+
         # Ensure targets are float and 1D
         targets = targets.float()
         if targets.dim() > 1:
-            targets = targets.squeeze()
+            targets = targets.squeeze(-1)
+        if targets.dim() == 0:
+            targets = targets.unsqueeze(0)
         
         # Compute BCE loss without reduction
         bce_loss = F.binary_cross_entropy_with_logits(
