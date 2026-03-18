@@ -1,0 +1,235 @@
+Deep-learning-based hybrid model with iterative lithology constraints for 
+the enhanced prediction of missing well-logs
+Jaesung Park
+a
+, Jina Jeong
+a , *
+, Eun-Jung Holden
+b
+a
+Department of Geology, Kyungpook National University, Daegu, 41566, Republic of Korea
+b
+School of Computing and Information Systems, Faculty of Engineering and Information Technology, The University of Melbourne, Parkville, Victoria, 3010, Australia
+ARTICLE INFO
+Keywords:
+Missing well-log prediction
+Conditional variational autoencoder
+Long short-term memory
+Lithology-informed deep learning
+Iterative refinement framework
+Subsurface data reconstruction
+ABSTRACT
+Accurate reconstruction of missing well-log data is essential for subsurface characterization and reservoir 
+modeling but remains challenging under conditions of stratigraphic heterogeneity and multi-log incompleteness. 
+This study introduces a deep learning framework that enhance missing log prediction by embedding lithological 
+information as a contextual constraint. The proposed framework integrates a Conditional Variational Autoen -
+coder (CVAE) with a Long Short-Term Memory (LSTM)-based lithology predictor, namely the Iterative Lithology- 
+Constrained Hybrid CVAE – LSTM Network (ILCH-Net), in an iterative refinement process. The model was trained 
+and validated on 45,809 samples from six wells in the Volve oil field, Norwegian North Sea, comprising five 
+commonly acquired logs (GR, RHOB, NPHI, DTC, DTS) across three lithologies (claystone, sandstone, limestone). 
+Quantitative evaluation demonstrates that ILCH-Net surpasses baseline approaches (Autoencoder, Iteratively 
+refined autoencoder, LSTM), achieving lower root mean squared error (10.43 vs. 12.84 for LSTM) and improved 
+distributional similarity (median Kolmogorov – Smirnov statistic of 0.15 with an interquartile range of 0.09 across 
+the six test wells). Lithology-specific analysis further shows that reconstruction accuracy is highest for limestone 
+and claystone, reflecting their distinct well-log responses, while sandstone exhibits greater variability due to 
+depth-dependent compaction effects. These results confirm that lithological constraints not only enhance ac -
+curacy but also reduce inter-well variability, thereby yielding geologically consistent reconstructions. By 
+embedding geological priors within a data-driven framework, ILCH-Net provides a robust and scalable solution 
+for applications in reservoir characterization, digital rock modeling, and geomechanical analysis where incom -
+plete or irregular logs are prevalent.
+1. Introduction
+Well-logging is routinely employed to obtain subsurface information 
+essential for characterizing the petrophysical properties of geological 
+formations ( Wang and Cao, 2023 ; Khan and Kirmani, 2024 ). Among 
+various logging techniques, sonic logging — which measures compres -
+sional slowness (DTC) and shear slowness (DTS) — is particularly 
+important for interpreting complex and heterogeneous subsurface for -
+mations ( Elkatantny et al., 2018 ; Wang et al., 2024 ). DTC and DTS are 
+widely used to evaluate mechanical properties such as formation 
+strength, pore pressure, and fluid saturation while accounting for sub -
+surface variability ( Sulaimon and Teng, 2020 ; Eyinla et al., 2021 ; 
+Najafi-Silab et al., 2023 ).
+Despite its usefulness, DTS acquisition remains costly and technically 
+challenging due to poor signal transmission in unconsolidated or 
+fractured formations, attenuation in clay-rich or fluid-saturated zones, 
+and limited accessibility in deviated wells ( Onalo et al., 2018 ; Khatibi 
+and Aghajanpour, 2020 ). In addition, issues such as incomplete logging, 
+degraded data quality, and frequent data gaps — combined with high 
+acquisition and processing costs — further restrict the reliable applica -
+tion of shear-wave slowness in subsurface interpretation and modeling, 
+as these deficiencies propagate uncertainty into petrophysical and geo -
+mechanical analyses ( Boulassel et al., 2025 ).
+Traditional DTS prediction methods rely on physically based models, 
+which explore the relationships between shear-wave velocity and rock 
+parameters such as clay content, mineral moduli, and pore aspect ratios 
+( J ø rstad et al., 1999 ). However, these models tend to oversimplify 
+geological structures. Alternatively, empirical models build statistical 
+correlations from accessible well-log data ( Ameen et al., 2009 ; Olor -
+untobi and Butt, 2020 ), but their performance often suffers from the 
+* Corresponding author.
+E-mail address: jeong.j@knu.ac.kr (J. Jeong). 
+Contents lists available at ScienceDirect
+Computers and Geosciences
+journal homepage: www.elsevi er.com/loc ate/cageo
+https://doi.org/10.1016/j.cageo.2026.106106
+Received 13 May 2025; Received in revised form 4 November 2025; Accepted 4 January 2026  
+Computers & Geosciences 209 (2026) 106106 
+Available online 5 January 2026 
+0098-3004/© 2026 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+nonlinear and interdependent nature of geological variables ( Rajabi 
+et al., 2023 ).
+To address these challenges, machine-learning models have emerged 
+as powerful tools for predicting DTS from existing well-log data. Recent 
+work has further demonstrated that machine-learning frameworks can 
+reliably predict dynamic shear-wave slowness from incomplete or noisy 
+datasets, thereby overcoming the acquisition and quality limitations of 
+conventional physics-based approaches ( Boulassel et al., 2025 ). 
+Methods such as artificial neural networks (ANNs) and support vector 
+machines have shown superior accuracy compared to empirical models 
+( Bagheripour et al., 2015 ; Onalo et al., 2018 ). More advanced models, 
+including recurrent neural networks and their variants like long 
+short-term memory (LSTM) and bidirectional LSTM (bi-LSTM), have 
+been employed to capture temporal dependencies and nonlinearities. 
+For example, Zhang et al. (2020) applied LSTM networks to predict 
+shear-wave velocity in carbonate reservoirs, and Feng et al. (2024)
+further improved these predictions using a hybrid model combining 1D 
+convolutional neural networks (CNNs) and bi-LSTM with attention 
+mechanisms.
+While these discriminative models highlight the potential of data- 
+driven methods, their scope has been predominantly limited to recov -
+ering DTS (or DTC) under the assumption that all other well-logs are 
+fully available. In reality, however, incomplete logging does not only 
+affect DTS but also other essential well-logs such as gamma ray (GR), 
+bulk density (RHOB), and neutron porosity (NPHI). Technical and 
+operational constraints often result in multi-log missing scenarios, 
+where several logs are simultaneously absent or degraded ( Ng and 
+Jordan, 2001 ; Lu et al., 2021 ). Such cases substantially reduce the 
+reliability of reservoir characterization, geomechanical modeling, and 
+digital rock analysis, yet they have been largely overlooked in previous 
+studies that focus narrowly on DTS recovery.
+In response, increasing attention has been given to generative ap -
+proaches capable of handling missing data by learning the joint distri -
+bution of input variables ( Camio et al., 2019 ; Mattei and Frellsen, 2019 ). 
+For instance, Guo et al. (2023) proposed a GAN-based framework that 
+integrates LSTM and CNN to reconstruct DTS data in shale-gas reser -
+voirs. However, GANs often suffer from instability and mode collapse 
+( Tang, 2020 ; Saxena and Cao, 2021 ; Chakraborty et al., 2024 ). Condi -
+tional variational autoencoders (CVAEs) provide a more stable alter -
+native by modeling data in a probabilistic latent space ( Bao et al., 2017 ). 
+Jeong et al. (2021) , for instance, demonstrated that CVAEs can effec -
+tively reconstruct DTS values while capturing uncertainty due to vari -
+ability in well-log measurements. Nonetheless, most generative 
+approaches have not addressed the complexities of field-scale scenarios 
+involving multiple missing inputs. Moreover, both discriminative and 
+generative methods often lack geological consistency, as they depend 
+primarily on statistical correlations rather than domain knowledge, 
+which can result in geologically implausible predictions.
+To enhance geological realism in predictions, several studies have 
+incorporated lithological data—such as lithofacies sequences—into 
+modeling workflows. Core-derived lithology data has been shown to 
+reflect trends in well-log responses, thereby improving prediction ac -
+curacy ( Jeong et al., 2014 ; Al-Mudhafar, 2019 ; Ren et al., 2019 , 2023 ; 
+Liu et al., 2021 ; Hou et al., 2024 ). For instance, Al-Mudhafar (2019)
+demonstrated that lithology integration enhances permeability predic -
+tion, while Ren et al. (2019 , 2023) developed models that combine 
+facies and ANN-based time-series regressions for well-log reconstruc -
+tion. These findings highlight the importance of lithological constraints 
+in guiding models toward geologically plausible predictions.
+Building on these insights, the present study proposes a hybrid deep 
+learning framework that extends beyond conventional DTS prediction to 
+reconstruct multiple well-log types simultaneously. The proposed Iter -
+ative Lithology-Constrained Hybrid CVAE–LSTM (ILCH-Net) combines a 
+CVAE with a LSTM-based lithology predictor within an iterative feed -
+back process. By embedding lithological constraints, the model achieves 
+geologically consistent and robust reconstructions of DTS as well as 
+other missing logs (GR, RHOB, NPHI, and DTC).
+To validate the proposed framework, we applied ILCH-Net to real 
+well-log and lithology data from the Volve oil field in the Norwegian 
+North Sea. A preliminary Principal Component Analysis (PCA) was 
+conducted to assess the relationships between lithological classes and 
+well-log responses, providing a rationale for embedding lithological 
+constraints. The model was evaluated under both single- and dual-log 
+missing scenarios and benchmarked against baseline approaches, 
+including a standard Autoencoder (AE), an iteratively refined Autoen -
+coder (Iter-AE), and an LSTM network. Across all test wells, ILCH-Net 
+demonstrated high accuracy and robustness, with lithological con -
+straints yielding more geologically consistent reconstructions.
+2. Material and methods
+2.1. Material
+Well-log data and lithological information from the Volve oil field, 
+located in the central region of the Norwegian North Sea, approximately 
+5 km north of the Sleipner Øst field, are utilized to validate ILCH-Net 
+( Fig. 1 ). The well-logs used in this study are acquired from six wells 
+(W1: 15/9-F-1 A; W2: 15/9-F-1 B; W3: 15/9-F-11 A; W4: 15/9-F-11 T2; 
+W5: 15/9-F-14; and W6: 15/9-F-4), and include GR, NPHI, RHOB, DTC, 
+and DTS logs. An example of the well-log data and lithological sequence 
+from well #15/9-F-11 T2 is presented in Fig. 2 . This study considers five 
+lithological types—sandstone, claystone, limestone, marl, and marl/ 
+limestone—based on the classification results reported by Talinga and 
+Reine (2021) . Statistics for each well-log corresponding to lithologies in 
+the study area are summarized in Table S1 of the Supplementary Ma -
+terial I. More detailed information about the Volve oil field can be found 
+in Equinor (2018) .
+2.2. Method
+The proposed methodology reconstructs missing well-log data under 
+realistic multi-log scenarios by combining generative modeling with 
+lithological constraints. The workflow consists of four stages: (1) pre -
+processing and statistical evaluation of well-log and lithology data; (2) 
+construction of the ILCH-Net framework by integrating a CVAE with an 
+LSTM-based lithology predictor for iterative refinement; (3) iterative 
+training with feedback cycles to update lithological constraints; and (4) 
+evaluation through cross-validation and benchmarking against baseline 
+models. This systematic workflow provides a robust basis for validating 
+the effectiveness of lithology-informed constraints in missing log 
+reconstruction.
+2.2.1. Data preparation
+Effective data preparation is essential for capturing geologically 
+meaningful patterns. It involves: (1) normalizing and filtering raw logs 
+to reduce noise and outliers; (2) exploring lithology–log relationships 
+via PCA, which provides empirical justification for embedding litho -
+logical information; and (3) organizing cleaned data into training and 
+validation sets for cross-well generalizability.
+The dataset comprises five standard logs (GR, RHOB, NPHI, DTC, 
+DTS) acquired at 0.1 m intervals, yielding 45,809 samples from six wells 
+in the Volve field (depths ~2600–4500 m). These wells represent three 
+lithologies—claystone, sandstone, and limestone—providing variability 
+and geological context for model evaluation. Lithological classes were 
+assigned from core-calibrated reports and operator facies logs, simpli -
+fied into three categories following Beltran et al. (2007) to reduce 
+imbalance while retaining dominant geological controls.
+2.2.1.1. Training data preparation. The well-log data is normalized 
+using min–max scaling ( Amorim et al., 2023 ) to rescale the data to a 
+range of 0–1, thus ensuring the equal contribution of each well-log data 
+J. Park et al.                                                                                                                                                                                                                                     Computers and Geosciences 209 (2026) 106106 
+2 
+type to model training. This normalization preserves the relative dis -
+tribution of values within each log, thereby maintaining their intrinsic 
+variability and correlation structure across different variables ( Jeng and 
+Han, 1999 ; Mishra et al., 2017 ; Walach et al., 2018 ; Brereton, 2025 ). 
+Consequently, the distinctiveness of each log is not obscured, as 
+confirmed by the PCA loadings (Section 2.2.1.2 ; Fig. 3 and Table 1 ), 
+where GR, RHOB, and porosity-related logs (NPHI, DTC, DTS) retain 
+their characteristic contributions to lithological discrimination after 
+normalization. Missing values and outliers can introduce bias and 
+adversely affect model performance. To address this issue, a median 
+filter was applied to the well-log data to reduce noise and outliers, 
+following the procedure verified by Al Ghaithi (2020) using the same 
+Volve field dataset. This filtering step effectively smooths local fluctu -
+ations while preserving the overall trend necessary for model training. 
+After preprocessing, a total of 45,809 data points were obtained from six 
+wells (W1 – W6) at a sampling interval of 0.1 m. The depth intervals for 
+each well are as follows: W1 (2623.6 – 3605.9 m), W2 (3100.6 – 3422.6 
+m), W3 (2585.0 – 3721.1 m), W4 (2627.6 – 4495.3 m), W5 
+(2785.8 – 3707.8 m), and W6 (2767.4 – 3245.5 m). The dataset includes 
+2627 claystone, 13,139 sandstone, and 30,043 limestone samples.
+2.2.1.2. Relationship between lithological types and well-log data. To 
+evaluate the relationships between lithological classes and well-log re -
+sponses, PCA was employed as an exploratory tool. Prior to PCA, the raw 
+well-log data were preprocessed using the same normalization and 
+filtering procedures described in Section 2.2.1.1 . The objective of this 
+analysis was not simply dimensionality reduction, but rather to examine 
+whether well-log variables consistently capture lithology-specific 
+Fig. 1. Location of the Volve oil field.
+Fig. 2. Example of well-log data and the lithological sequence obtained from well #15/9-F-11 T2.
+J. Park et al.                                                                                                                                                                                                                                     Computers and Geosciences 209 (2026) 106106 
+3 
