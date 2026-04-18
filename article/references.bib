@@ -1,11 +1,11 @@
-% TODO: koeshidayatullah2020 — confirm volume/pages
 @article{koeshidayatullah2020,
   title     = {Fully Automated Carbonate Petrography Using Deep Convolutional Neural Networks},
-  author    = {Koeshidayatullah, A. and others},
-  journal   = {Frontiers in Earth Science},
-  volume    = {8},
+  author    = {Koeshidayatullah, Ardiansyah and Morsilli, Michele and Lehrmann, Daniel J. and Al-Ramadan, Khalid and Payne, Jonathan L.},
+  journal   = {Marine and Petroleum Geology},
+  volume    = {122},
+  pages     = {104687},
   year      = {2020},
-  doi       = {10.3389/feart.2020.586651}
+  doi       = {10.1016/j.marpetgeo.2020.104687}
 }
 
 @article{dong2025,
@@ -123,4 +123,195 @@
   author       = {Wada, Kentaro},
   year         = {2016},
   howpublished = {\url{https://github.com/wkentaro/labelme}}
+}
+
+% -----------------------------------------------------------------------
+% Evaluation metric — Balanced Accuracy
+% -----------------------------------------------------------------------
+
+@inproceedings{brodersen2010balanced,
+  title     = {The Balanced Accuracy and Its Posterior Distribution},
+  author    = {Brodersen, Kay H. and Ong, Cheng Soon and Stephan, Klaas E. and Buhmann, Joachim M.},
+  booktitle = {Proceedings of the 20th International Conference on Pattern Recognition (ICPR)},
+  pages     = {3121--3124},
+  year      = {2010},
+  doi       = {10.1109/ICPR.2010.764}
+}
+
+% -----------------------------------------------------------------------
+% Foundational deep learning references
+% -----------------------------------------------------------------------
+
+@inproceedings{he2016resnet,
+  title     = {Deep Residual Learning for Image Recognition},
+  author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages     = {770--778},
+  year      = {2016},
+  doi       = {10.1109/CVPR.2016.90}
+}
+
+@article{russakovsky2015imagenet,
+  title   = {{ImageNet} Large Scale Visual Recognition Challenge},
+  author  = {Russakovsky, Olga and Deng, Jia and Su, Hao and Krause, Jonathan and Satheesh, Sanjeev and Ma, Sean and Huang, Zhiheng and Karpathy, Andrej and Khosla, Aditya and Bernstein, Michael and Berg, Alexander C. and Fei-Fei, Li},
+  journal = {International Journal of Computer Vision},
+  volume  = {115},
+  number  = {3},
+  pages   = {211--252},
+  year    = {2015},
+  doi     = {10.1007/s11263-015-0816-y}
+}
+
+@article{vandermaaten2008tsne,
+  title   = {Visualizing Data using {t-SNE}},
+  author  = {van der Maaten, Laurens and Hinton, Geoffrey},
+  journal = {Journal of Machine Learning Research},
+  volume  = {9},
+  pages   = {2579--2605},
+  year    = {2008}
+}
+
+@inproceedings{loshchilov2019adamw,
+  title     = {Decoupled Weight Decay Regularization},
+  author    = {Loshchilov, Ilya and Hutter, Frank},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2019},
+  url       = {https://openreview.net/forum?id=Bkg6RiCqY7}
+}
+
+@inproceedings{paszke2019pytorch,
+  title     = {{PyTorch}: An Imperative Style, High-Performance Deep Learning Library},
+  author    = {Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer, Adam and Bradbury, James and Chanan, Gregory and Killeen, Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga, Luca and Desmaison, Alban and K{\"o}pf, Andreas and Yang, Edward and DeVito, Zach and Raison, Martin and Tejani, Alykhan and Chilamkurthy, Sasank and Steiner, Benoit and Fang, Lu and Bai, Junjie and Chintala, Soumith},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {8024--8035},
+  year      = {2019}
+}
+
+@article{chawla2002smote,
+  title   = {{SMOTE}: Synthetic Minority Over-sampling Technique},
+  author  = {Chawla, Nitesh V. and Bowyer, Kevin W. and Hall, Lawrence O. and Kegelmeyer, W. Philip},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {16},
+  pages   = {321--357},
+  year    = {2002},
+  doi     = {10.1613/jair.953}
+}
+
+@inproceedings{chen2016xgboost,
+  title     = {{XGBoost}: A Scalable Tree Boosting System},
+  author    = {Chen, Tianqi and Guestrin, Carlos},
+  booktitle = {Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  pages     = {785--794},
+  year      = {2016},
+  doi       = {10.1145/2939672.2939785}
+}
+
+@article{srivastava2014dropout,
+  title   = {Dropout: A Simple Way to Prevent Neural Networks from Overfitting},
+  author  = {Srivastava, Nitish and Hinton, Geoffrey and Krizhevsky, Alex and Sutskever, Ilya and Salakhutdinov, Ruslan},
+  journal = {Journal of Machine Learning Research},
+  volume  = {15},
+  pages   = {1929--1958},
+  year    = {2014}
+}
+
+% -----------------------------------------------------------------------
+% Class imbalance
+% -----------------------------------------------------------------------
+
+@article{johnson2019imbalance,
+  title   = {Survey on Deep Learning with Class Imbalance},
+  author  = {Johnson, Justin M. and Khoshgoftaar, Taghi M.},
+  journal = {Journal of Big Data},
+  volume  = {6},
+  pages   = {27},
+  year    = {2019},
+  doi     = {10.1186/s40537-019-0192-5}
+}
+
+% -----------------------------------------------------------------------
+% Inference-time augmentation
+% -----------------------------------------------------------------------
+
+@inproceedings{shanmugam2021tta,
+  title     = {Better Aggregation in Test-Time Augmentation},
+  author    = {Shanmugam, Divya and Blalock, Davis and Balakrishnan, Guha and Guttag, John},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  pages     = {1214--1223},
+  year      = {2021},
+  doi       = {10.1109/ICCV48922.2021.00125}
+}
+
+% -----------------------------------------------------------------------
+% Transfer learning — dataset size effects in carbonate classification
+% -----------------------------------------------------------------------
+
+@article{dawson2023dataset,
+  title   = {Impact of Dataset Size and Convolutional Neural Network Architecture on Transfer Learning for Carbonate Rock Classification},
+  author  = {Dawson, Harriet L. and Dubrule, Olivier and John, C\'{e}dric M.},
+  journal = {Computers \& Geosciences},
+  volume  = {171},
+  pages   = {105284},
+  year    = {2023},
+  doi     = {10.1016/j.cageo.2022.105284}
+}
+
+% -----------------------------------------------------------------------
+% Geological references
+% -----------------------------------------------------------------------
+
+@book{scholle2003carbonate,
+  author    = {Scholle, Peter A. and Ulmer-Scholle, Dana S.},
+  title     = {A Color Guide to the Petrography of Carbonate Rocks: Grains, Textures, Porosity, Diagenesis},
+  series    = {AAPG Memoir},
+  volume    = {77},
+  publisher = {American Association of Petroleum Geologists},
+  address   = {Tulsa},
+  year      = {2003}
+}
+
+% -----------------------------------------------------------------------
+% Related work — carbonate component identification and data generation
+% -----------------------------------------------------------------------
+
+@article{basso2025presalt,
+  title   = {Petrographic Image Classification of Complex Carbonate Rocks from the {Brazilian} Pre-salt Using Convolutional Neural Networks},
+  author  = {Basso, M. and Souza, J. P. de P. and Chinelatto, G. F. and others},
+  journal = {Scientific Reports},
+  volume  = {15},
+  pages   = {30700},
+  year    = {2025},
+  doi     = {10.1038/s41598-025-10006-0}
+}
+
+@article{ransinangue2025synsection,
+  title   = {{SynSection}: Sedimentology-Driven Data Generation for Deep Learning Applications in Carbonates Petrography},
+  author  = {Ransinangue, Axel and Labourdette, Richard and Houzay, E. and Chehata, Nesrine and Bourillot, Rapha{\"e}l and Guillon, Sebastien and Dujoncquoy, Emmanuel},
+  journal = {Marine and Petroleum Geology},
+  year    = {2025},
+  doi     = {10.1016/j.marpetgeo.2025.107234}
+}
+
+@article{dong2025carbonate,
+  title   = {Intelligent Identification of Carbonate Components Based on Deep Learning},
+  author  = {Dong, Y. and Hu, C. and Quaye, J. A. and others},
+  journal = {Facies},
+  volume  = {71},
+  pages   = {6},
+  year    = {2025},
+  doi     = {10.1007/s10347-024-00694-x}
+}
+
+% -----------------------------------------------------------------------
+% Hierarchical classification — verified 2024 addition
+% -----------------------------------------------------------------------
+
+@article{zhang2024shn,
+  title   = {{SHN}: Rock Image Classification and Feature Visualization Using Multiple Granularity Spatial Disorder Hierarchical Residual Network},
+  author  = {Zhang, J. and Liu, M. and Guo, J. and Wu, D. and Wang, M. and Zheng, S.},
+  journal = {Frontiers in Earth Science},
+  volume  = {12},
+  pages   = {1364209},
+  year    = {2024},
+  doi     = {10.3389/feart.2024.1364209}
 }
