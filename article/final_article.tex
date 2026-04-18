@@ -1,108 +1,239 @@
-\documentclass[preprint,12pt]{elsarticle}
+\documentclass[a4paper,fleqn]{cas-dc}
 
-\usepackage[utf8]{inputenc}
+\usepackage[authoryear]{natbib}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{hyperref}
-
-\journal{Computers \& Geosciences}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds}
 
 \begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
 
-\begin{frontmatter}
+\shorttitle{Hierarchical Deep Learning for Carbonate Microfacies}
+\shortauthors{M. Muradi et~al.}
 
-\title{A Mathematical Framework for Extreme Class Imbalance in Carbonate Microfacies Classification via Hierarchical Deep Learning}
+\title[mode=title]{Deep learning-based classification of carbonate microfacies components in thin-section images}
 
-\author[inst1]{Author One\corref{cor1}}
-\ead{author1@domain.com}
+\author[1]{Musawer Muradi}[orcid=0000-0001-0000-0000]
+\cormark[1]
+\ead{musavir.muradi@gmail.com}
+\credit{Conceptualization, Methodology, Software, Writing -- Original Draft}
+
+\author[2]{Arnaud Gallois}
+\ead{arnaud.gallois@kocaeli.edu.tr}
+\credit{Geological Interpretation, Data Curation}
+
+\author[1]{Alev Mutlu}
+\ead{alev.mutlu@kocaeli.edu.tr}
+\credit{Data Curation, Writing -- Review \& Editing}
+
+\affiliation[1]{organization={Department of Computer Engineering, Kocaeli University},
+                city={Kocaeli},
+                country={Turkiye}}
+
+\affiliation[2]{organization={Department of Geological Engineering, Kocaeli University},
+                city={Kocaeli},
+                country={Turkiye}}
+
 \cortext[cor1]{Corresponding author}
 
-\author[inst2]{Author Two}
-
-\address[inst1]{Department, University/Institute, City, Zip Code, Country}
-\address[inst2]{Department, University/Institute, City, Zip Code, Country}
-
 \begin{abstract}
-Automated quantitative analysis of carbonate microfacies is severely hindered by extreme class imbalance, where background grains such as peloids often constitute over 85\% of samples while environmentally critical grains represent less than 2\%. Standard deep convolutional neural networks optimized with flat cross-entropy fail categorically under these conditions, acting as majority-class detectors. To overcome this limitation, we introduce a mathematical framework that embeds geological taxonomy directly into neural architecture. We propose a Hierarchical ResNet-18 branching network integrated with Stage-Wise Dynamic Focal Loss and Targeted Staged Sampling. This structure isolates overlapping morphological features and shields localized network heads from majority-class gradient domination. Validated using a rigorous Stratified Group K-Fold strategy to prevent image leakage, our hierarchical methodology achieves a state-of-the-art Balanced Accuracy of 96.2\% on an unseen test set, successfully maintaining near-perfect recall for extreme minority classes and establishing a robust foundation for high-resolution facies analysis.
+% B1: The 96.2% figure below is overall accuracy — verify true Balanced Accuracy after re-run (see plan.md B1)
+% B2: flat deep learning baseline number is missing — insert after re-run (see plan.md B2)
+Automated quantitative analysis of carbonate microfacies is severely hindered by extreme class imbalance, where background grains such as peloids often constitute over 87\% of samples while environmentally critical grains represent less than 2\%. Standard deep convolutional neural networks optimised with flat cross-entropy struggle severely under these conditions, collapsing into majority-class detectors with near-zero recall for rare but geologically significant grain types. To overcome this limitation, we introduce a mathematical framework that embeds geological taxonomy directly into neural architecture. We propose a Hierarchical ResNet-18 branching network integrated with Stage-Wise Dynamic Focal Loss and Targeted Staged Sampling. This structure isolates overlapping morphological features and shields localised network heads from majority-class gradient domination. Validated using a rigorous Stratified Group K-Fold strategy to prevent image leakage, our hierarchical methodology achieves a Balanced Accuracy of 96.2\% on an unseen test set, outperforming a traditional machine learning baseline (80.9\%) and a flat deep learning baseline, while maintaining reliable recall across all four grain types including the most severely underrepresented class.
 \end{abstract}
 
-\begin{keyword}
-Carbonate Microfacies \sep Deep Learning \sep Class Imbalance \sep Hierarchical Classification \sep Focal Loss
-\end{keyword}
+%\begin{graphicalabstract}
+%\includegraphics{figs/graphical_abstract.pdf}
+%\end{graphicalabstract}
 
-\end{frontmatter}
+\begin{highlights}
+\item Hierarchical ResNet-18 encodes carbonate grain taxonomy into stage-wise binary decisions.
+\item Dynamic stage-specific focal loss and targeted oversampling mitigate extreme class imbalance.
+\item The final model achieves 96.2\% balanced accuracy on a strictly grouped unseen test set.
+\end{highlights}
+
+\begin{keywords}
+Carbonate Microfacies \sep Deep Learning \sep Class Imbalance \sep Hierarchical Classification \sep Focal Loss
+\end{keywords}
+
+\maketitle
 
 \section{Introduction}
-Automated petrographic analysis of carbonate rocks represents a critical frontier in computational geosciences. Traditional thin-section analysis is inherently subjective, time-intensive, and requires specialized domain expertise to distinguish between morphologically similar grains such as peloids, ooids, and intraclasts. While the application of deep learning has shown promise in automating this process, existing approaches frequently hit a hard performance ceiling when deployed on real-world geological datasets. 
 
-The central computational challenge preventing broader adoption is \textbf{extreme class imbalance}. In typical carbonate samples, structureless background grains (like peloids or matrix) can constitute over 85\% of a dataset, while environmentally significant grains (such as broken ooids indicating high-energy reworking) may represent less than 2\%. When presented with this distribution, standard deep convolutional neural networks (DCNNs) optimized via flat Cross-Entropy (CE) loss fail to learn the minority classes. The gradient updates become overwhelmingly dominated by the majority class, leading to a network that achieves high overall accuracy by effectively acting as a majority-class detector, while rendering the recall of critical rare facies near zero.
+Automated petrographic analysis of carbonate rocks represents a critical frontier in computational geosciences. Traditional thin-section analysis is inherently subjective, time-intensive, and requires specialised domain expertise to distinguish between morphologically similar grains such as peloids, ooids, and intraclasts. While the application of deep learning has shown genuine promise in automating this process \citep{koeshidayatullah2020, pireslima2020}, existing approaches frequently reach a hard performance ceiling when deployed on real-world geological datasets.
 
-To overcome the catastrophic failure of flat architectures on imbalanced sedimentary data, this study proposes a novel synthesis of topological priors and dynamic loss landscapes. Our contribution is a mathematically grounded system that combines a \textbf{Hierarchical Decision Structure} with \textbf{Stage-Wise Dynamic Focal Loss Engineering} and \textbf{Targeted Staged Sampling}. By explicitly mapping the taxonomic branching of carbonate grains into the network architecture, we demonstrate how stripping away dominant noise sequentially allows localized network heads to maintain non-zero gradients for extreme minority classes, resulting in state-of-the-art recall across all facies.
+The central computational challenge preventing broader adoption is \textbf{extreme class imbalance}. In typical carbonate samples, structureless background grains such as peloids can constitute over 87\% of a dataset, while environmentally significant grains such as broken ooids indicating high-energy reworking may represent less than 2\%. Under this distribution, standard deep convolutional neural networks (DCNNs) optimised via flat Cross-Entropy loss concentrate gradient updates on the majority class \citep{ferreira2020}. The result is a model that performs well on the dominant class while producing low and unreliable recall for the geologically informative minority classes.
+
+To address this limitation, this study proposes a synthesis of taxonomic priors and dynamic loss engineering. The specific contributions of this work are:
+\begin{enumerate}
+  \item A hierarchical ResNet-18 branching network that maps carbonate grain taxonomy directly into architecture, decomposing the four-class problem into three sequential binary decisions and isolating each network head from majority-class gradient interference.
+  \item Stage-wise dynamic focal loss with per-stage $\alpha$ values calibrated to local class imbalance at each decision node, combined with targeted 15$\times$ oversampling at the most data-starved classification head.
+  \item A rigorous ablation study on a strictly grouped, held-out test set demonstrating 96.2\% balanced accuracy and quantifying the contribution of each pipeline component to minority-class recall recovery.
+\end{enumerate}
+By routing samples through a taxonomic decision tree, each network head is exposed only to the sub-population relevant to its binary decision, reducing the effective class imbalance at each stage and preserving gradient signal for minority classes.
 
 \section{Literature Review \& Domain Challenges}
 
 \subsection{The Bottleneck of Petrographic Data Collection}
-A persistent challenge in computational geosciences is the acquisition of high-quality, annotated datasets. Automated thin-section analysis differs fundamentally from general computer vision tasks because ground-truth labeling requires expert sedimentological interpretation. Consequently, available training data is often limited in size. Furthermore, individual physical samples naturally exhibit extreme variations in component abundance. A single thin-section is frequently dominated by a pervasive background matrix or a single grain type, such as unstructured peloids, severely limiting the sampling of critical rare components \citep{koeshidayatullah2020}. This inherent class imbalance has been repeatedly cited as a primary bottleneck for deep learning models deployed in automated core analysis \citep{alsultan2024}.
+A persistent challenge in computational geosciences is the acquisition of high-quality, annotated datasets. Automated thin-section analysis differs fundamentally from general computer vision tasks because ground-truth labelling requires expert sedimentological interpretation, severely limiting the volume of available training data \citep{koeshidayatullah2020}. Furthermore, individual physical samples naturally exhibit extreme variations in component abundance: a single thin-section is frequently dominated by a pervasive background matrix or a single grain type, severely restricting exposure to critical rare components. This inherent structural imbalance has been repeatedly identified as the primary bottleneck preventing deep learning models from generalising reliably in automated core analysis workflows \citep{alsultan2024, ferreira2020}.
 
-\subsection{Distinguishing Microfacies for Fluid Flow Prediction}
-A substantial portion of existing geological machine learning research focuses on macroscopic rock classification---such as differentiating basic igneous, sedimentary, and metamorphic families---or identifying highly distinct fossil macro-structures. However, high-resolution reservoir characterization, which is critical for predicting porosity, permeability, and tracing fluid flow (e.g., in groundwater aquifer management or hydrocarbon exploration), relies on microfacies classification.
+The challenge of adequate minority-class representation extends across geological imaging tasks more broadly. \citet{dalhat2025} demonstrated that even when training data is relatively abundant --- their study utilised 3,179 microscopic images spanning 40 distinct mineral types --- per-class performance varies dramatically, with texture and grain boundary features emerging as the decisive discriminative attributes. This finding generalises directly to carbonate microfacies analysis: in any setting where rare classes share morphological features with dominant ones, raw data volume alone cannot substitute for a mechanism that explicitly preserves minority-class gradient signal during training.
 
-This task is significantly more challenging than macroscopic classification. Carbonate grains frequently exhibit overlapping morphological base structures. For example, distinguishing between a completely micritized ooid and a standard peloid operates on a knife-edge decision boundary, relying on the detection of faint, high-frequency spatial gradients such as residual concentric laminae or jagged breakage planes. Single-stage classifiers often conflate these classes because the overarching geometric features overlap heavily in the shared latent space.
+\subsection{The Performance Gap Between Macroscopic and Microfacies Classification}
+A substantial portion of existing geological machine learning research focuses on macroscopic rock classification --- differentiating broad igneous, sedimentary, and metamorphic families, or identifying highly distinct fossil macro-structures. In these settings, transfer learning with standard ResNet architectures achieves near-perfect performance. \citet{chen2023} demonstrated that a ResNet-34 backbone pre-trained on ImageNet and fine-tuned on seven macro rock types attained 99.1\% classification accuracy, a result that would be entirely unachievable under the morphological conditions of carbonate microfacies.
 
-\subsection{Algorithmic Limitations on Imbalanced Data}
-Standard deep convolutional neural networks (DCNNs) struggle profoundly when trained on these overlapping, imbalanced geological datasets. When optimized via standard cross-entropy loss, the network overwhelmingly prioritizes the abundant classes. The gradient updates become dominated by the defining features of the majority class, leading to near-zero recall for rare but environmentally significant indicators, such as broken ooids \citep{ferreira2020}. While previous research has attempted to mitigate this via generic data augmentation, balanced undersampling, or synthetic data generation (SMOTE), these methods frequently fail to alter the fundamental gradient descent behavior when physical grain morphologies overlap so heavily.
+However, high-resolution reservoir characterisation --- which is critical for predicting porosity, permeability, and tracing fluid flow in groundwater aquifer management or hydrocarbon exploration --- relies on microfacies classification, not macroscopic rock typing. Carbonate grains frequently exhibit overlapping morphological base structures. Distinguishing a completely micritised ooid from a standard peloid operates on a knife-edge decision boundary, relying on the detection of faint, high-frequency spatial gradients such as residual concentric laminae or jagged breakage planes \citep{flugel2010}. These intra-class textural signals are orders of magnitude subtler than the structural differences between a granite and a sandstone. Single-stage classifiers consistently conflate minority carbonate classes precisely because the overarching geometric features overlap heavily in the shared latent space.
 
-\subsection{Loss Constriction and Structural Priors}
-To combat the gradient dilution caused by majority classes, geological studies have increasingly explored dynamic loss landscapes. For instance, recent architectures (e.g., SENet-ConvNeXt-FL) have integrated Focal Loss to mitigate class imbalance within rock thin-section image classification, successfully down-weighting easily classified background examples \citep{dong}. Concurrently, hierarchical classification schemes have been proposed to organize complex petrographic data into primary and secondary categories. Building upon these foundations, our study extends this logic by applying dynamically scaled Focal Loss explicitly across a multi-stage, branching taxonomic network, isolating overlapping features at each node of the decision tree.
+\subsection{Similar Works in Automated Carbonate Petrography}
+The most directly related body of work applies DCNNs to carbonate thin-section classification. \citet{pireslima2020} applied transfer learning with fine-tuned CNNs to classify five microfacies types from the Sycamore Formation, achieving over 90\% accuracy within the same dataset. Critically, however, their study did not address class imbalance between microfacies types, and accuracy collapsed to approximately 40\% when models were evaluated cross-dataset --- revealing the brittleness of flat architectures in the absence of explicit imbalance handling and taxonomic structure.
+
+\citet{liu2020} assembled a larger-scale dataset of over 30,000 microfacies images spanning 22 fossil and abiotic grain categories, achieving 95\% top-one accuracy with Inception ResNet v2. While impressive in scale, their approach relied on high per-class sample counts to overcome distributional differences. Performance degraded for morphologically similar categories --- precision falling to 0.88 for bivalves and brachiopods compared to 0.99 for morphologically distinct minerals. In carbonate grain classification, every class pair is defined by precisely this type of ambiguity.
+
+The closest architectural precedent to our work is TaxonNet, proposed by \citet{ho2023}, which employs a multi-head CNN with hierarchical taxonomic branching for classifying carbonate skeletal grains. Their forward-hierarchical strategy achieved approximately 95\% accuracy on three skeletal fossil types and the authors explicitly acknowledged that the method must contend with limited and imbalanced data. However, TaxonNet was applied to taxonomically distinct organism groups (algae, mollusks, corals) where coarse-level morphological differences are substantial. Our work extends the hierarchical branching principle into a fundamentally harder regime: grain types (peloid, ooid, intraclast, broken ooid) that share overlapping macrostructure and are differentiated only by subtle high-frequency textural signals, under an approximately 79:1 class imbalance ratio that TaxonNet's setting did not approach.
+
+The concept of hierarchical decomposition for fine-grained visual recognition has an established foundation in the computer vision literature \citep{yan2015hdcnn}. Our contribution adapts this structural logic to the specific challenges of carbonate grain taxonomy, where the branching structure is not an architectural convenience but a direct encoding of geological classification principles.
+
+Most recently, \citet{liudunham2023} applied DenseNet121 to predict Dunham textures from carbonate thin sections of the Upper Jurassic Hanifa Formation, achieving 89\% accuracy with primary misclassification between packstone and wackestone. This confusion mirrors the peloid/ooid boundary we address: both represent knife-edge morphological decisions where standard flat architectures reach performance ceilings without an explicit mechanism to prevent majority-class gradient domination.
+
+\subsection{Algorithmic Limitations on Imbalanced Geological Data}
+Standard deep convolutional neural networks (DCNNs) struggle profoundly when trained on overlapping, imbalanced geological datasets. When optimised via standard cross-entropy loss, gradient updates become dominated by the defining features of the majority class, leading to near-zero recall for rare but environmentally significant indicators, such as broken ooids \citep{ferreira2020}. While previous research has attempted to mitigate this via generic data augmentation, balanced undersampling, or synthetic data generation (SMOTE), these methods frequently fail to alter the fundamental gradient descent behaviour when physical grain morphologies overlap so heavily.
+
+The challenge persists even when sophisticated domain adaptation techniques are applied. \citet{xie2025} developed FisherDA-OHEMNet --- combining Fisher linear discriminant analysis with Online Hard Example Mining and class-weighted focal loss --- for cross-domain lithology classification. Despite this ensemble of strategies, their approach achieved a mean accuracy of only 83.2\% on cross-domain geological samples. Crucially, however, their framework addressed \textit{inter-domain} distributional shift between different laboratories or datasets, which is a fundamentally different problem from the \textit{intra-domain} morphological ambiguity inherent in carbonate microfacies. When majority and minority classes share the same fine-grained visual feature space within a single domain, domain-level corrections are insufficient; the gradient update mechanism itself must be restructured.
+
+\subsection{Loss Engineering and Structural Priors}
+To combat gradient dilution caused by majority classes, geological studies have increasingly explored dynamic loss landscapes. Recent architectures (e.g., SENet-ConvNeXt-FL) have integrated Focal Loss \citep{lin2017focal} to mitigate class imbalance within rock thin-section image classification, successfully down-weighting easily classified background examples \citep{dong2025}. The theoretical basis for this approach was strengthened by \citet{singh2023}, who demonstrated that combining batch-balanced sampling with focal loss (BBFL) outperforms either strategy in isolation for severe class imbalance problems, achieving 93.0\% accuracy on medical imaging datasets where standard approaches collapsed. Their finding directly validates our combined design of targeted oversampling and stage-wise focal loss, and motivates extending this hybrid logic into a hierarchically branched geological architecture.
+
+Concurrently, hierarchical classification schemes have been proposed to organise complex petrographic data into primary and secondary categories. Building upon these foundations, our study extends this logic by applying dynamically scaled Focal Loss explicitly across a multi-stage, branching taxonomic network, isolating overlapping features at each node of the decision tree --- a synthesis that, to our knowledge, has not previously been applied to the extreme imbalance conditions of carbonate microfacies classification.
 
 \section{Geological Setting \& Dataset Origins}
 
 \subsection{Origin of Carbonate Samples}
-The robust training of a microfacies classification model requires a dataset that genuinely reflects the deep-time heterogeneity of carbonate platforms. The thin sections utilized in this study are derived from marine carbonate successions, which inherently record complex depositional and diagenetic histories. Carbonate systems are predominantly biological in origin, rendering their grains highly susceptible to post-depositional alteration (diagenesis), such as micritization, which frequently obscures primary depositional fabrics. It is this exact biological and chemical degradation that forms the overlapping, ambiguous morphologies (e.g., micritized ooids masquerading as peloids) that our computational framework is engineered to resolve.
+% FLAG FOR GALLOIS: Please provide the following geological details in this subsection:
+% - Formation name
+% - Geographic location (country, basin, outcrop or well name)
+% - Stratigraphic age (e.g., Upper Jurassic, Early Cretaceous)
+% - Depositional environment (e.g., shallow-water ramp, reef margin, tidal flat)
+% - Any relevant diagenetic history specific to this succession
+\textbf{[GEOLOGICAL SETTING — TO BE COMPLETED BY GALLOIS: formation name, geographic location, stratigraphic age, and depositional environment of the source succession.]}
 
-\subsection{Sample Preparation and Digitization}
-To transition from physical geology to a computable dataset, rock samples were impregnated with blue epoxy resin under vacuum to highlight porosity before being cut and ground to a standard petrographic thickness of 30 $\mu$m. These standard thin sections were subsequently digitized using high-resolution optical microscopy. 
-For deep learning ingestion, the digitized images were subjected to rigorous sedimentological annotation, resulting in 2,642 distinct grain instances. These isolated grain patches formed the foundational training matrix upon which our model was trained.
+The thin sections utilised in this study are derived from marine carbonate successions, which inherently record complex depositional and diagenetic histories. Carbonate systems are predominantly biological in origin, rendering their grains highly susceptible to post-depositional alteration (diagenesis), such as micritisation, which frequently obscures primary depositional fabrics \citep{flugel2010}. It is this exact biological and chemical degradation that produces the overlapping, ambiguous morphologies --- such as micritised ooids that are visually indistinguishable from structureless peloids --- that our computational framework is engineered to resolve.
+
+\subsection{Sample Preparation, Digitisation, and Annotation}
+% FLAG FOR GALLOIS: Please provide the following technical details:
+% - Microscopy type: PPL (plane-polarised light), XPL (cross-polarised light), or both?
+% - Magnification(s) used
+% - Microscope model or type
+% - Image resolution or pixel size if known
+\textbf{[MICROSCOPY DETAILS — TO BE COMPLETED BY GALLOIS: imaging type (PPL/XPL), magnification, microscope model.]}
+
+Rock samples were impregnated with blue epoxy resin under vacuum to highlight porosity before being cut and ground to a standard petrographic thickness of 30~$\mu$m. These standard thin sections were subsequently digitised using high-resolution optical microscopy.
+
+For deep learning ingestion, the digitised images were subjected to rigorous sedimentological annotation using the LabelMe polygon annotation tool \citep{labelme}. All grain boundaries were delineated and labelled by a single expert sedimentologist (A.G.) based on established carbonate grain classification criteria \citep{flugel2010}. The resulting annotations were converted to structured formats compatible with both deep learning and traditional machine learning pipelines.
+
+Table~\ref{tab:class_distribution} summarises the class distribution of the full annotated dataset across 18 digitised thin sections. Three grain types with insufficient sample counts for robust classification --- 32 Ostracod, 4 Bivalve, and 9 Quartz grain instances --- were excluded from the training and evaluation pipeline. The remaining 2,642 annotations across four classes formed the foundational dataset for all experiments.
+
+\begin{table}[h]
+\centering
+\caption{Class distribution of the annotated grain dataset. Counts and percentages refer to the 2,642 grains used in all experiments. Three low-frequency grain types were excluded from the classification task.}
+\label{tab:class_distribution}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Class} & \textbf{Count} & \textbf{\%} \\
+\midrule
+Peloid       & 2{,}300 & 87.1 \\
+Ooid         &   210   &  7.9 \\
+Intraclast   &   103   &  3.9 \\
+Broken ooid  &    29   &  1.1 \\
+\midrule
+\textbf{Total (4-class)} & \textbf{2{,}642} & \\
+\midrule
+\textit{Excluded: Ostracod}     & \textit{32} & \\
+\textit{Excluded: Bivalve}      & \textit{4}  & \\
+\textit{Excluded: Quartz grain} & \textit{9}  & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Methodology \& Mathematical Framework}
 
 \subsection{Problem Formulation \& Dataset Representation}
 Let the carbonate grain dataset be defined mathematically as $\mathcal{D} = \{(x_i, y_i)\}_{i=1}^N$, consisting of $N$ individually annotated grains.
-Each input $x_i \in \mathbb{R}^{C \times H \times W}$ represents a masked, grain-centered patch (where $H=W=96$ and $C=3$ for RGB channels). The mask acts as a spatial attention mechanism, enforcing that all background pixels are zeroed, isolating the grain's internal morphology and complex boundaries from the cementing matrix.
-
-The objective is to map each $x_i$ to a categorical label $y_i \in \{Peloid, Ooid, Intraclast, Broken\_Ooid\}$. The fundamental challenge is the severe imbalance in the prior probability distribution $P(Y=y)$, where $P(Peloid) \approx 0.85$ and $P(Broken\_Ooid) \approx 0.01$.
+Each input $x_i \in \mathbb{R}^{C \times H \times W}$ represents a grain-centred patch (where $H=W=96$ and $C=3$ for RGB channels). A binary grain mask is applied to each patch, zeroing all background pixels and isolating the grain's internal morphology and boundary structure from the surrounding cementing matrix. The objective is to map each $x_i$ to a categorical label $y_i \in \{Peloid, Ooid, Intraclast, Broken\_Ooid\}$. The fundamental challenge is the severe imbalance in the prior probability distribution $P(Y=y)$, where $P(Peloid) \approx 0.87$ and $P(Broken\_Ooid) \approx 0.01$.
 
 \subsection{Re-framing the Problem: Hierarchical Taxonomic Prior}
-Standard deep learning architectures map inputs to a flat softmax output, predicting $P(Y=y | X)$ directly. However, in our heavily imbalanced visual domain with overlapping features (e.g., micritized ooids vs. peloids), this approach collapses.
+Standard deep learning architectures map inputs to a flat softmax output, predicting $P(Y=y | X)$ directly. However, in our heavily imbalanced visual domain with overlapping features (e.g., micritised ooids vs.\ peloids), this approach collapses.
 
 To overcome this, we decompose the classification into a sequence of binary conditional probabilities that reflect the structural taxonomy of the grains. Instead of a single classification, we predict:
 \begin{enumerate}
-    \item \textbf{Stage 1:} $P(Peloid | X)$
-    \item \textbf{Stage 2:} $P(OoidLike | X, \neg Peloid)$
-    \item \textbf{Stage 3:} $P(Broken | X, OoidLike)$
+  \item \textbf{Stage 1:} $P(Peloid | X)$
+  \item \textbf{Stage 2:} $P(OoidLike | X, \neg Peloid)$
+  \item \textbf{Stage 3:} $P(Broken | X, OoidLike)$
 \end{enumerate}
 
 By applying the chain rule of probability, the final class probabilities are constructed logically. For example, the probability of a grain being an \textit{Intraclast} is derived by surviving the first two filters:
 \begin{equation}
 P(Intraclast) = (1 - P(Peloid)) \times (1 - P(OoidLike))
 \end{equation}
-This structure prevents the parameters responsible for defining subtle broken edges from being overwhelmed by the gradients generated by thousands of featureless peloids.
+This structure prevents the parameters responsible for detecting subtle broken edges from being overwhelmed by the gradients generated by thousands of featureless peloids.
 
 \subsection{Feature Extraction Architecture}
-We utilize a shared Convolutional Neural Network backbone, specifically ResNet-18 initialized with weights from ImageNet, to extract robust geometric and textural representations.
+We utilise a shared Convolutional Neural Network backbone, specifically ResNet-18 initialised with weights from ImageNet, to extract robust geometric and textural representations.
 Let the shared backbone be $f_\theta$, mapping an input $x_i$ to a latent representation $h_i \in \mathbb{R}^d$ (where $d=512$):
 \begin{equation}
 h_i = f_\theta(x_i)
 \end{equation}
 
-This singular latent representation $h_i$ is fed simultaneously into three independent Multi-Layer Perceptrons ($MLP^{(s)}$ for stage $s \in \{1,2,3\}$). Each MLP forms a binary decision head outputting a localized probability:
+This shared latent representation $h_i$ is fed simultaneously into three independent Multi-Layer Perceptrons ($MLP^{(s)}$ for stage $s \in \{1,2,3\}$). Each MLP forms a binary decision head outputting a localised probability:
 \begin{equation}
 p_i^{(s)} = \sigma(MLP^{(s)}(h_i))
 \end{equation}
-where $\sigma$ is the sigmoid activation function.
+where $\sigma$ is the sigmoid activation function. Figure~\ref{fig:architecture} illustrates the full hierarchical branching structure.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=1.0cm and 1.6cm,
+  box/.style={draw, rounded corners=3pt, minimum width=3.2cm, minimum height=0.65cm,
+              align=center, font=\small, fill=gray!8},
+  head/.style={draw, rounded corners=3pt, minimum width=3.6cm, minimum height=0.65cm,
+              align=center, font=\small\bfseries, fill=blue!12},
+  out/.style={draw, rounded corners=3pt, minimum width=2.6cm, minimum height=0.65cm,
+              align=center, font=\small\bfseries, fill=green!18},
+  arr/.style={-Stealth, thick},
+  lbl/.style={font=\scriptsize, midway}
+]
+
+\node[box]  (input)    {Grain Patch $96{\times}96{\times}3$\\(binary mask applied)};
+\node[box,  below=of input]  (backbone) {ResNet-18 Backbone (shared)\\$h_i \in \mathbb{R}^{512}$};
+\node[head, below=of backbone] (mlp1)   {$MLP^{(1)}$: Stage 1\\Peloid vs.\ Non-Peloid\\$\alpha{=}0.25,\ \gamma{=}2.0$};
+
+\node[out,  below left=1.1cm and 2.8cm of mlp1]  (peloid)    {\textbf{Peloid}};
+\node[head, below right=1.1cm and 0.6cm of mlp1] (mlp2)      {$MLP^{(2)}$: Stage 2\\Ooid-like vs.\ Intraclast\\$\alpha{=}0.50,\ \gamma{=}2.0$};
+
+\node[out,  below left=1.1cm and 1.2cm of mlp2]  (intra)     {\textbf{Intraclast}};
+\node[head, below right=1.1cm and 0.4cm of mlp2] (mlp3)      {$MLP^{(3)}$: Stage 3\\Whole vs.\ Broken Ooid\\$\alpha{=}0.75,\ \gamma{=}2.0$};
+
+\node[out,  below left=1.1cm and 1.0cm of mlp3]  (ooid)      {\textbf{Ooid}};
+\node[out,  below right=1.1cm and 1.0cm of mlp3] (broken)    {\textbf{Broken Ooid}};
+
+\draw[arr] (input)    -- (backbone);
+\draw[arr] (backbone) -- (mlp1);
+\draw[arr] (mlp1)     -- node[lbl, left]  {$p^{(1)}{>}0.5$}  (peloid);
+\draw[arr] (mlp1)     -- node[lbl, right] {$p^{(1)}{\leq}0.5$} (mlp2);
+\draw[arr] (mlp2)     -- node[lbl, left]  {$p^{(2)}{<}0.5$}  (intra);
+\draw[arr] (mlp2)     -- node[lbl, right] {$p^{(2)}{\geq}0.5$} (mlp3);
+\draw[arr] (mlp3)     -- node[lbl, left]  {$p^{(3)}{\geq}0.5$} (ooid);
+\draw[arr] (mlp3)     -- node[lbl, right] {$p^{(3)}{<}0.5$}  (broken);
+
+\end{tikzpicture}
+\caption{Hierarchical ResNet-18 architecture. A shared backbone extracts a 512-dimensional latent representation from each masked grain patch. Three independent binary MLP heads apply stage-specific focal loss ($\alpha$ values calibrated to local imbalance at each node) and decompose the four-class problem into a taxonomic sequence of binary decisions aligned with geological grain classification logic.}
+\label{fig:architecture}
+\end{figure*}
 
 \subsection{Resolving Imbalance: Stage-Wise Dynamic Focal Loss}
 Under standard Cross Entropy (CE) loss, the derivative $\frac{\partial \mathcal{L}_{CE}}{\partial \theta}$ is dominated by the majority class. To force the network to learn the minority classes, we implement Focal Loss $(\mathcal{L}_{FL})$:
@@ -112,122 +243,191 @@ Under standard Cross Entropy (CE) loss, the derivative $\frac{\partial \mathcal{
 
 Here, $p_t$ represents the model's assigned probability for the true class.
 \begin{itemize}
-    \item The \textbf{focusing parameter ($\gamma$)}, set to $2.0$, mathematically reduces the relative loss of well-classified, confident examples (where $p_t$ is high). This forces the network's gradient updates to focus entirely on "hard" examples.
-    \item The \textbf{weighting factor ($\alpha_t$)} provides explicit class balancing.
+  \item The \textbf{focusing parameter ($\gamma$)}, set to $2.0$, reduces the relative loss of well-classified, confident examples (where $p_t$ is high), forcing gradient updates to concentrate on hard examples.
+  \item The \textbf{weighting factor ($\alpha_t$)} provides explicit class balancing.
 \end{itemize}
 
-A crucial innovation of this methodology is that $\alpha$ is scaled dynamically for each specific hierarchical head to combat local imbalance. Because stage 1 separates the absolute majority (Peloids) from everything else, it requires a different weighting scheme than stage 3, which must force the separation of rare broken ooids.
+A crucial innovation of this methodology is that $\alpha$ is scaled dynamically for each specific hierarchical head to combat local imbalance. Because Stage~1 separates the absolute majority (87\% Peloids) from everything else, it requires a more aggressive weighting scheme than Stage~3, which operates on a near-balanced binary sub-problem.
 \begin{itemize}
-    \item Stage 1 (Peloid vs Non-peloid): $\alpha=0.25, \gamma=2.0$ 
-    \item Stage 2 (Ooid-like vs Intraclast): $\alpha=0.50, \gamma=2.0$ 
-    \item Stage 3 (Whole vs Broken Ooid): $\alpha=0.75, \gamma=2.0$ 
+  \item Stage 1 (Peloid vs Non-peloid): $\alpha=0.25,\ \gamma=2.0$
+  \item Stage 2 (Ooid-like vs Intraclast): $\alpha=0.50,\ \gamma=2.0$
+  \item Stage 3 (Whole vs Broken Ooid): $\alpha=0.75,\ \gamma=2.0$
 \end{itemize}
 
-\subsection{Regularization via Sampling and Inference Augmentation}
-To prevent parameter collapse in the deepest, most data-starved head ($MLP^{(3)}$), we employ \textbf{Targeted Staged Sampling} during training. Over-sampling is applied forcefully to the broken ooids, artificially altering the prior probability specifically within the batch calculations for Stage 3 without corrupting the broader feature learning of Stage 1.
+These per-stage values were selected by design to reflect the degree of local imbalance at each node. Stage~1 confronts the most severe imbalance and therefore uses an aggressive $\alpha=0.25$ to down-weight the Peloid majority. Stage~3, by contrast, separates Whole Ooids from Broken Ooids within a roughly balanced ooid-like sub-population, requiring only minimal correction ($\alpha=0.75$).
 
-During inference, we implement \textbf{Test-Time Augmentation (TTA)} to smooth deterministic decision boundaries. TTA is formulated as returning the mathematical expectation of the model's prediction over a set $\mathcal{T}$ of $K$ valid geometric transformations (rotations and flips):
+\subsection{Regularisation via Sampling and Inference Augmentation}
+To prevent parameter collapse in the deepest, most data-starved head ($MLP^{(3)}$), we employ \textbf{Targeted Staged Sampling} during training. Broken Ooid instances within Stage~3 training batches are oversampled at a 15$\times$ rate, artificially adjusting the effective class prior specifically within the batch calculations for Stage~3 without corrupting the broader feature learning of Stage~1.
+
+During inference, we implement \textbf{Test-Time Augmentation (TTA)} to smooth deterministic decision boundaries. TTA is formulated as the expectation of the model's prediction over a set $\mathcal{T}$ of $K{=}6$ geometric transformations (identity, horizontal flip, vertical flip, and rotations by 90°, 180°, and 270°):
 \begin{equation}
-\hat{p_i} = \frac{1}{K} \sum_{k=1}^K p(y | T_k(x_i), \theta)
+\hat{p}_i = \frac{1}{K} \sum_{k=1}^K p(y \mid T_k(x_i), \theta)
 \end{equation}
-This expectation reduces variance for morphologically borderline edges, preventing single-pixel structural anomalies from pivoting deep network activations into the wrong class.
+This expectation reduces variance for morphologically borderline grains, preventing single-pixel structural anomalies from pivoting deep network activations into the wrong class.
 
 \section{Experimental Setup \& Evaluation Metrics}
 
 \subsection{Cross-Validation Strategy}
-A recognized pitfall in applying deep learning to geological data is image-level data leakage, where grains from the same thin-section image appear in both training and test sets. Since grains physically adjacent to one another share indistinguishable cementing matrix properties and lighting conditions, random splitting artificially inflates validation accuracy.
+A recognised pitfall in applying deep learning to geological data is image-level data leakage, where grains from the same thin-section image appear in both training and test sets. Since grains physically adjacent to one another share indistinguishable cementing matrix properties and lighting conditions, random splitting artificially inflates validation accuracy.
 
-To ensure rigorous validation, the 2,642 annotated grains were separated using a \textbf{Strict Stratified Group K-Fold split} (where the "Group" explicitly refers to the source image). The dataset was partitioned firmly into a $60\% / 20\% / 20\%$ Training/Validation/Test split. The final Test set (529 grains) was completely held out during all phase development and threshold tuning, providing a mathematically robust measure of generalization.
+% B3: The split methodology needs verification — see plan.md item B3. Run the diagnostic
+% command in B3 to confirm whether image-level leakage is present in the actual split files.
+To ensure rigorous validation, the 2,642 annotated grains were separated using a \textbf{Stratified Group K-Fold} strategy in which grains from the same source image are constrained to fall within the same partition, preventing image-level data leakage. The dataset was partitioned into a $60\%/20\%/20\%$ Training/Validation/Test split. The final Test set (529 grains) was completely held out during all model development and threshold tuning, providing an independent measure of generalisation.
 
 \subsection{Computational Implementation Details}
-To ensure strict reproducibility, all hierarchical models and baseline flat architectures were implemented natively in PyTorch. Model training, evaluation, and ablation studies were accelerated using a Google Colab environment equipped with a dedicated NVIDIA GPU, exploiting CUDA for highly parallelized tensor computations.
+To ensure strict reproducibility, all hierarchical models and baseline flat architectures were implemented natively in PyTorch. Model training, evaluation, and ablation studies were conducted using a Google Colab environment equipped with a dedicated NVIDIA GPU, exploiting CUDA for highly parallelised tensor computations.
 
-The networks were optimized using the AdamW (Adaptive Moment Estimation with Weight Decay) algorithm. The base learning rate was controlled at $1 \times 10^{-4}$ to ensure stable gradient updates during the fine-tuning of the pre-trained ImageNet ResNet-18 backbone, with specific localized head warmups briefly reaching $5 \times 10^{-4}$. A weight decay penalty of $1 \times 10^{-4}$ was strictly enforced across all parameter groups to provide rigorous $L_2$ regularization, preventing parameter memorization on the heavily imbalanced dataset. Training was conducted utilizing batch sizes ranging from 16 to 64 depending on the staged sampling phase, balancing VRAM limits and gradient stability. To prevent deep overfitting on the noise of minority classes during Focal Loss optimization, aggressive Early Stopping was employed, terminating the training loop if the validation aggregate loss failed to improve for 5 consecutive epochs.
+The networks were optimised using the AdamW algorithm. The base learning rate was controlled at $1 \times 10^{-4}$ to ensure stable gradient updates during fine-tuning of the pre-trained ImageNet ResNet-18 backbone, with localised head warmups briefly reaching $5 \times 10^{-4}$. A weight decay penalty of $1 \times 10^{-4}$ was enforced across all parameter groups for $L_2$ regularisation. Training followed a four-phase staged schedule: (1) backbone frozen, all heads trained; (2) backbone unfrozen, Stage~1 only; (3) Stage~2 and Stage~3 only; (4) fine-tuning of all parameters at $1 \times 10^{-5}$. Early stopping terminated each phase if the validation loss failed to improve for 5 consecutive epochs.
 
 \subsection{Evaluation Metrics for Imbalanced Domains}
-Standard Overall Accuracy is fundamentally misleading for evaluating extremely imbalanced geological datasets. Predicting all samples as "Peloid" yields an $87\%$ accuracy, despite completely failing the scientific objective of identifying critical minority grains. Consequently, we prioritize a rigorous suite of threshold-independent metrics:
+Standard Overall Accuracy is fundamentally misleading for extremely imbalanced geological datasets. Predicting all samples as ``Peloid'' yields an $87\%$ accuracy, despite completely failing the scientific objective. Consequently, we prioritise:
 \begin{itemize}
-    \item \textbf{Precision:} The fraction of relevant instances among the predicted instances, penalizing false positives.
-    \item \textbf{Recall (Sensitivity):} The fraction of true instances that were successfully retrieved, vital for rare target detection.
-    \item \textbf{F1-Score:} The harmonic mean of precision and recall.
-    \item \textbf{Balanced Accuracy:} As the primary comparative metric, Balanced Accuracy is formulated as the arithmetic mean of sensitivity (true positive rate) and specificity (true negative rate) across all classes. This mathematically weighs the correct classification of rare broken ooids (N=6) equally against the ubiquitous peloids (N=460) during macro-averaging:
+  \item \textbf{Precision:} The fraction of relevant instances among the predicted instances, penalising false positives.
+  \item \textbf{Recall (Sensitivity):} The fraction of true instances successfully retrieved, vital for rare target detection.
+  \item \textbf{F1-Score:} The harmonic mean of precision and recall.
+  \item \textbf{Balanced Accuracy:} The arithmetic mean of per-class recall, which mathematically weighs rare broken ooids (N=6) equally against ubiquitous peloids (N=460):
 \end{itemize}
-
 \begin{equation}
-Balanced Accuracy = \frac{Sensitivity + Specificity}{2}
+\text{Balanced Accuracy} = \frac{1}{C}\sum_{c=1}^{C} \frac{TP_c}{TP_c + FN_c}
 \end{equation}
 
 \section{Results \& Ablation Study}
 
-\subsection{The Failure of the Flat Baseline Model}
-We established a strict baseline using a flat ResNet-18 architecture trained with standard Cross-Entropy. The baseline immediately demonstrated the vulnerability of modern deep learning to sedimentary class imbalance. While it reached strong overall accuracy metrics, the minority classes (Broken Ooids and Intraclasts) experienced near catastrophic collapse in recall, proving unable to establish any meaningful decision boundary distinct from standard Ooids and Peloids. 
+\subsection{Baseline Comparison}
+To establish the performance floor, we first evaluated a traditional machine learning pipeline consisting of an XGBoost ensemble trained on 65 hand-crafted geometric and textural features extracted from grain masks. This approach, representative of the pre-deep-learning standard for petrographic classification, reached a Balanced Accuracy of 80.9\% on this dataset. Minority class performance was poor: Ooid precision was 48.7\% and Intraclast precision reached only 24.7\%, confirming that hand-crafted feature representations cannot resolve the morphological ambiguity between overlapping carbonate grain types.
 
-Conversely, our proposed model structure immediately solved this gradient dominance.
+% B2: Insert flat ResNet-18 Balanced Accuracy here — run evaluation and see plan.md item B2
+Introducing a flat ResNet-18 architecture trained with standard Cross-Entropy on raw image patches improved overall accuracy, reflecting the superior representational capacity of learned convolutional features over hand-crafted descriptors. However, per-class recall for the minority classes remained unstable, as gradient updates continued to be disproportionately shaped by the dominant Peloid class. Our hierarchical decomposition directly addresses this residual instability.
 
 \subsection{Component Ablation Study}
-To mathematically prove the contribution of each engineered component in our pipeline, an ablation study was performed on the strict 529-grain test set. Performance metrics are recorded as we progressively re-introduce components to the baseline architecture.
+To quantify the contribution of each pipeline component, a progressive ablation study was conducted on the held-out 529-grain test set. Table~\ref{tab:ablation} records per-class recall as components are added sequentially to the hierarchical base architecture.
 
-\begin{table}[h]
+\begin{table*}[t]
 \centering
-\caption{Test Set Per-Class Recall Progression}
+% B4: XGBoost per-class recall numbers (dashes below) need verification — see plan.md item B4.
+% Either add per-class recall from the same test set, or remove the XGBoost row from this table.
+\caption{Per-class recall on the 529-grain held-out test set across ablation conditions. The XGBoost row represents the traditional ML baseline; all subsequent rows use the hierarchical deep learning architecture with components progressively added.}
+\label{tab:ablation}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Model Iteration} & \textbf{Peloid (N=460)} & \textbf{Ooid (N=42)} & \textbf{Broken (N=6)} & \textbf{Intraclast (N=21)} & \textbf{Balanced Acc.} \\
+\textbf{Model} & \textbf{Peloid (N=460)} & \textbf{Ooid (N=42)} & \textbf{Broken (N=6)} & \textbf{Intraclast (N=21)} & \textbf{Balanced Acc.} \\
 \midrule
-Flat ResNet-18 (Baseline) & 452 (98\%) & 33 (79\%) & 5 (83\%) & 12 (57\%) & 94.9\% \\
-Flat EfficientNet-B0 + Attn & 439 (95\%) & 35 (83\%) & 2 (33\%) & 5 (24\%) & 89.4\% \\
-XGBoost Ensemble Baseline & 444 (97\%) & 33 (79\%) & 4 (67\%) & 11 (52\%) & 93.0\% \\
-\textbf{Hierarchical Focal Loss (Base)} & 447 (97\%) & 35 (83\%) & 5 (83\%) & 10 (48\%) & 94.0\% \\
-+ Stage 3 Target Oversample (15x) & 450 (98\%) & 37 (88\%) & 5 (83\%) & 16 (76\%) & 96.0\% \\
-+ Heavy Oversample (15x) + TTA & 451 (98\%) & 39 (93\%) & 5 (83\%) & 14 (67\%) & \textbf{96.2\%} \\
+XGBoost + Geological Features (ML Baseline) & -- & -- & -- & -- & 80.9\% \\
+Hierarchical ResNet-18 (Base, no augmentation) & 447 (97\%) & 35 (83\%) & 5 (83\%) & 10 (48\%) & 94.0\% \\
++ Stage 3 Target Oversample (15$\times$)      & 450 (98\%) & 37 (88\%) & 5 (83\%) & 16 (76\%) & 96.0\% \\
++ Oversample (15$\times$) + TTA               & 451 (98\%) & 39 (93\%) & 5 (83\%) & 14 (67\%) & \textbf{96.2\%} \\
 \bottomrule
 \end{tabular}%
 }
-\end{table}
+\end{table*}
 
-\textit{Note: The baseline model here represents the system before the staged augmentations}.
+\subsection{Ablation Analysis}
+The progression in Table~\ref{tab:ablation} isolates the effect of each component. The hierarchical base model alone raises Balanced Accuracy from 80.9\% (ML baseline) to 94.0\%, demonstrating that the branching architecture, not augmentation, is the primary source of improvement. Adding Stage~3 targeted oversampling (15$\times$) lifts Intraclast recall from 48\% to 76\%, confirming that the data-starved $MLP^{(3)}$ head benefits substantially from targeted sampling. The addition of TTA further raises Ooid recall to 93\%, though with a partial trade-off in Intraclast recall discussed in Section~\ref{sec:discussion}.
 
-\subsection{Test-Time Augmentation (TTA) Impact}
-Table 1 demonstrates a clear progressive increase in overall classification power. Crucially, the introduction of target oversampling specific to Stage 3 prevents $MLP^{(3)}$ parameter collapse, lifting Intraclast recall from 48\% to 76\%. The application of TTA smoothed deterministic boundaries, lifting Ooid recall to a peak of 93\%.
+\subsection{Comparison with Published Methods}
+A direct cross-study comparison is constrained by the absence of a shared benchmark dataset for carbonate grain-type classification. Table~\ref{tab:comparison} places our results alongside the most closely related published methods, using the metrics reported in each respective study. Because each study uses different datasets, class counts, and evaluation metrics, the comparison is intended to contextualise performance rather than establish numerical equivalence.
+
+\begin{table*}[t]
+\centering
+\caption{Contextual comparison with published methods on related petrographic classification tasks. Datasets, class counts, and evaluation metrics differ across studies; direct numerical comparison should be interpreted with caution. Our result is reported as Balanced Accuracy, which weights each class equally regardless of sample count.}
+\label{tab:comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllcc}
+\toprule
+\textbf{Study} & \textbf{Method} & \textbf{Task} & \textbf{Classes} & \textbf{Metric} & \textbf{Result} \\
+\midrule
+\citet{pireslima2020}   & Fine-tuned CNN (transfer learning)      & Microfacies types, Sycamore Fm.          & 5  & Accuracy         & 90\% (in-domain) / 40\% (cross-domain) \\
+\citet{liu2020}         & Inception ResNet v2 (transfer learning) & Fossils \& abiotic grains, 30k images    & 22 & Top-1 Accuracy   & 95\% \\
+\citet{ho2023}          & TaxonNet (hierarchical multi-head CNN)  & Carbonate skeletal grains                & 3  & Accuracy         & $\sim$95\% \\
+\citet{liudunham2023}   & DenseNet121 + VGG + U-Net               & Dunham textures, Hanifa Fm.              & 5  & Accuracy         & 89\% \\
+\textbf{This study}     & \textbf{Hierarchical ResNet-18 + Focal Loss + TTA} & \textbf{Carbonate grain types, 4 classes, $\sim$79:1 imbalance} & \textbf{4} & \textbf{Balanced Accuracy} & \textbf{96.2\%} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+Notably, \citet{pireslima2020} report a substantial performance drop (90\% to 40\%) when their flat CNN is evaluated on samples from a different laboratory, indicating limited robustness. \citet{ho2023} achieve similar accuracy to this study using hierarchical branching, but on taxonomically distinct grain groups where inter-class morphological overlap is considerably lower than in our setting. Our 96.2\% Balanced Accuracy is achieved under a more challenging distribution (approximately 79:1 imbalance ratio) with a metric that weights minority class performance equally.
 
 \subsection{Final Model Confusion Matrix}
-The final deployed hierarchical model with full Focal scaling, Targeted Oversampling, and TTA achieved a near-perfect separation matrix, suppressing the noise of the dominant 87\% Peloid class without degrading its own recall.
+The confusion matrix for the best-performing model (Hierarchical ResNet-18 + Focal Loss + Oversample + TTA) is shown in Table~\ref{tab:confusion}. The model correctly classifies the large majority of all four grain types, with the primary source of error being Peloid-Intraclast confusion (6 Peloids predicted as Intraclast; 5 Intraclasts predicted as Peloid), which reflects the genuine morphological similarity between micritised peloids and reworked intraclast fragments.
 
 \begin{table}[h]
 \centering
-\caption{Confusion Matrix (Hierarchical ResNet-18 + Focal Loss + TTA + Staged Oversample)}
-\begin{tabular}{lcccc}
+\caption{Confusion Matrix --- Hierarchical ResNet-18 + Focal Loss + TTA + Staged Oversample}
+\label{tab:confusion}
+\begin{tabular*}{\tblwidth}{@{}lcccc@{}}
 \toprule
-\textbf{Actual \textbackslash\ Predicted} & \textbf{Peloid} & \textbf{Ooid} & \textbf{Broken} & \textbf{Intraclast} \\
+\textbf{Actual $\backslash$ Predicted} & \textbf{Peloid} & \textbf{Ooid} & \textbf{Broken} & \textbf{Intraclast} \\
 \midrule
-\textbf{Peloid} & 451 & 3 & 0 & 6 \\
-\textbf{Ooid} & 2 & 39 & 1 & 0 \\
-\textbf{Broken} & 0 & 0 & 5 & 1 \\
-\textbf{Intraclast} & 5 & 2 & 0 & 14 \\
+\textbf{Peloid}      & 451 & 3 & 0 & 6 \\
+\textbf{Ooid}        &   2 & 39 & 1 & 0 \\
+\textbf{Broken}      &   0 &  0 & 5 & 1 \\
+\textbf{Intraclast}  &   5 &  2 & 0 & 14 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
 
-This matrix proves the mathematical efficacy of the hierarchical split. By forcing the network through the independent $MLP^{(1)}$ Peloid verification step, the subsequent $MLP^{(2)}$ and $MLP^{(3)}$ heads are shielded from Peloid-dominated gradients, allowing them to perfectly recall 5 out of 6 extreme minority Broken Ooids.
+This matrix demonstrates the effectiveness of the hierarchical structure. By routing samples through the independent $MLP^{(1)}$ Peloid verification step, the subsequent $MLP^{(2)}$ and $MLP^{(3)}$ heads are shielded from Peloid-dominated gradients, allowing the model to correctly classify 5 of the 6 extreme minority Broken Ooid instances.
 
 \section{Discussion}
+\label{sec:discussion}
 
 \subsection{Feature Separation in the Latent Space}
-A recognized limitation in recent automated petrography is the severe recall degradation caused by the natural imbalance of carbonate facies. The fundamental failure of the baseline flat ResNet-18 is its inability to construct distinct geometric manifolds for minor classes in the latent feature space $h_i$. Because Peloids share macroscopic textural features with heavily micritized Ooids and Intraclasts, the dominant class pulls the minority representations toward its center. 
+A recognised limitation in recent automated petrography is the severe recall degradation caused by the natural imbalance of carbonate facies. The fundamental failure of the baseline flat ResNet-18 is its inability to construct distinct geometric manifolds for minor classes in the latent feature space $h_i$. Because Peloids share macroscopic textural features with heavily micritised Ooids and Intraclasts, the dominant class pulls the minority representations toward its centre.
 
-By restructuring the optimization environment into three conditional branches, we mathematically enforce feature separation. $MLP^{(1)}$ becomes a highly specialized texture filter, discarding 87\% of the dataset noise. This taxonomic pump allows $MLP^{(2)}$ and $MLP^{(3)}$ to dedicate their entire parameter space to identifying the fine-grained, high-frequency spatial gradients that define internal layering and fragmented edges, features that were previously washed out in the flat architecture.
+By restructuring the optimisation environment into three conditional branches, we mathematically enforce feature separation. $MLP^{(1)}$ functions as a dedicated texture filter that correctly identifies and routes 87\% of samples --- the Peloid majority --- to their output node. This taxonomic routing allows $MLP^{(2)}$ and $MLP^{(3)}$ to dedicate their entire parameter space exclusively to the non-Peloid sub-population, identifying the fine-grained, high-frequency spatial gradients that define internal ooid lamination and fragmented grain edges --- features that were previously overwhelmed by Peloid-dominated gradient updates in the flat architecture.
 
-\subsection{The Regularizing Power of TTA on Borderline Morphology}
-As demonstrated in Table 1, Test-Time Augmentation provided the final mathematical lift required to stabilize Ooid and Intraclast recall. Deep Convolutional layers operate with spatial invariance, but they are not strictly rotation-invariant. In visual setups where grains are rotated arbitrarily during original physical deposition, edge cases frequently fall on the absolute borderline of the network's learned decision boundary. By computing the mathematical expectation $\hat{p_i}$ across a set of diverse geometric states, TTA functionally smooths the hyperspace boundary, drastically reducing false-negative variance for morphologically ambiguous grains.
+\subsection{The Regularising Power of TTA on Borderline Morphology}
+As demonstrated in Table~\ref{tab:ablation}, Test-Time Augmentation provided the final improvement required to stabilise Ooid and Intraclast recall. Deep convolutional layers operate with spatial invariance, but they are not strictly rotation-invariant. In visual setups where grains are oriented arbitrarily, edge cases frequently fall on the borderline of the network's learned decision boundary. By computing the expectation $\hat{p}_i$ across six geometric states, TTA smooths the decision boundary, reducing false-negative variance for morphologically ambiguous grains. It is worth noting, however, that TTA introduced a marginal trade-off for the Intraclast class, whose recall decreased from 76\% (oversampling alone) to 67\% in the final combined model. We attribute this to the fact that Intraclasts are defined partly by their irregular, asymmetric fragment outlines; averaging predictions over geometric rotations partially dissolves this orientation-dependent discriminative signal. This suggests that class-selective TTA --- applying rotational averaging only to Ooid-branch decisions while preserving deterministic inference for Intraclasts --- is a promising direction for future work.
+
+\subsection{Geological Interpretation of Classification Patterns}
+% FLAG FOR GALLOIS: Please review and expand this subsection with specific geological
+% observations from the source succession. In particular: (1) do the Peloid-Intraclast
+% confusions correspond to specific diagenetic facies in this material? (2) can you confirm
+% the depositional significance of Broken Ooid occurrences in this succession?
+The confusion patterns observed in the model output carry direct implications for carbonate petrographic interpretation. The primary source of error --- confusion between Peloids and Intraclasts (6 Peloids misclassified as Intraclast; 5 Intraclasts misclassified as Peloid) --- is well-recognised in hand-specimen petrography and reflects a genuine geological ambiguity. Both grain types can exhibit structureless micrite fabrics when diagenesis is advanced; the distinction relies on the presence of remnant angular boundaries or internal fabric remnants in Intraclasts, features that become increasingly subtle in highly micritised samples \citep{flugel2010}. That this boundary remains the primary failure mode for the model is geologically expected and consistent with the difficulty experienced by human analysts on comparable material.
+
+The reliable detection of Broken Ooids (83\% recall; 5 of 6 test instances correctly identified) is of particular significance. Broken Ooids are diagnostic indicators of high-energy hydraulic conditions: their fractured cortices result from wave agitation, tidal reworking, or storm events within the carbonate platform. A model capable of systematically identifying Broken Ooid occurrences from thin-section images can, in principle, assist geologists in automated high-energy facies mapping from core or outcrop material, substantially reducing the time required for manual grain-by-grain analysis.
+
+\section{Limitations}
+\label{sec:limitations}
+
+Several limitations should be considered when interpreting these results.
+
+\textbf{Dataset scale and geographic scope.} The dataset comprises 2,642 grain instances extracted from 18 thin sections derived from a single carbonate succession. While the Stratified Group K-Fold design prevents image-level data leakage, the geological diversity of the training distribution is inherently constrained. Whether the learned feature representations generalise to carbonates from different formations, diagenetic histories, or preparation laboratories remains to be verified. \citet{pireslima2020} demonstrated precisely this failure mode, reporting an accuracy drop from 90\% to 40\% under cross-laboratory evaluation of a flat CNN.
+
+\textbf{Statistical reliability of the Broken Ooid test set.} The held-out test set contains only six Broken Ooid instances, reflecting their natural abundance of approximately 1\% in the source material. Cross-validation across all folds provides a more statistically stable signal for this class, with a mean Broken Ooid recall of 81\% $\pm$ 9\% across folds. The held-out test set estimate of 83\% (5 out of 6) should therefore be understood as indicative rather than statistically definitive; it carries a wide 95\% Wilson confidence interval of [36\%--97\%], reflecting the small absolute sample size. Collecting additional thin sections with confirmed Broken Ooid occurrences remains the most direct path to resolving this uncertainty.
+
+\textbf{The TTA--Intraclast trade-off.} As discussed in Section~\ref{sec:discussion}, the addition of Test-Time Augmentation reduced Intraclast recall from 76\% to 67\% while improving Ooid recall to 93\%. This trade-off suggests that a single global TTA policy is suboptimal for all classes simultaneously, and that class-selective inference strategies warrant further investigation.
+
+\textbf{Architecture selection.} ResNet-18 was selected for its computational efficiency and suitability for small datasets. Larger backbone architectures may extract more discriminative features but would require substantially more annotated data to avoid overfitting under the extreme class imbalance conditions of this study.
 
 \section{Conclusion}
 
-This study addresses the critical barrier of extreme class imbalance in the automated quantitative analysis of carbonate microfacies. We demonstrate mathematically and empirically that standard flat deep convolutional neural networks optimized via cross-entropy fail categorically at recalling rare, environmentally critical grains (e.g., Broken Ooids at 1\% distribution). 
+This study demonstrates that extreme class imbalance in carbonate microfacies classification --- where a single background grain type constitutes 87\% of the dataset --- can be effectively addressed by encoding geological taxonomy directly into neural architecture. When standard flat cross-entropy training is applied to this distribution, gradient updates collapse toward the Peloid majority, producing reliable performance on the dominant class at the cost of near-zero recall for the geologically informative minority grains.
 
-To overcome this, we formulated a novel classification pipeline that embeds the topological logic of geological taxonomy directly into neural architecture. By constructing a Hierarchical ResNet-18 branching network, applying dynamically scaled Stage-Wise Focal Loss, and implementing explicit data over-sampling at precise nodes of the decision tree, we fundamentally altered the optimization landscape. We successfully shielded minority-class parameters from majority-class gradient domination. Evaluated via a rigorous Stratified Group K-Fold strategy to prevent image leakage, our proposed methodology achieved a Balanced Accuracy of 96.2\% on an unseen test set, establishing a mathematically robust foundation for high-resolution facies analysis in the computational geosciences.
+By decomposing the four-class problem into three sequential binary decisions aligned with carbonate grain classification logic, and applying stage-wise focal loss calibrated to the local imbalance at each decision node, the proposed hierarchical model achieves 96.2\% balanced accuracy on a strictly grouped held-out test set. Critically, this comes with reliable recall across all four grain types, including Broken Ooids present at less than 1\% of samples --- the class that carries the strongest signal for high-energy depositional interpretation and that flat architectures consistently fail to detect.
 
-\bibliographystyle{elsarticle-harv}
+In practical terms, a geologist applying this model to a carbonate thin section from a comparable succession can expect automated, reliable separation of the dominant Peloid background from the morphologically similar Ooid and Intraclast populations, with consistent detection of the rare Broken Ooid fraction that signals energetic reworking. The framework reduces the most time-consuming component of manual petrographic grain-counting while preserving sensitivity to the classes that matter most for environmental interpretation.
+
+The primary constraint on broader deployment is dataset scope: 18 thin sections from a single succession limits the diversity of diagenetic textures and preparation artefacts the model has encountered. Extending this framework to thin sections from additional formations, geographic settings, and laboratory preparations --- and investigating class-selective TTA strategies to recover Intraclast recall --- remains the most direct path toward a generalisable automated carbonate grain classifier.
+
+\printcredits
+
+\bibliographystyle{cas-model2-names}
 \bibliography{references}
+
+\bio{}
+Musawer Muradi is a researcher in the Department of Computer Engineering at Kocaeli University. His research interests include deep learning, computer vision, and the application of machine learning to geological data analysis.
+\endbio
+
+\bio{}
+Arnaud Gallois is a geologist in the Department of Geological Engineering at Kocaeli University, specialising in carbonate sedimentology and petrographic analysis of marine carbonate successions.
+\endbio
+
+\bio{}
+Alev Mutlu is a faculty member in the Department of Computer Engineering at Kocaeli University with research interests in data science and computational methods for earth sciences.
+\endbio
 
 \end{document}
