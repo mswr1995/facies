@@ -14,7 +14,7 @@
 \def\textpagefraction{.001}
 
 \shorttitle{Hierarchical Deep Learning for Carbonate Microfacies}
-\shortauthors{M. Muradi et~al.}
+\shortauthors{Authors et~al.}
 
 \title[mode=title]{Deep learning-based classification of carbonate microfacies components in thin-section images}
 
@@ -100,7 +100,7 @@ Microfacies classification does not benefit from this separation. The distinctio
 
 Several groups have applied deep learning to carbonate thin-section classification. \citet{dong2025carbonate} demonstrated that object-detection architectures can identify multiple carbonate components simultaneously; \citet{basso2025presalt} applied CNNs to the lacustrine carbonates of the Brazilian pre-salt under more balanced class distributions; and \citet{dawson2023dataset} showed that models trained on fewer than 5,000 carbonate images show a strong tendency to overfit even with transfer learning, a finding directly relevant to this study's dataset of 2,642 grains.
 
-The cross-domain brittleness of flat classifiers was documented by \citet{pireslima2020}, who achieved above 90\% accuracy on microfacies from the Sycamore Formation within a single laboratory, but saw accuracy fall to approximately 40\% when the same model was evaluated on material from a different laboratory. This collapse illustrates how fragile flat convolutional architectures can be when deployed outside their training distribution, a problem that is compounded when the training distribution is dominated by a single class.
+The cross-domain brittleness of flat classifiers was documented by \citet{pireslima2020}, who achieved above 90\% accuracy on microfacies from the Sycamore Formation within a single laboratory, but saw accuracy fall to approximately 40\% when the same model was evaluated on material from a different laboratory. This collapse illustrates how fragile flat convolutional architectures can be when deployed outside their training distribution, a problem that is compounded when the training distribution is dominated by a single class. \citet{xie2025} addressed this combination directly, using an adversarial domain adaptation network to improve cross-domain lithology classification under class imbalance.
 
 \citet{liu2020} partially circumvented the data scarcity problem by assembling more than 30,000 images across 22 grain categories. Their Inception ResNet v2 model achieved 95\% top-one accuracy overall, but precision dropped to 0.88 for morphologically similar pairs, compared to above 0.99 for visually distinct categories. This suggests that inter-class morphological overlap creates a performance ceiling that data volume alone cannot overcome.
 
@@ -346,7 +346,7 @@ The best checkpoint across all 50 epochs is selected based on validation Balance
 \subsubsection{Inference-Time Augmentation}
 \label{sec:tta}
 
-Grains near a decision boundary can produce unstable predictions from a single deterministic forward pass. Each grain is therefore passed through the network six times, under six geometric transformations that preserve grain morphology: the original orientation, horizontal flip, vertical flip, and rotations by 90°, 180°, and 270°. The six sets of logits are averaged before the final decision:
+Grains near a decision boundary can produce unstable predictions from a single deterministic forward pass \citep{shanmugam2021tta}. Each grain is therefore passed through the network six times, under six geometric transformations that preserve grain morphology: the original orientation, horizontal flip, vertical flip, and rotations by 90°, 180°, and 270°. The six sets of logits are averaged before the final decision:
 \begin{equation}
 \hat{p}_i = \frac{1}{6}\sum_{k=1}^{6} p\!\left(y \mid T_k(x_i),\, \theta\right)
 \end{equation}
