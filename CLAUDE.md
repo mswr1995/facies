@@ -88,6 +88,18 @@ Ablation broken ooid recall: base 16.7% → +oversampling 66.7% → +curriculum 
 
 Scripts to regenerate: `scripts/generate_figures.py` (needs model checkpoint), `scripts/generate_pipeline_figure.py` (no model needed).
 
+## Prior pilot study (SAM + XGBoost)
+
+Published: `muradi2024faciesnet` — Kocaeli Üniversitesi Fen Bilimleri Dergisi (Turkish), same 3 authors.
+
+Pipeline: SAM zero-shot segmentation → 65 hand-crafted features (12 morphological + 40 LBP/GLCM texture + 13 colorimetric) → Focal Loss XGBoost ensemble (5 models, soft voting, α=0.25, γ=2.0).
+
+Results: 80.9% BA, ooid precision 48.7%, intraclast precision 24.7%. Failure of hand-crafted features to capture diagenetic texture motivated the deep learning shift.
+
+Code: `/Users/mswr/dev/faciesnet/` — key files: `src/sam_integration.py`, `src/xgb_classifier.py`, `src/hybrid_classifier.py`, `FINDINGS.md`.
+
+Mentioned in: Introduction (§1) as "an initial approach" — no self-citation. `kirillov2023sam` (SAM) added to `references.bib`. Do NOT cite the Turkish paper.
+
 ## References
 
 `article/references.bib` — key entries added this revision:
