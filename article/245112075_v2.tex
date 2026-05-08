@@ -354,7 +354,9 @@ Orientation averaging is reasonable here because grain images do not have a cano
 
 \subsubsection{Implementation Details}
 
-All models were implemented in PyTorch \citep{paszke2019pytorch}. Training was performed on a Google Colab environment using an NVIDIA GPU. The AdamW optimiser \citep{loshchilov2019adamw} was used with a weight decay of $1\times10^{-4}$. Each classification head comprises two linear layers (512$\to$128 and 128$\to$1) with biases, totalling 65,793 parameters per head, small relative to the 11.2 million parameters in the shared backbone.
+All models were implemented in PyTorch \citep{paszke2019pytorch}. Training was performed on a Google Colab environment using an NVIDIA GPU. The AdamW optimiser \citep{loshchilov2019adamw} was used with a weight decay of $1\times10^{-4}$. Each classification head comprises two linear layers (512$\to$128 and 128$\to$1) with biases, totalling 65,793 parameters per head. The full model contains approximately 11.4 million parameters, including the 11.2 million-parameter shared ResNet-18 backbone.
+
+Training used a batch size of 32. For each mini-batch, Stage 1 loss was computed on all grains, Stage 2 loss only on non-peloid grains, and Stage 3 loss only on ooid-like grains; the active stage losses were summed with equal weight. Final class assignment used hard hierarchical routing with fixed thresholds of 0.5 at all three heads. Thus, grains with $p^{(1)}>0.5$ were classified as peloid; among the remaining grains, those with $p^{(2)}<0.5$ were classified as intraclast; and among ooid-like grains, $p^{(3)}>0.5$ gave ooid while $p^{(3)}\leq0.5$ gave broken ooid. Training augmentations comprised random 90° rotations, horizontal and vertical flips, and modest brightness/contrast perturbations, followed by ImageNet normalisation.
 
 \subsubsection{Evaluation Metrics}
 
