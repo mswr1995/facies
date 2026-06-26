@@ -349,16 +349,22 @@ Figure~\ref{fig:architecture} shows the complete architecture. While the hierarc
 \end{comment}
 
 \subsection{Training Strategy}
-
+The training strategy combines stage-specific loss weighting, targeted oversampling, a staged optimisation curriculum, and inference-time augmentation to improve learning of the minority classes while maintaining robust overall performance. The following subsections describe each component of the training procedure.
 \subsubsection{Stage-Wise Focal Loss}
 
-Under standard binary cross-entropy, gradient contributions are dominated by the majority class even when the network is already confident on those examples. Focal Loss \citep{lin2017focal} addresses this by introducing a modulating factor that down-weights easy, well-classified examples:
+Under standard binary cross-entropy, gradient contributions are dominated by the majority class even when the
+network is already confident on those examples. Focal Loss \citep{lin2017focal} addresses this by introducing a
+modulating factor that down-weights easy, well-classified examples. The Focal Loss function is defined in
+Equation~\ref{eq:fc}, where $p_t$ is the predicted probability for the correct class, $\gamma$ controls the
+strength of the down-weighting, and $\alpha_t$ provides explicit per-class balancing.
+
 \begin{equation}
 \mathcal{L}_{FL}(p_t) = -\alpha_t\,(1 - p_t)^{\gamma}\,\log(p_t)
+\label{eq:fc}
 \end{equation}
-where $p_t$ is the predicted probability for the correct class, $\gamma$ controls the strength of the down-weighting, and $\alpha_t$ provides explicit per-class balancing.
 
-We set $\gamma = 2.0$ throughout. The key design choice is that $\alpha$ is not shared across heads but calibrated separately based on the local imbalance at each binary decision:
+%%%%%%%%We set $\gamma = 2.0$ throughout. 
+The key design choice is that $\alpha$ is not shared across heads but calibrated separately based on the local imbalance at each binary decision:
 \begin{itemize}
   \item \textbf{Stage 1} (Peloid vs.\ Non-Peloid): $\alpha = 0.25$. This head faces the most extreme imbalance (87\% peloid), so the minority class receives a strong weighting correction.
   \item \textbf{Stage 2} (Ooid-like vs.\ Intraclast): $\alpha = 0.50$. Within the non-peloid sub-population, the imbalance is less severe, so a symmetric weighting is appropriate.
@@ -581,8 +587,6 @@ Oversampling has the largest single effect on minority-class detection. The hier
 On the held-out test set of 529 grains, the complete pipeline achieves 83.5\% Balanced Accuracy and 92.1\% Overall Accuracy. Five of the six broken ooid instances are correctly identified, compared with one of six for the unmodified hierarchical base. The primary remaining error is peloid--intraclast confusion, which reflects a geological ambiguity that human analysts also find difficult in micritised grains. Although these results were obtained on a single carbonate succession, they demonstrate the potential of hierarchy-aware learning strategies for addressing severe class imbalance in petrographic datasets.
 
 Beyond the specific dataset examined here, the results suggest that deep-learning models can be adapted to support routine carbonate petrographic analysis even when training data are strongly imbalanced and minority grain types are rare. The combination of hierarchical classification, targeted oversampling, and stage-specific optimisation is not restricted to the Mupe Member dataset and could be applied to other carbonate successions where grain identification relies on subtle textural distinctions. As larger annotated petrographic datasets become available, such approaches may contribute to semi-automated workflows that assist sedimentologists in characterising carbonate facies more efficiently and consistently while preserving geological interpretability.
-
-%YOU NEED TO ADD ANOTHER PARAGRAPH ABOUT WIDER IMPLICATIONS, CAN IT BE APPLIED TO OTHER DATASETS? WHO CAN APPLIED WHAT YOU HAVE DONE? HOW? SOMETHING LIKE: This study demonstrated that carbonate grains can be identified with automated recognition models and deep-learning and we need to test more and more data and images to constrain the model. SOMEHTING ALONG THOSE LINES (THIS IS A JUST AN EXAMPLE, REWRITE AS YOU WISH :) )
 
 Despite these encouraging results, several challenges remain before such systems can be deployed across a broader range of carbonate settings. The most immediate need is evaluation on independent carbonate successions to test whether the learned representations generalise across geological settings and laboratory preparations. Sedimentology-driven synthetic data generation approaches such as SynSection \citep{ransinangue2025synsection} offer a path toward augmenting scarce minority-class training data without departing from geologically valid grain morphologies. Within the current framework, investigating class-specific inference strategies, for example applying orientation averaging only to the ooid-related decisions while using deterministic inference for intraclasts, may recover some of the intraclast recall that the current global averaging approach sacrifices.
 
