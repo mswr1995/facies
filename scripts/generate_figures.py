@@ -33,10 +33,55 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 CLASS_NAMES  = ['Peloid', 'Ooid', 'Broken ooid', 'Intraclast']
 CLASS_COLORS = ['#4C72B0', '#DD8452', '#55A868', '#C44E52']
+ROW_LABELS   = ['A', 'B', 'C', 'D']
 LABEL_MAP    = {name: i for i, name in enumerate(CLASS_NAMES)}
 
 random.seed(42)
 np.random.seed(42)
+
+# Pixel length of the burned-in source-image scale bars, measured from the
+# original micrographs in data/raw. Values are pixels per micrometre.
+MICRONS_PER_SCALE_BAR = 50
+SOURCE_PX_PER_UM = {
+    # 1 mm bar ~= 280 px
+    'GN10-ES0086': 280 / 1000,
+    'MB12_ES0081': 280 / 1000,
+    'WT13-ES0023': 280 / 1000,
+    'WT13-ES0026': 280 / 1000,
+    'WT15-ES0042': 280 / 1000,
+
+    # 1 mm bar ~= 546 px
+    'HB4_ES0068': 546 / 1000,
+    'WL5_IM10041': 546 / 1000,
+    'WT10-ES0004': 546 / 1000,
+    'WT12-ES0021': 546 / 1000,
+
+    # 1 mm bar ~= 581 px
+    'WT10-ES0044': 581 / 1000,
+    'WT10_ES0039': 581 / 1000,
+    'WT13_ES0045': 581 / 1000,
+
+    # 100 um bar ~= 154 px
+    'WLC8_ES0022': 154 / 100,
+    'WLC8_ES0023': 154 / 100,
+    'WLC8_ES0025': 154 / 100,
+    'WLC8_ES0026': 154 / 100,
+    'WT13_ES0049': 154 / 100,
+    'WT13_ES0056': 154 / 100,
+}
+
+
+def add_scale_bar(ax, image_name):
+    px_per_um = SOURCE_PX_PER_UM.get(image_name)
+    if px_per_um is None:
+        return
+
+    bar_px = MICRONS_PER_SCALE_BAR * px_per_um
+    x_end = 88
+    x_start = x_end - bar_px
+    y = 88
+    ax.plot([x_start, x_end], [y, y],
+            color='white', lw=2.2, solid_capstyle='butt')
 
 
 # ─────────────────────────────────────────────
@@ -70,10 +115,14 @@ def figure_sample_patches():
             img = cv2.imread(str(img_path))
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             ax.imshow(img)
+            add_scale_bar(ax, grain['image_name'])
             ax.axis('off')
             if col == 0:
-                ax.set_ylabel(cls, fontsize=11, fontweight='bold',
-                              labelpad=6, color=CLASS_COLORS[row])
+                ax.text(-0.20, 0.98, ROW_LABELS[row],
+                        transform=ax.transAxes,
+                        fontsize=13, fontweight='bold',
+                        ha='left', va='top', color='black',
+                        clip_on=False)
         # blank remaining cells
         for col in range(len(chosen), N_COLS):
             axes[row, col].axis('off')
