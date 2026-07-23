@@ -1,0 +1,5820 @@
+{
+  "split": "val",
+  "random_seed": 7,
+  "grains": [
+    {
+      "grain_id": 101,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 101,
+      "label": "Peloid",
+      "centroid": [
+        1059,
+        734
+      ],
+      "patch_filename": "grain_000101.png"
+    },
+    {
+      "grain_id": 2602,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 246,
+      "label": "Peloid",
+      "centroid": [
+        60,
+        748
+      ],
+      "patch_filename": "grain_002602.png"
+    },
+    {
+      "grain_id": 1572,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 11,
+      "label": "Ooid",
+      "centroid": [
+        659,
+        154
+      ],
+      "patch_filename": "grain_001572.png"
+    },
+    {
+      "grain_id": 802,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 4,
+      "label": "Peloid",
+      "centroid": [
+        293,
+        132
+      ],
+      "patch_filename": "grain_000802.png"
+    },
+    {
+      "grain_id": 1796,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 235,
+      "label": "Peloid",
+      "centroid": [
+        179,
+        564
+      ],
+      "patch_filename": "grain_001796.png"
+    },
+    {
+      "grain_id": 1523,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 58,
+      "label": "Peloid",
+      "centroid": [
+        1148,
+        714
+      ],
+      "patch_filename": "grain_001523.png"
+    },
+    {
+      "grain_id": 428,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 73,
+      "label": "Peloid",
+      "centroid": [
+        780,
+        62
+      ],
+      "patch_filename": "grain_000428.png"
+    },
+    {
+      "grain_id": 293,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 183,
+      "label": "Peloid",
+      "centroid": [
+        426,
+        838
+      ],
+      "patch_filename": "grain_000293.png"
+    },
+    {
+      "grain_id": 2467,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 111,
+      "label": "Peloid",
+      "centroid": [
+        603,
+        386
+      ],
+      "patch_filename": "grain_002467.png"
+    },
+    {
+      "grain_id": 1769,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 208,
+      "label": "Peloid",
+      "centroid": [
+        625,
+        749
+      ],
+      "patch_filename": "grain_001769.png"
+    },
+    {
+      "grain_id": 2376,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 20,
+      "label": "Ooid",
+      "centroid": [
+        734,
+        470
+      ],
+      "patch_filename": "grain_002376.png"
+    },
+    {
+      "grain_id": 1183,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 51,
+      "label": "Ooid",
+      "centroid": [
+        253,
+        321
+      ],
+      "patch_filename": "grain_001183.png"
+    },
+    {
+      "grain_id": 2432,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 76,
+      "label": "Peloid",
+      "centroid": [
+        890,
+        257
+      ],
+      "patch_filename": "grain_002432.png"
+    },
+    {
+      "grain_id": 1459,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 165,
+      "label": "Peloid",
+      "centroid": [
+        880,
+        910
+      ],
+      "patch_filename": "grain_001459.png"
+    },
+    {
+      "grain_id": 314,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 204,
+      "label": "Peloid",
+      "centroid": [
+        684,
+        39
+      ],
+      "patch_filename": "grain_000314.png"
+    },
+    {
+      "grain_id": 299,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 189,
+      "label": "Peloid",
+      "centroid": [
+        946,
+        722
+      ],
+      "patch_filename": "grain_000299.png"
+    },
+    {
+      "grain_id": 2627,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 271,
+      "label": "Peloid",
+      "centroid": [
+        666,
+        838
+      ],
+      "patch_filename": "grain_002627.png"
+    },
+    {
+      "grain_id": 841,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 43,
+      "label": "Ooid",
+      "centroid": [
+        816,
+        585
+      ],
+      "patch_filename": "grain_000841.png"
+    },
+    {
+      "grain_id": 927,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 129,
+      "label": "Peloid",
+      "centroid": [
+        199,
+        664
+      ],
+      "patch_filename": "grain_000927.png"
+    },
+    {
+      "grain_id": 1383,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 89,
+      "label": "Peloid",
+      "centroid": [
+        900,
+        507
+      ],
+      "patch_filename": "grain_001383.png"
+    },
+    {
+      "grain_id": 871,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 73,
+      "label": "Peloid",
+      "centroid": [
+        607,
+        552
+      ],
+      "patch_filename": "grain_000871.png"
+    },
+    {
+      "grain_id": 1289,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 157,
+      "label": "Peloid",
+      "centroid": [
+        1043,
+        817
+      ],
+      "patch_filename": "grain_001289.png"
+    },
+    {
+      "grain_id": 2361,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 5,
+      "label": "Peloid",
+      "centroid": [
+        288,
+        142
+      ],
+      "patch_filename": "grain_002361.png"
+    },
+    {
+      "grain_id": 801,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 3,
+      "label": "Intraclast",
+      "centroid": [
+        573,
+        390
+      ],
+      "patch_filename": "grain_000801.png"
+    },
+    {
+      "grain_id": 1389,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 95,
+      "label": "Peloid",
+      "centroid": [
+        1198,
+        636
+      ],
+      "patch_filename": "grain_001389.png"
+    },
+    {
+      "grain_id": 848,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 50,
+      "label": "Peloid",
+      "centroid": [
+        919,
+        410
+      ],
+      "patch_filename": "grain_000848.png"
+    },
+    {
+      "grain_id": 2528,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 172,
+      "label": "Peloid",
+      "centroid": [
+        874,
+        793
+      ],
+      "patch_filename": "grain_002528.png"
+    },
+    {
+      "grain_id": 42,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 42,
+      "label": "Peloid",
+      "centroid": [
+        318,
+        380
+      ],
+      "patch_filename": "grain_000042.png"
+    },
+    {
+      "grain_id": 758,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 403,
+      "label": "Peloid",
+      "centroid": [
+        476,
+        839
+      ],
+      "patch_filename": "grain_000758.png"
+    },
+    {
+      "grain_id": 1180,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 48,
+      "label": "Ooid",
+      "centroid": [
+        145,
+        26
+      ],
+      "patch_filename": "grain_001180.png"
+    },
+    {
+      "grain_id": 2089,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 270,
+      "label": "Peloid",
+      "centroid": [
+        448,
+        525
+      ],
+      "patch_filename": "grain_002089.png"
+    },
+    {
+      "grain_id": 1187,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 55,
+      "label": "Ooid",
+      "centroid": [
+        508,
+        85
+      ],
+      "patch_filename": "grain_001187.png"
+    },
+    {
+      "grain_id": 1872,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 53,
+      "label": "Peloid",
+      "centroid": [
+        183,
+        130
+      ],
+      "patch_filename": "grain_001872.png"
+    },
+    {
+      "grain_id": 1093,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 69,
+      "label": "Peloid",
+      "centroid": [
+        873,
+        51
+      ],
+      "patch_filename": "grain_001093.png"
+    },
+    {
+      "grain_id": 1794,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 233,
+      "label": "Peloid",
+      "centroid": [
+        213,
+        570
+      ],
+      "patch_filename": "grain_001794.png"
+    },
+    {
+      "grain_id": 2463,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 107,
+      "label": "Peloid",
+      "centroid": [
+        675,
+        409
+      ],
+      "patch_filename": "grain_002463.png"
+    },
+    {
+      "grain_id": 48,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 48,
+      "label": "Peloid",
+      "centroid": [
+        644,
+        266
+      ],
+      "patch_filename": "grain_000048.png"
+    },
+    {
+      "grain_id": 1989,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 170,
+      "label": "Peloid",
+      "centroid": [
+        322,
+        829
+      ],
+      "patch_filename": "grain_001989.png"
+    },
+    {
+      "grain_id": 1868,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 49,
+      "label": "Peloid",
+      "centroid": [
+        69,
+        167
+      ],
+      "patch_filename": "grain_001868.png"
+    },
+    {
+      "grain_id": 2064,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 245,
+      "label": "Peloid",
+      "centroid": [
+        768,
+        587
+      ],
+      "patch_filename": "grain_002064.png"
+    },
+    {
+      "grain_id": 1473,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 8,
+      "label": "Peloid",
+      "centroid": [
+        742,
+        435
+      ],
+      "patch_filename": "grain_001473.png"
+    },
+    {
+      "grain_id": 564,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 209,
+      "label": "Peloid",
+      "centroid": [
+        850,
+        402
+      ],
+      "patch_filename": "grain_000564.png"
+    },
+    {
+      "grain_id": 1361,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 67,
+      "label": "Peloid",
+      "centroid": [
+        850,
+        209
+      ],
+      "patch_filename": "grain_001361.png"
+    },
+    {
+      "grain_id": 2449,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 93,
+      "label": "Peloid",
+      "centroid": [
+        1000,
+        295
+      ],
+      "patch_filename": "grain_002449.png"
+    },
+    {
+      "grain_id": 406,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 51,
+      "label": "Peloid",
+      "centroid": [
+        427,
+        116
+      ],
+      "patch_filename": "grain_000406.png"
+    },
+    {
+      "grain_id": 2099,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 280,
+      "label": "Ooid",
+      "centroid": [
+        570,
+        421
+      ],
+      "patch_filename": "grain_002099.png"
+    },
+    {
+      "grain_id": 2239,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 15,
+      "label": "Peloid",
+      "centroid": [
+        621,
+        806
+      ],
+      "patch_filename": "grain_002239.png"
+    },
+    {
+      "grain_id": 102,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 102,
+      "label": "Peloid",
+      "centroid": [
+        1129,
+        463
+      ],
+      "patch_filename": "grain_000102.png"
+    },
+    {
+      "grain_id": 1342,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 48,
+      "label": "Peloid",
+      "centroid": [
+        104,
+        393
+      ],
+      "patch_filename": "grain_001342.png"
+    },
+    {
+      "grain_id": 2163,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 344,
+      "label": "Peloid",
+      "centroid": [
+        663,
+        95
+      ],
+      "patch_filename": "grain_002163.png"
+    },
+    {
+      "grain_id": 1798,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 237,
+      "label": "Peloid",
+      "centroid": [
+        72,
+        571
+      ],
+      "patch_filename": "grain_001798.png"
+    },
+    {
+      "grain_id": 1130,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 106,
+      "label": "Peloid",
+      "centroid": [
+        303,
+        42
+      ],
+      "patch_filename": "grain_001130.png"
+    },
+    {
+      "grain_id": 159,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 49,
+      "label": "Peloid",
+      "centroid": [
+        431,
+        365
+      ],
+      "patch_filename": "grain_000159.png"
+    },
+    {
+      "grain_id": 711,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 356,
+      "label": "Peloid",
+      "centroid": [
+        24,
+        592
+      ],
+      "patch_filename": "grain_000711.png"
+    },
+    {
+      "grain_id": 458,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 103,
+      "label": "Peloid",
+      "centroid": [
+        1067,
+        133
+      ],
+      "patch_filename": "grain_000458.png"
+    },
+    {
+      "grain_id": 626,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 271,
+      "label": "Peloid",
+      "centroid": [
+        858,
+        528
+      ],
+      "patch_filename": "grain_000626.png"
+    },
+    {
+      "grain_id": 1118,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 94,
+      "label": "Ooid",
+      "centroid": [
+        791,
+        656
+      ],
+      "patch_filename": "grain_001118.png"
+    },
+    {
+      "grain_id": 1606,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 45,
+      "label": "Peloid",
+      "centroid": [
+        242,
+        77
+      ],
+      "patch_filename": "grain_001606.png"
+    },
+    {
+      "grain_id": 1150,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 18,
+      "label": "Peloid",
+      "centroid": [
+        1046,
+        443
+      ],
+      "patch_filename": "grain_001150.png"
+    },
+    {
+      "grain_id": 1626,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 65,
+      "label": "Peloid",
+      "centroid": [
+        286,
+        155
+      ],
+      "patch_filename": "grain_001626.png"
+    },
+    {
+      "grain_id": 1764,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 203,
+      "label": "Peloid",
+      "centroid": [
+        758,
+        739
+      ],
+      "patch_filename": "grain_001764.png"
+    },
+    {
+      "grain_id": 1399,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 105,
+      "label": "Peloid",
+      "centroid": [
+        259,
+        732
+      ],
+      "patch_filename": "grain_001399.png"
+    },
+    {
+      "grain_id": 540,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 185,
+      "label": "Peloid",
+      "centroid": [
+        380,
+        401
+      ],
+      "patch_filename": "grain_000540.png"
+    },
+    {
+      "grain_id": 566,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 211,
+      "label": "Peloid",
+      "centroid": [
+        994,
+        478
+      ],
+      "patch_filename": "grain_000566.png"
+    },
+    {
+      "grain_id": 403,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 48,
+      "label": "Peloid",
+      "centroid": [
+        373,
+        228
+      ],
+      "patch_filename": "grain_000403.png"
+    },
+    {
+      "grain_id": 680,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 325,
+      "label": "Peloid",
+      "centroid": [
+        885,
+        644
+      ],
+      "patch_filename": "grain_000680.png"
+    },
+    {
+      "grain_id": 238,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 128,
+      "label": "Peloid",
+      "centroid": [
+        702,
+        510
+      ],
+      "patch_filename": "grain_000238.png"
+    },
+    {
+      "grain_id": 415,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 60,
+      "label": "Peloid",
+      "centroid": [
+        402,
+        36
+      ],
+      "patch_filename": "grain_000415.png"
+    },
+    {
+      "grain_id": 1622,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 61,
+      "label": "Peloid",
+      "centroid": [
+        195,
+        291
+      ],
+      "patch_filename": "grain_001622.png"
+    },
+    {
+      "grain_id": 1460,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 166,
+      "label": "Peloid",
+      "centroid": [
+        443,
+        895
+      ],
+      "patch_filename": "grain_001460.png"
+    },
+    {
+      "grain_id": 341,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 231,
+      "label": "Peloid",
+      "centroid": [
+        731,
+        765
+      ],
+      "patch_filename": "grain_000341.png"
+    },
+    {
+      "grain_id": 2579,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 223,
+      "label": "Peloid",
+      "centroid": [
+        547,
+        531
+      ],
+      "patch_filename": "grain_002579.png"
+    },
+    {
+      "grain_id": 2517,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 161,
+      "label": "Peloid",
+      "centroid": [
+        1156,
+        871
+      ],
+      "patch_filename": "grain_002517.png"
+    },
+    {
+      "grain_id": 1436,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 142,
+      "label": "Intraclast",
+      "centroid": [
+        630,
+        547
+      ],
+      "patch_filename": "grain_001436.png"
+    },
+    {
+      "grain_id": 938,
+      "image_name": "WLC8_ES0022",
+      "grain_idx": 5,
+      "label": "Peloid",
+      "centroid": [
+        237,
+        914
+      ],
+      "patch_filename": "grain_000938.png"
+    },
+    {
+      "grain_id": 831,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 33,
+      "label": "Peloid",
+      "centroid": [
+        1014,
+        73
+      ],
+      "patch_filename": "grain_000831.png"
+    },
+    {
+      "grain_id": 1364,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 70,
+      "label": "Peloid",
+      "centroid": [
+        743,
+        356
+      ],
+      "patch_filename": "grain_001364.png"
+    },
+    {
+      "grain_id": 2158,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 339,
+      "label": "Peloid",
+      "centroid": [
+        624,
+        244
+      ],
+      "patch_filename": "grain_002158.png"
+    },
+    {
+      "grain_id": 1104,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 80,
+      "label": "Peloid",
+      "centroid": [
+        630,
+        270
+      ],
+      "patch_filename": "grain_001104.png"
+    },
+    {
+      "grain_id": 1256,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 124,
+      "label": "Ooid",
+      "centroid": [
+        470,
+        741
+      ],
+      "patch_filename": "grain_001256.png"
+    },
+    {
+      "grain_id": 585,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 230,
+      "label": "Peloid",
+      "centroid": [
+        1146,
+        657
+      ],
+      "patch_filename": "grain_000585.png"
+    },
+    {
+      "grain_id": 2170,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 351,
+      "label": "Peloid",
+      "centroid": [
+        1051,
+        305
+      ],
+      "patch_filename": "grain_002170.png"
+    },
+    {
+      "grain_id": 525,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 170,
+      "label": "Peloid",
+      "centroid": [
+        752,
+        334
+      ],
+      "patch_filename": "grain_000525.png"
+    },
+    {
+      "grain_id": 551,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 196,
+      "label": "Ooid",
+      "centroid": [
+        410,
+        595
+      ],
+      "patch_filename": "grain_000551.png"
+    },
+    {
+      "grain_id": 940,
+      "image_name": "WLC8_ES0022",
+      "grain_idx": 7,
+      "label": "Peloid",
+      "centroid": [
+        363,
+        888
+      ],
+      "patch_filename": "grain_000940.png"
+    },
+    {
+      "grain_id": 1567,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 6,
+      "label": "Intraclast",
+      "centroid": [
+        885,
+        718
+      ],
+      "patch_filename": "grain_001567.png"
+    },
+    {
+      "grain_id": 1845,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 26,
+      "label": "Peloid",
+      "centroid": [
+        438,
+        259
+      ],
+      "patch_filename": "grain_001845.png"
+    },
+    {
+      "grain_id": 763,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 408,
+      "label": "Ooid",
+      "centroid": [
+        355,
+        677
+      ],
+      "patch_filename": "grain_000763.png"
+    },
+    {
+      "grain_id": 2142,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 323,
+      "label": "Peloid",
+      "centroid": [
+        743,
+        327
+      ],
+      "patch_filename": "grain_002142.png"
+    },
+    {
+      "grain_id": 1820,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 1,
+      "label": "Ooid",
+      "centroid": [
+        503,
+        321
+      ],
+      "patch_filename": "grain_001820.png"
+    },
+    {
+      "grain_id": 1582,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 21,
+      "label": "Ooid",
+      "centroid": [
+        1079,
+        629
+      ],
+      "patch_filename": "grain_001582.png"
+    },
+    {
+      "grain_id": 608,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 253,
+      "label": "Peloid",
+      "centroid": [
+        49,
+        340
+      ],
+      "patch_filename": "grain_000608.png"
+    },
+    {
+      "grain_id": 208,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 98,
+      "label": "Peloid",
+      "centroid": [
+        410,
+        629
+      ],
+      "patch_filename": "grain_000208.png"
+    },
+    {
+      "grain_id": 1875,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 56,
+      "label": "Peloid",
+      "centroid": [
+        153,
+        221
+      ],
+      "patch_filename": "grain_001875.png"
+    },
+    {
+      "grain_id": 2465,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 109,
+      "label": "Peloid",
+      "centroid": [
+        529,
+        327
+      ],
+      "patch_filename": "grain_002465.png"
+    },
+    {
+      "grain_id": 1805,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 244,
+      "label": "Peloid",
+      "centroid": [
+        144,
+        380
+      ],
+      "patch_filename": "grain_001805.png"
+    },
+    {
+      "grain_id": 2152,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 333,
+      "label": "Peloid",
+      "centroid": [
+        765,
+        275
+      ],
+      "patch_filename": "grain_002152.png"
+    },
+    {
+      "grain_id": 670,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 315,
+      "label": "Peloid",
+      "centroid": [
+        450,
+        634
+      ],
+      "patch_filename": "grain_000670.png"
+    },
+    {
+      "grain_id": 2352,
+      "image_name": "WT13_ES0056",
+      "grain_idx": 13,
+      "label": "Peloid",
+      "centroid": [
+        1049,
+        856
+      ],
+      "patch_filename": "grain_002352.png"
+    },
+    {
+      "grain_id": 1189,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 57,
+      "label": "Ooid",
+      "centroid": [
+        441,
+        232
+      ],
+      "patch_filename": "grain_001189.png"
+    },
+    {
+      "grain_id": 1479,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 14,
+      "label": "Peloid",
+      "centroid": [
+        99,
+        608
+      ],
+      "patch_filename": "grain_001479.png"
+    },
+    {
+      "grain_id": 718,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 363,
+      "label": "Peloid",
+      "centroid": [
+        15,
+        518
+      ],
+      "patch_filename": "grain_000718.png"
+    },
+    {
+      "grain_id": 351,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 241,
+      "label": "Peloid",
+      "centroid": [
+        907,
+        783
+      ],
+      "patch_filename": "grain_000351.png"
+    },
+    {
+      "grain_id": 367,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 12,
+      "label": "Peloid",
+      "centroid": [
+        110,
+        192
+      ],
+      "patch_filename": "grain_000367.png"
+    },
+    {
+      "grain_id": 1378,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 84,
+      "label": "Peloid",
+      "centroid": [
+        357,
+        496
+      ],
+      "patch_filename": "grain_001378.png"
+    },
+    {
+      "grain_id": 1587,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 26,
+      "label": "Broken ooid",
+      "centroid": [
+        303,
+        594
+      ],
+      "patch_filename": "grain_001587.png"
+    },
+    {
+      "grain_id": 1439,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 145,
+      "label": "Intraclast",
+      "centroid": [
+        1170,
+        867
+      ],
+      "patch_filename": "grain_001439.png"
+    },
+    {
+      "grain_id": 887,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 89,
+      "label": "Peloid",
+      "centroid": [
+        1057,
+        706
+      ],
+      "patch_filename": "grain_000887.png"
+    },
+    {
+      "grain_id": 2065,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 246,
+      "label": "Peloid",
+      "centroid": [
+        981,
+        546
+      ],
+      "patch_filename": "grain_002065.png"
+    },
+    {
+      "grain_id": 2372,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 16,
+      "label": "Ooid",
+      "centroid": [
+        746,
+        200
+      ],
+      "patch_filename": "grain_002372.png"
+    },
+    {
+      "grain_id": 1432,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 138,
+      "label": "Peloid",
+      "centroid": [
+        1038,
+        266
+      ],
+      "patch_filename": "grain_001432.png"
+    },
+    {
+      "grain_id": 2298,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 74,
+      "label": "Intraclast",
+      "centroid": [
+        426,
+        68
+      ],
+      "patch_filename": "grain_002298.png"
+    },
+    {
+      "grain_id": 1682,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 121,
+      "label": "Peloid",
+      "centroid": [
+        993,
+        26
+      ],
+      "patch_filename": "grain_001682.png"
+    },
+    {
+      "grain_id": 1909,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 90,
+      "label": "Peloid",
+      "centroid": [
+        503,
+        66
+      ],
+      "patch_filename": "grain_001909.png"
+    },
+    {
+      "grain_id": 1392,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 98,
+      "label": "Peloid",
+      "centroid": [
+        944,
+        711
+      ],
+      "patch_filename": "grain_001392.png"
+    },
+    {
+      "grain_id": 1065,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 41,
+      "label": "Ooid",
+      "centroid": [
+        1152,
+        686
+      ],
+      "patch_filename": "grain_001065.png"
+    },
+    {
+      "grain_id": 1295,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 1,
+      "label": "Intraclast",
+      "centroid": [
+        145,
+        512
+      ],
+      "patch_filename": "grain_001295.png"
+    },
+    {
+      "grain_id": 2504,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 148,
+      "label": "Peloid",
+      "centroid": [
+        1155,
+        555
+      ],
+      "patch_filename": "grain_002504.png"
+    },
+    {
+      "grain_id": 931,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 133,
+      "label": "Broken ooid",
+      "centroid": [
+        748,
+        839
+      ],
+      "patch_filename": "grain_000931.png"
+    },
+    {
+      "grain_id": 1066,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 42,
+      "label": "Ooid",
+      "centroid": [
+        255,
+        445
+      ],
+      "patch_filename": "grain_001066.png"
+    },
+    {
+      "grain_id": 962,
+      "image_name": "WLC8_ES0023",
+      "grain_idx": 14,
+      "label": "Peloid",
+      "centroid": [
+        833,
+        138
+      ],
+      "patch_filename": "grain_000962.png"
+    },
+    {
+      "grain_id": 594,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 239,
+      "label": "Peloid",
+      "centroid": [
+        633,
+        494
+      ],
+      "patch_filename": "grain_000594.png"
+    },
+    {
+      "grain_id": 1683,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 122,
+      "label": "Peloid",
+      "centroid": [
+        1005,
+        79
+      ],
+      "patch_filename": "grain_001683.png"
+    },
+    {
+      "grain_id": 1372,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 78,
+      "label": "Peloid",
+      "centroid": [
+        1123,
+        262
+      ],
+      "patch_filename": "grain_001372.png"
+    },
+    {
+      "grain_id": 2213,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 394,
+      "label": "Peloid",
+      "centroid": [
+        853,
+        92
+      ],
+      "patch_filename": "grain_002213.png"
+    },
+    {
+      "grain_id": 2357,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 1,
+      "label": "Peloid",
+      "centroid": [
+        70,
+        108
+      ],
+      "patch_filename": "grain_002357.png"
+    },
+    {
+      "grain_id": 1910,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 91,
+      "label": "Peloid",
+      "centroid": [
+        190,
+        380
+      ],
+      "patch_filename": "grain_001910.png"
+    },
+    {
+      "grain_id": 224,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 114,
+      "label": "Peloid",
+      "centroid": [
+        588,
+        372
+      ],
+      "patch_filename": "grain_000224.png"
+    },
+    {
+      "grain_id": 1994,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 175,
+      "label": "Peloid",
+      "centroid": [
+        508,
+        795
+      ],
+      "patch_filename": "grain_001994.png"
+    },
+    {
+      "grain_id": 2410,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 54,
+      "label": "Peloid",
+      "centroid": [
+        596,
+        177
+      ],
+      "patch_filename": "grain_002410.png"
+    },
+    {
+      "grain_id": 1354,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 60,
+      "label": "Peloid",
+      "centroid": [
+        1036,
+        109
+      ],
+      "patch_filename": "grain_001354.png"
+    },
+    {
+      "grain_id": 1296,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 2,
+      "label": "Intraclast",
+      "centroid": [
+        429,
+        618
+      ],
+      "patch_filename": "grain_001296.png"
+    },
+    {
+      "grain_id": 1350,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 56,
+      "label": "Peloid",
+      "centroid": [
+        550,
+        167
+      ],
+      "patch_filename": "grain_001350.png"
+    },
+    {
+      "grain_id": 165,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 55,
+      "label": "Peloid",
+      "centroid": [
+        1118,
+        82
+      ],
+      "patch_filename": "grain_000165.png"
+    },
+    {
+      "grain_id": 639,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 284,
+      "label": "Peloid",
+      "centroid": [
+        376,
+        492
+      ],
+      "patch_filename": "grain_000639.png"
+    },
+    {
+      "grain_id": 1762,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 201,
+      "label": "Peloid",
+      "centroid": [
+        973,
+        783
+      ],
+      "patch_filename": "grain_001762.png"
+    },
+    {
+      "grain_id": 444,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 89,
+      "label": "Peloid",
+      "centroid": [
+        721,
+        234
+      ],
+      "patch_filename": "grain_000444.png"
+    },
+    {
+      "grain_id": 1973,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 154,
+      "label": "Peloid",
+      "centroid": [
+        179,
+        727
+      ],
+      "patch_filename": "grain_001973.png"
+    },
+    {
+      "grain_id": 2199,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 380,
+      "label": "Peloid",
+      "centroid": [
+        747,
+        27
+      ],
+      "patch_filename": "grain_002199.png"
+    },
+    {
+      "grain_id": 1898,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 79,
+      "label": "Peloid",
+      "centroid": [
+        422,
+        78
+      ],
+      "patch_filename": "grain_001898.png"
+    },
+    {
+      "grain_id": 1207,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 75,
+      "label": "Peloid",
+      "centroid": [
+        793,
+        378
+      ],
+      "patch_filename": "grain_001207.png"
+    },
+    {
+      "grain_id": 2105,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 286,
+      "label": "Peloid",
+      "centroid": [
+        716,
+        461
+      ],
+      "patch_filename": "grain_002105.png"
+    },
+    {
+      "grain_id": 228,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 118,
+      "label": "Peloid",
+      "centroid": [
+        31,
+        380
+      ],
+      "patch_filename": "grain_000228.png"
+    },
+    {
+      "grain_id": 220,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 110,
+      "label": "Peloid",
+      "centroid": [
+        431,
+        402
+      ],
+      "patch_filename": "grain_000220.png"
+    },
+    {
+      "grain_id": 1381,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 87,
+      "label": "Peloid",
+      "centroid": [
+        579,
+        433
+      ],
+      "patch_filename": "grain_001381.png"
+    },
+    {
+      "grain_id": 1055,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 31,
+      "label": "Peloid",
+      "centroid": [
+        920,
+        845
+      ],
+      "patch_filename": "grain_001055.png"
+    },
+    {
+      "grain_id": 1470,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 5,
+      "label": "Peloid",
+      "centroid": [
+        489,
+        432
+      ],
+      "patch_filename": "grain_001470.png"
+    },
+    {
+      "grain_id": 128,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 18,
+      "label": "Peloid",
+      "centroid": [
+        69,
+        338
+      ],
+      "patch_filename": "grain_000128.png"
+    },
+    {
+      "grain_id": 2052,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 233,
+      "label": "Peloid",
+      "centroid": [
+        926,
+        647
+      ],
+      "patch_filename": "grain_002052.png"
+    },
+    {
+      "grain_id": 1160,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 28,
+      "label": "Peloid",
+      "centroid": [
+        326,
+        85
+      ],
+      "patch_filename": "grain_001160.png"
+    },
+    {
+      "grain_id": 925,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 127,
+      "label": "Intraclast",
+      "centroid": [
+        482,
+        587
+      ],
+      "patch_filename": "grain_000925.png"
+    },
+    {
+      "grain_id": 904,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 106,
+      "label": "Peloid",
+      "centroid": [
+        956,
+        438
+      ],
+      "patch_filename": "grain_000904.png"
+    },
+    {
+      "grain_id": 1916,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 97,
+      "label": "Peloid",
+      "centroid": [
+        168,
+        417
+      ],
+      "patch_filename": "grain_001916.png"
+    },
+    {
+      "grain_id": 44,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 44,
+      "label": "Peloid",
+      "centroid": [
+        237,
+        389
+      ],
+      "patch_filename": "grain_000044.png"
+    },
+    {
+      "grain_id": 1508,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 43,
+      "label": "Peloid",
+      "centroid": [
+        377,
+        137
+      ],
+      "patch_filename": "grain_001508.png"
+    },
+    {
+      "grain_id": 1737,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 176,
+      "label": "Peloid",
+      "centroid": [
+        839,
+        580
+      ],
+      "patch_filename": "grain_001737.png"
+    },
+    {
+      "grain_id": 2144,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 325,
+      "label": "Peloid",
+      "centroid": [
+        745,
+        364
+      ],
+      "patch_filename": "grain_002144.png"
+    },
+    {
+      "grain_id": 965,
+      "image_name": "WLC8_ES0023",
+      "grain_idx": 17,
+      "label": "Peloid",
+      "centroid": [
+        1122,
+        489
+      ],
+      "patch_filename": "grain_000965.png"
+    },
+    {
+      "grain_id": 1938,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 119,
+      "label": "Peloid",
+      "centroid": [
+        229,
+        564
+      ],
+      "patch_filename": "grain_001938.png"
+    },
+    {
+      "grain_id": 1209,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 77,
+      "label": "Intraclast",
+      "centroid": [
+        626,
+        469
+      ],
+      "patch_filename": "grain_001209.png"
+    },
+    {
+      "grain_id": 82,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 82,
+      "label": "Peloid",
+      "centroid": [
+        272,
+        451
+      ],
+      "patch_filename": "grain_000082.png"
+    },
+    {
+      "grain_id": 1850,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 31,
+      "label": "Peloid",
+      "centroid": [
+        476,
+        255
+      ],
+      "patch_filename": "grain_001850.png"
+    },
+    {
+      "grain_id": 336,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 226,
+      "label": "Peloid",
+      "centroid": [
+        173,
+        313
+      ],
+      "patch_filename": "grain_000336.png"
+    },
+    {
+      "grain_id": 1315,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 21,
+      "label": "Peloid",
+      "centroid": [
+        316,
+        119
+      ],
+      "patch_filename": "grain_001315.png"
+    },
+    {
+      "grain_id": 906,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 108,
+      "label": "Peloid",
+      "centroid": [
+        1142,
+        68
+      ],
+      "patch_filename": "grain_000906.png"
+    },
+    {
+      "grain_id": 1334,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 40,
+      "label": "Peloid",
+      "centroid": [
+        433,
+        285
+      ],
+      "patch_filename": "grain_001334.png"
+    },
+    {
+      "grain_id": 1127,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 103,
+      "label": "Peloid",
+      "centroid": [
+        444,
+        60
+      ],
+      "patch_filename": "grain_001127.png"
+    },
+    {
+      "grain_id": 628,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 273,
+      "label": "Peloid",
+      "centroid": [
+        176,
+        499
+      ],
+      "patch_filename": "grain_000628.png"
+    },
+    {
+      "grain_id": 2499,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 143,
+      "label": "Intraclast",
+      "centroid": [
+        458,
+        459
+      ],
+      "patch_filename": "grain_002499.png"
+    },
+    {
+      "grain_id": 265,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 155,
+      "label": "Peloid",
+      "centroid": [
+        1028,
+        514
+      ],
+      "patch_filename": "grain_000265.png"
+    },
+    {
+      "grain_id": 2543,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 187,
+      "label": "Peloid",
+      "centroid": [
+        710,
+        681
+      ],
+      "patch_filename": "grain_002543.png"
+    },
+    {
+      "grain_id": 1167,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 35,
+      "label": "Peloid",
+      "centroid": [
+        294,
+        555
+      ],
+      "patch_filename": "grain_001167.png"
+    },
+    {
+      "grain_id": 1807,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 246,
+      "label": "Peloid",
+      "centroid": [
+        90,
+        366
+      ],
+      "patch_filename": "grain_001807.png"
+    },
+    {
+      "grain_id": 500,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 145,
+      "label": "Peloid",
+      "centroid": [
+        928,
+        289
+      ],
+      "patch_filename": "grain_000500.png"
+    },
+    {
+      "grain_id": 1188,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 56,
+      "label": "Ooid",
+      "centroid": [
+        439,
+        150
+      ],
+      "patch_filename": "grain_001188.png"
+    },
+    {
+      "grain_id": 1943,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 124,
+      "label": "Peloid",
+      "centroid": [
+        119,
+        661
+      ],
+      "patch_filename": "grain_001943.png"
+    },
+    {
+      "grain_id": 2184,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 365,
+      "label": "Peloid",
+      "centroid": [
+        881,
+        305
+      ],
+      "patch_filename": "grain_002184.png"
+    },
+    {
+      "grain_id": 1048,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 24,
+      "label": "Peloid",
+      "centroid": [
+        786,
+        803
+      ],
+      "patch_filename": "grain_001048.png"
+    },
+    {
+      "grain_id": 2183,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 364,
+      "label": "Peloid",
+      "centroid": [
+        994,
+        312
+      ],
+      "patch_filename": "grain_002183.png"
+    },
+    {
+      "grain_id": 2058,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 239,
+      "label": "Peloid",
+      "centroid": [
+        1091,
+        644
+      ],
+      "patch_filename": "grain_002058.png"
+    },
+    {
+      "grain_id": 1136,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 4,
+      "label": "Peloid",
+      "centroid": [
+        791,
+        429
+      ],
+      "patch_filename": "grain_001136.png"
+    },
+    {
+      "grain_id": 1382,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 88,
+      "label": "Peloid",
+      "centroid": [
+        632,
+        479
+      ],
+      "patch_filename": "grain_001382.png"
+    },
+    {
+      "grain_id": 1146,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 14,
+      "label": "Peloid",
+      "centroid": [
+        916,
+        280
+      ],
+      "patch_filename": "grain_001146.png"
+    },
+    {
+      "grain_id": 2241,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 17,
+      "label": "Peloid",
+      "centroid": [
+        95,
+        709
+      ],
+      "patch_filename": "grain_002241.png"
+    },
+    {
+      "grain_id": 2606,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 250,
+      "label": "Peloid",
+      "centroid": [
+        373,
+        775
+      ],
+      "patch_filename": "grain_002606.png"
+    },
+    {
+      "grain_id": 695,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 340,
+      "label": "Peloid",
+      "centroid": [
+        862,
+        723
+      ],
+      "patch_filename": "grain_000695.png"
+    },
+    {
+      "grain_id": 233,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 123,
+      "label": "Peloid",
+      "centroid": [
+        325,
+        646
+      ],
+      "patch_filename": "grain_000233.png"
+    },
+    {
+      "grain_id": 761,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 406,
+      "label": "Peloid",
+      "centroid": [
+        688,
+        805
+      ],
+      "patch_filename": "grain_000761.png"
+    },
+    {
+      "grain_id": 1253,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 121,
+      "label": "Intraclast",
+      "centroid": [
+        764,
+        625
+      ],
+      "patch_filename": "grain_001253.png"
+    },
+    {
+      "grain_id": 1774,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 213,
+      "label": "Peloid",
+      "centroid": [
+        467,
+        860
+      ],
+      "patch_filename": "grain_001774.png"
+    },
+    {
+      "grain_id": 2418,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 62,
+      "label": "Intraclast",
+      "centroid": [
+        932,
+        173
+      ],
+      "patch_filename": "grain_002418.png"
+    },
+    {
+      "grain_id": 2568,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 212,
+      "label": "Peloid",
+      "centroid": [
+        23,
+        505
+      ],
+      "patch_filename": "grain_002568.png"
+    },
+    {
+      "grain_id": 274,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 164,
+      "label": "Peloid",
+      "centroid": [
+        825,
+        673
+      ],
+      "patch_filename": "grain_000274.png"
+    },
+    {
+      "grain_id": 918,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 120,
+      "label": "Peloid",
+      "centroid": [
+        311,
+        604
+      ],
+      "patch_filename": "grain_000918.png"
+    },
+    {
+      "grain_id": 3,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 3,
+      "label": "Peloid",
+      "centroid": [
+        338,
+        190
+      ],
+      "patch_filename": "grain_000003.png"
+    },
+    {
+      "grain_id": 1945,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 126,
+      "label": "Peloid",
+      "centroid": [
+        91,
+        781
+      ],
+      "patch_filename": "grain_001945.png"
+    },
+    {
+      "grain_id": 61,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 61,
+      "label": "Peloid",
+      "centroid": [
+        661,
+        466
+      ],
+      "patch_filename": "grain_000061.png"
+    },
+    {
+      "grain_id": 251,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 141,
+      "label": "Peloid",
+      "centroid": [
+        989,
+        503
+      ],
+      "patch_filename": "grain_000251.png"
+    },
+    {
+      "grain_id": 1433,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 139,
+      "label": "Peloid",
+      "centroid": [
+        1058,
+        801
+      ],
+      "patch_filename": "grain_001433.png"
+    },
+    {
+      "grain_id": 1085,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 61,
+      "label": "Peloid",
+      "centroid": [
+        977,
+        452
+      ],
+      "patch_filename": "grain_001085.png"
+    },
+    {
+      "grain_id": 1505,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 40,
+      "label": "Peloid",
+      "centroid": [
+        774,
+        403
+      ],
+      "patch_filename": "grain_001505.png"
+    },
+    {
+      "grain_id": 29,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 29,
+      "label": "Peloid",
+      "centroid": [
+        810,
+        110
+      ],
+      "patch_filename": "grain_000029.png"
+    },
+    {
+      "grain_id": 443,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 88,
+      "label": "Peloid",
+      "centroid": [
+        724,
+        189
+      ],
+      "patch_filename": "grain_000443.png"
+    },
+    {
+      "grain_id": 1384,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 90,
+      "label": "Peloid",
+      "centroid": [
+        983,
+        552
+      ],
+      "patch_filename": "grain_001384.png"
+    },
+    {
+      "grain_id": 570,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 215,
+      "label": "Peloid",
+      "centroid": [
+        789,
+        392
+      ],
+      "patch_filename": "grain_000570.png"
+    },
+    {
+      "grain_id": 2117,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 298,
+      "label": "Peloid",
+      "centroid": [
+        986,
+        436
+      ],
+      "patch_filename": "grain_002117.png"
+    },
+    {
+      "grain_id": 779,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 424,
+      "label": "Peloid",
+      "centroid": [
+        879,
+        851
+      ],
+      "patch_filename": "grain_000779.png"
+    },
+    {
+      "grain_id": 1247,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 115,
+      "label": "Peloid",
+      "centroid": [
+        1061,
+        648
+      ],
+      "patch_filename": "grain_001247.png"
+    },
+    {
+      "grain_id": 2598,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 242,
+      "label": "Broken ooid",
+      "centroid": [
+        732,
+        760
+      ],
+      "patch_filename": "grain_002598.png"
+    },
+    {
+      "grain_id": 405,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 50,
+      "label": "Peloid",
+      "centroid": [
+        421,
+        155
+      ],
+      "patch_filename": "grain_000405.png"
+    },
+    {
+      "grain_id": 1096,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 72,
+      "label": "Ooid",
+      "centroid": [
+        40,
+        401
+      ],
+      "patch_filename": "grain_001096.png"
+    },
+    {
+      "grain_id": 941,
+      "image_name": "WLC8_ES0022",
+      "grain_idx": 8,
+      "label": "Peloid",
+      "centroid": [
+        816,
+        816
+      ],
+      "patch_filename": "grain_000941.png"
+    },
+    {
+      "grain_id": 1662,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 101,
+      "label": "Peloid",
+      "centroid": [
+        735,
+        27
+      ],
+      "patch_filename": "grain_001662.png"
+    },
+    {
+      "grain_id": 9,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 9,
+      "label": "Peloid",
+      "centroid": [
+        499,
+        143
+      ],
+      "patch_filename": "grain_000009.png"
+    },
+    {
+      "grain_id": 2294,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 70,
+      "label": "Peloid",
+      "centroid": [
+        895,
+        418
+      ],
+      "patch_filename": "grain_002294.png"
+    },
+    {
+      "grain_id": 326,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 216,
+      "label": "Peloid",
+      "centroid": [
+        917,
+        737
+      ],
+      "patch_filename": "grain_000326.png"
+    },
+    {
+      "grain_id": 2532,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 176,
+      "label": "Peloid",
+      "centroid": [
+        803,
+        716
+      ],
+      "patch_filename": "grain_002532.png"
+    },
+    {
+      "grain_id": 2358,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 2,
+      "label": "Peloid",
+      "centroid": [
+        87,
+        163
+      ],
+      "patch_filename": "grain_002358.png"
+    },
+    {
+      "grain_id": 837,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 39,
+      "label": "Ooid",
+      "centroid": [
+        1140,
+        155
+      ],
+      "patch_filename": "grain_000837.png"
+    },
+    {
+      "grain_id": 1075,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 51,
+      "label": "Ooid",
+      "centroid": [
+        1017,
+        649
+      ],
+      "patch_filename": "grain_001075.png"
+    },
+    {
+      "grain_id": 2128,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 309,
+      "label": "Peloid",
+      "centroid": [
+        424,
+        448
+      ],
+      "patch_filename": "grain_002128.png"
+    },
+    {
+      "grain_id": 1320,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 26,
+      "label": "Peloid",
+      "centroid": [
+        661,
+        17
+      ],
+      "patch_filename": "grain_001320.png"
+    },
+    {
+      "grain_id": 976,
+      "image_name": "WLC8_ES0025",
+      "grain_idx": 5,
+      "label": "Peloid",
+      "centroid": [
+        190,
+        804
+      ],
+      "patch_filename": "grain_000976.png"
+    },
+    {
+      "grain_id": 2503,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 147,
+      "label": "Peloid",
+      "centroid": [
+        1157,
+        620
+      ],
+      "patch_filename": "grain_002503.png"
+    },
+    {
+      "grain_id": 2430,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 74,
+      "label": "Peloid",
+      "centroid": [
+        918,
+        236
+      ],
+      "patch_filename": "grain_002430.png"
+    },
+    {
+      "grain_id": 2,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 2,
+      "label": "Peloid",
+      "centroid": [
+        307,
+        89
+      ],
+      "patch_filename": "grain_000002.png"
+    },
+    {
+      "grain_id": 1519,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 54,
+      "label": "Peloid",
+      "centroid": [
+        864,
+        587
+      ],
+      "patch_filename": "grain_001519.png"
+    },
+    {
+      "grain_id": 974,
+      "image_name": "WLC8_ES0025",
+      "grain_idx": 3,
+      "label": "Peloid",
+      "centroid": [
+        100,
+        663
+      ],
+      "patch_filename": "grain_000974.png"
+    },
+    {
+      "grain_id": 454,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 99,
+      "label": "Peloid",
+      "centroid": [
+        1046,
+        78
+      ],
+      "patch_filename": "grain_000454.png"
+    },
+    {
+      "grain_id": 151,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 41,
+      "label": "Peloid",
+      "centroid": [
+        727,
+        273
+      ],
+      "patch_filename": "grain_000151.png"
+    },
+    {
+      "grain_id": 1618,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 57,
+      "label": "Peloid",
+      "centroid": [
+        109,
+        227
+      ],
+      "patch_filename": "grain_001618.png"
+    },
+    {
+      "grain_id": 1139,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 7,
+      "label": "Peloid",
+      "centroid": [
+        1018,
+        583
+      ],
+      "patch_filename": "grain_001139.png"
+    },
+    {
+      "grain_id": 1169,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 37,
+      "label": "Peloid",
+      "centroid": [
+        340,
+        537
+      ],
+      "patch_filename": "grain_001169.png"
+    },
+    {
+      "grain_id": 1340,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 46,
+      "label": "Peloid",
+      "centroid": [
+        170,
+        418
+      ],
+      "patch_filename": "grain_001340.png"
+    },
+    {
+      "grain_id": 762,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 407,
+      "label": "Ooid",
+      "centroid": [
+        521,
+        830
+      ],
+      "patch_filename": "grain_000762.png"
+    },
+    {
+      "grain_id": 701,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 346,
+      "label": "Peloid",
+      "centroid": [
+        257,
+        765
+      ],
+      "patch_filename": "grain_000701.png"
+    },
+    {
+      "grain_id": 1244,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 112,
+      "label": "Peloid",
+      "centroid": [
+        130,
+        649
+      ],
+      "patch_filename": "grain_001244.png"
+    },
+    {
+      "grain_id": 1922,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 103,
+      "label": "Peloid",
+      "centroid": [
+        203,
+        474
+      ],
+      "patch_filename": "grain_001922.png"
+    },
+    {
+      "grain_id": 1355,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 61,
+      "label": "Peloid",
+      "centroid": [
+        982,
+        66
+      ],
+      "patch_filename": "grain_001355.png"
+    },
+    {
+      "grain_id": 1461,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 167,
+      "label": "Peloid",
+      "centroid": [
+        322,
+        927
+      ],
+      "patch_filename": "grain_001461.png"
+    },
+    {
+      "grain_id": 505,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 150,
+      "label": "Peloid",
+      "centroid": [
+        625,
+        251
+      ],
+      "patch_filename": "grain_000505.png"
+    },
+    {
+      "grain_id": 1172,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 40,
+      "label": "Peloid",
+      "centroid": [
+        180,
+        208
+      ],
+      "patch_filename": "grain_001172.png"
+    },
+    {
+      "grain_id": 2233,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 9,
+      "label": "Peloid",
+      "centroid": [
+        352,
+        184
+      ],
+      "patch_filename": "grain_002233.png"
+    },
+    {
+      "grain_id": 1779,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 218,
+      "label": "Peloid",
+      "centroid": [
+        62,
+        763
+      ],
+      "patch_filename": "grain_001779.png"
+    },
+    {
+      "grain_id": 1079,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 55,
+      "label": "Peloid",
+      "centroid": [
+        739,
+        574
+      ],
+      "patch_filename": "grain_001079.png"
+    },
+    {
+      "grain_id": 8,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 8,
+      "label": "Peloid",
+      "centroid": [
+        474,
+        65
+      ],
+      "patch_filename": "grain_000008.png"
+    },
+    {
+      "grain_id": 1411,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 117,
+      "label": "Peloid",
+      "centroid": [
+        307,
+        858
+      ],
+      "patch_filename": "grain_001411.png"
+    },
+    {
+      "grain_id": 22,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 22,
+      "label": "Peloid",
+      "centroid": [
+        543,
+        295
+      ],
+      "patch_filename": "grain_000022.png"
+    },
+    {
+      "grain_id": 49,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 49,
+      "label": "Peloid",
+      "centroid": [
+        894,
+        301
+      ],
+      "patch_filename": "grain_000049.png"
+    },
+    {
+      "grain_id": 58,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 58,
+      "label": "Peloid",
+      "centroid": [
+        778,
+        427
+      ],
+      "patch_filename": "grain_000058.png"
+    },
+    {
+      "grain_id": 1310,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 16,
+      "label": "Peloid",
+      "centroid": [
+        153,
+        192
+      ],
+      "patch_filename": "grain_001310.png"
+    },
+    {
+      "grain_id": 2219,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 400,
+      "label": "Peloid",
+      "centroid": [
+        899,
+        334
+      ],
+      "patch_filename": "grain_002219.png"
+    },
+    {
+      "grain_id": 12,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 12,
+      "label": "Peloid",
+      "centroid": [
+        382,
+        321
+      ],
+      "patch_filename": "grain_000012.png"
+    },
+    {
+      "grain_id": 726,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 371,
+      "label": "Peloid",
+      "centroid": [
+        128,
+        849
+      ],
+      "patch_filename": "grain_000726.png"
+    },
+    {
+      "grain_id": 284,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 174,
+      "label": "Peloid",
+      "centroid": [
+        41,
+        758
+      ],
+      "patch_filename": "grain_000284.png"
+    },
+    {
+      "grain_id": 410,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 55,
+      "label": "Peloid",
+      "centroid": [
+        486,
+        205
+      ],
+      "patch_filename": "grain_000410.png"
+    },
+    {
+      "grain_id": 1959,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 140,
+      "label": "Peloid",
+      "centroid": [
+        201,
+        741
+      ],
+      "patch_filename": "grain_001959.png"
+    },
+    {
+      "grain_id": 983,
+      "image_name": "WLC8_ES0025",
+      "grain_idx": 12,
+      "label": "Peloid",
+      "centroid": [
+        546,
+        147
+      ],
+      "patch_filename": "grain_000983.png"
+    },
+    {
+      "grain_id": 1275,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 143,
+      "label": "Peloid",
+      "centroid": [
+        926,
+        848
+      ],
+      "patch_filename": "grain_001275.png"
+    },
+    {
+      "grain_id": 859,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 61,
+      "label": "Intraclast",
+      "centroid": [
+        754,
+        512
+      ],
+      "patch_filename": "grain_000859.png"
+    },
+    {
+      "grain_id": 425,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 70,
+      "label": "Peloid",
+      "centroid": [
+        677,
+        19
+      ],
+      "patch_filename": "grain_000425.png"
+    },
+    {
+      "grain_id": 2012,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 193,
+      "label": "Peloid",
+      "centroid": [
+        387,
+        513
+      ],
+      "patch_filename": "grain_002012.png"
+    },
+    {
+      "grain_id": 81,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 81,
+      "label": "Peloid",
+      "centroid": [
+        267,
+        479
+      ],
+      "patch_filename": "grain_000081.png"
+    },
+    {
+      "grain_id": 348,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 238,
+      "label": "Peloid",
+      "centroid": [
+        768,
+        740
+      ],
+      "patch_filename": "grain_000348.png"
+    },
+    {
+      "grain_id": 497,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 142,
+      "label": "Peloid",
+      "centroid": [
+        1004,
+        320
+      ],
+      "patch_filename": "grain_000497.png"
+    },
+    {
+      "grain_id": 2300,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 76,
+      "label": "Peloid",
+      "centroid": [
+        1196,
+        463
+      ],
+      "patch_filename": "grain_002300.png"
+    },
+    {
+      "grain_id": 1341,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 47,
+      "label": "Peloid",
+      "centroid": [
+        229,
+        407
+      ],
+      "patch_filename": "grain_001341.png"
+    },
+    {
+      "grain_id": 1754,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 193,
+      "label": "Peloid",
+      "centroid": [
+        784,
+        712
+      ],
+      "patch_filename": "grain_001754.png"
+    },
+    {
+      "grain_id": 249,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 139,
+      "label": "Peloid",
+      "centroid": [
+        712,
+        463
+      ],
+      "patch_filename": "grain_000249.png"
+    },
+    {
+      "grain_id": 148,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 38,
+      "label": "Peloid",
+      "centroid": [
+        737,
+        190
+      ],
+      "patch_filename": "grain_000148.png"
+    },
+    {
+      "grain_id": 2160,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 341,
+      "label": "Peloid",
+      "centroid": [
+        644,
+        184
+      ],
+      "patch_filename": "grain_002160.png"
+    },
+    {
+      "grain_id": 522,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 167,
+      "label": "Peloid",
+      "centroid": [
+        470,
+        374
+      ],
+      "patch_filename": "grain_000522.png"
+    },
+    {
+      "grain_id": 1145,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 13,
+      "label": "Peloid",
+      "centroid": [
+        1098,
+        298
+      ],
+      "patch_filename": "grain_001145.png"
+    },
+    {
+      "grain_id": 2588,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 232,
+      "label": "Peloid",
+      "centroid": [
+        191,
+        676
+      ],
+      "patch_filename": "grain_002588.png"
+    },
+    {
+      "grain_id": 1970,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 151,
+      "label": "Peloid",
+      "centroid": [
+        85,
+        697
+      ],
+      "patch_filename": "grain_001970.png"
+    },
+    {
+      "grain_id": 1126,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 102,
+      "label": "Peloid",
+      "centroid": [
+        370,
+        97
+      ],
+      "patch_filename": "grain_001126.png"
+    },
+    {
+      "grain_id": 875,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 77,
+      "label": "Peloid",
+      "centroid": [
+        645,
+        317
+      ],
+      "patch_filename": "grain_000875.png"
+    },
+    {
+      "grain_id": 2156,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 337,
+      "label": "Peloid",
+      "centroid": [
+        657,
+        264
+      ],
+      "patch_filename": "grain_002156.png"
+    },
+    {
+      "grain_id": 2296,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 72,
+      "label": "Intraclast",
+      "centroid": [
+        1157,
+        507
+      ],
+      "patch_filename": "grain_002296.png"
+    },
+    {
+      "grain_id": 946,
+      "image_name": "WLC8_ES0022",
+      "grain_idx": 13,
+      "label": "Peloid",
+      "centroid": [
+        71,
+        914
+      ],
+      "patch_filename": "grain_000946.png"
+    },
+    {
+      "grain_id": 20,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 20,
+      "label": "Peloid",
+      "centroid": [
+        490,
+        216
+      ],
+      "patch_filename": "grain_000020.png"
+    },
+    {
+      "grain_id": 1861,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 42,
+      "label": "Peloid",
+      "centroid": [
+        334,
+        86
+      ],
+      "patch_filename": "grain_001861.png"
+    },
+    {
+      "grain_id": 1948,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 129,
+      "label": "Peloid",
+      "centroid": [
+        153,
+        744
+      ],
+      "patch_filename": "grain_001948.png"
+    },
+    {
+      "grain_id": 1714,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 153,
+      "label": "Peloid",
+      "centroid": [
+        1185,
+        413
+      ],
+      "patch_filename": "grain_001714.png"
+    },
+    {
+      "grain_id": 2594,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 238,
+      "label": "Peloid",
+      "centroid": [
+        317,
+        764
+      ],
+      "patch_filename": "grain_002594.png"
+    },
+    {
+      "grain_id": 396,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 41,
+      "label": "Peloid",
+      "centroid": [
+        341,
+        208
+      ],
+      "patch_filename": "grain_000396.png"
+    },
+    {
+      "grain_id": 1134,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 2,
+      "label": "Peloid",
+      "centroid": [
+        627,
+        316
+      ],
+      "patch_filename": "grain_001134.png"
+    },
+    {
+      "grain_id": 1834,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 15,
+      "label": "Ooid",
+      "centroid": [
+        771,
+        781
+      ],
+      "patch_filename": "grain_001834.png"
+    },
+    {
+      "grain_id": 1004,
+      "image_name": "WLC8_ES0026",
+      "grain_idx": 11,
+      "label": "Peloid",
+      "centroid": [
+        131,
+        741
+      ],
+      "patch_filename": "grain_001004.png"
+    },
+    {
+      "grain_id": 2324,
+      "image_name": "WT13_ES0049",
+      "grain_idx": 15,
+      "label": "Peloid",
+      "centroid": [
+        257,
+        179
+      ],
+      "patch_filename": "grain_002324.png"
+    },
+    {
+      "grain_id": 1983,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 164,
+      "label": "Peloid",
+      "centroid": [
+        394,
+        655
+      ],
+      "patch_filename": "grain_001983.png"
+    },
+    {
+      "grain_id": 716,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 361,
+      "label": "Peloid",
+      "centroid": [
+        134,
+        755
+      ],
+      "patch_filename": "grain_000716.png"
+    },
+    {
+      "grain_id": 1978,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 159,
+      "label": "Peloid",
+      "centroid": [
+        390,
+        555
+      ],
+      "patch_filename": "grain_001978.png"
+    },
+    {
+      "grain_id": 309,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 199,
+      "label": "Peloid",
+      "centroid": [
+        639,
+        52
+      ],
+      "patch_filename": "grain_000309.png"
+    },
+    {
+      "grain_id": 486,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 131,
+      "label": "Peloid",
+      "centroid": [
+        147,
+        322
+      ],
+      "patch_filename": "grain_000486.png"
+    },
+    {
+      "grain_id": 2492,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 136,
+      "label": "Peloid",
+      "centroid": [
+        28,
+        339
+      ],
+      "patch_filename": "grain_002492.png"
+    },
+    {
+      "grain_id": 532,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 177,
+      "label": "Peloid",
+      "centroid": [
+        877,
+        349
+      ],
+      "patch_filename": "grain_000532.png"
+    },
+    {
+      "grain_id": 296,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 186,
+      "label": "Peloid",
+      "centroid": [
+        496,
+        816
+      ],
+      "patch_filename": "grain_000296.png"
+    },
+    {
+      "grain_id": 785,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 430,
+      "label": "Peloid",
+      "centroid": [
+        952,
+        783
+      ],
+      "patch_filename": "grain_000785.png"
+    },
+    {
+      "grain_id": 407,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 52,
+      "label": "Peloid",
+      "centroid": [
+        453,
+        126
+      ],
+      "patch_filename": "grain_000407.png"
+    },
+    {
+      "grain_id": 2392,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 36,
+      "label": "Peloid",
+      "centroid": [
+        348,
+        331
+      ],
+      "patch_filename": "grain_002392.png"
+    },
+    {
+      "grain_id": 1634,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 73,
+      "label": "Peloid",
+      "centroid": [
+        227,
+        173
+      ],
+      "patch_filename": "grain_001634.png"
+    },
+    {
+      "grain_id": 842,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 44,
+      "label": "Ooid",
+      "centroid": [
+        279,
+        794
+      ],
+      "patch_filename": "grain_000842.png"
+    },
+    {
+      "grain_id": 2212,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 393,
+      "label": "Peloid",
+      "centroid": [
+        676,
+        47
+      ],
+      "patch_filename": "grain_002212.png"
+    },
+    {
+      "grain_id": 97,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 97,
+      "label": "Peloid",
+      "centroid": [
+        1154,
+        688
+      ],
+      "patch_filename": "grain_000097.png"
+    },
+    {
+      "grain_id": 1996,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 177,
+      "label": "Peloid",
+      "centroid": [
+        222,
+        872
+      ],
+      "patch_filename": "grain_001996.png"
+    },
+    {
+      "grain_id": 1851,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 32,
+      "label": "Peloid",
+      "centroid": [
+        532,
+        187
+      ],
+      "patch_filename": "grain_001851.png"
+    },
+    {
+      "grain_id": 916,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 118,
+      "label": "Peloid",
+      "centroid": [
+        351,
+        721
+      ],
+      "patch_filename": "grain_000916.png"
+    },
+    {
+      "grain_id": 1942,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 123,
+      "label": "Peloid",
+      "centroid": [
+        151,
+        646
+      ],
+      "patch_filename": "grain_001942.png"
+    },
+    {
+      "grain_id": 987,
+      "image_name": "WLC8_ES0025",
+      "grain_idx": 16,
+      "label": "Peloid",
+      "centroid": [
+        1100,
+        373
+      ],
+      "patch_filename": "grain_000987.png"
+    },
+    {
+      "grain_id": 2023,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 204,
+      "label": "Peloid",
+      "centroid": [
+        815,
+        864
+      ],
+      "patch_filename": "grain_002023.png"
+    },
+    {
+      "grain_id": 2530,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 174,
+      "label": "Peloid",
+      "centroid": [
+        792,
+        778
+      ],
+      "patch_filename": "grain_002530.png"
+    },
+    {
+      "grain_id": 1873,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 54,
+      "label": "Peloid",
+      "centroid": [
+        198,
+        112
+      ],
+      "patch_filename": "grain_001873.png"
+    },
+    {
+      "grain_id": 1206,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 74,
+      "label": "Peloid",
+      "centroid": [
+        832,
+        378
+      ],
+      "patch_filename": "grain_001206.png"
+    },
+    {
+      "grain_id": 1781,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 220,
+      "label": "Peloid",
+      "centroid": [
+        409,
+        645
+      ],
+      "patch_filename": "grain_001781.png"
+    },
+    {
+      "grain_id": 119,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 9,
+      "label": "Peloid",
+      "centroid": [
+        334,
+        163
+      ],
+      "patch_filename": "grain_000119.png"
+    },
+    {
+      "grain_id": 391,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 36,
+      "label": "Peloid",
+      "centroid": [
+        377,
+        126
+      ],
+      "patch_filename": "grain_000391.png"
+    },
+    {
+      "grain_id": 144,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 34,
+      "label": "Peloid",
+      "centroid": [
+        593,
+        273
+      ],
+      "patch_filename": "grain_000144.png"
+    },
+    {
+      "grain_id": 577,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 222,
+      "label": "Peloid",
+      "centroid": [
+        785,
+        493
+      ],
+      "patch_filename": "grain_000577.png"
+    },
+    {
+      "grain_id": 619,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 264,
+      "label": "Peloid",
+      "centroid": [
+        710,
+        550
+      ],
+      "patch_filename": "grain_000619.png"
+    },
+    {
+      "grain_id": 1245,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 113,
+      "label": "Peloid",
+      "centroid": [
+        193,
+        800
+      ],
+      "patch_filename": "grain_001245.png"
+    },
+    {
+      "grain_id": 2536,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 180,
+      "label": "Peloid",
+      "centroid": [
+        651,
+        506
+      ],
+      "patch_filename": "grain_002536.png"
+    },
+    {
+      "grain_id": 254,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 144,
+      "label": "Peloid",
+      "centroid": [
+        1101,
+        395
+      ],
+      "patch_filename": "grain_000254.png"
+    },
+    {
+      "grain_id": 689,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 334,
+      "label": "Peloid",
+      "centroid": [
+        655,
+        766
+      ],
+      "patch_filename": "grain_000689.png"
+    },
+    {
+      "grain_id": 2592,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 236,
+      "label": "Peloid",
+      "centroid": [
+        199,
+        719
+      ],
+      "patch_filename": "grain_002592.png"
+    },
+    {
+      "grain_id": 2519,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 163,
+      "label": "Peloid",
+      "centroid": [
+        872,
+        609
+      ],
+      "patch_filename": "grain_002519.png"
+    },
+    {
+      "grain_id": 385,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 30,
+      "label": "Peloid",
+      "centroid": [
+        217,
+        196
+      ],
+      "patch_filename": "grain_000385.png"
+    },
+    {
+      "grain_id": 1544,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 79,
+      "label": "Peloid",
+      "centroid": [
+        1147,
+        47
+      ],
+      "patch_filename": "grain_001544.png"
+    },
+    {
+      "grain_id": 2133,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 314,
+      "label": "Peloid",
+      "centroid": [
+        577,
+        65
+      ],
+      "patch_filename": "grain_002133.png"
+    },
+    {
+      "grain_id": 30,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 30,
+      "label": "Peloid",
+      "centroid": [
+        769,
+        298
+      ],
+      "patch_filename": "grain_000030.png"
+    },
+    {
+      "grain_id": 1848,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 29,
+      "label": "Peloid",
+      "centroid": [
+        433,
+        147
+      ],
+      "patch_filename": "grain_001848.png"
+    },
+    {
+      "grain_id": 615,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 260,
+      "label": "Peloid",
+      "centroid": [
+        579,
+        519
+      ],
+      "patch_filename": "grain_000615.png"
+    },
+    {
+      "grain_id": 2545,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 189,
+      "label": "Peloid",
+      "centroid": [
+        46,
+        387
+      ],
+      "patch_filename": "grain_002545.png"
+    },
+    {
+      "grain_id": 546,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 191,
+      "label": "Peloid",
+      "centroid": [
+        411,
+        425
+      ],
+      "patch_filename": "grain_000546.png"
+    },
+    {
+      "grain_id": 923,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 125,
+      "label": "Intraclast",
+      "centroid": [
+        126,
+        694
+      ],
+      "patch_filename": "grain_000923.png"
+    },
+    {
+      "grain_id": 179,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 69,
+      "label": "Peloid",
+      "centroid": [
+        117,
+        220
+      ],
+      "patch_filename": "grain_000179.png"
+    },
+    {
+      "grain_id": 2623,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 267,
+      "label": "Peloid",
+      "centroid": [
+        554,
+        841
+      ],
+      "patch_filename": "grain_002623.png"
+    },
+    {
+      "grain_id": 1271,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 139,
+      "label": "Peloid",
+      "centroid": [
+        714,
+        758
+      ],
+      "patch_filename": "grain_001271.png"
+    },
+    {
+      "grain_id": 777,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 422,
+      "label": "Peloid",
+      "centroid": [
+        827,
+        818
+      ],
+      "patch_filename": "grain_000777.png"
+    },
+    {
+      "grain_id": 574,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 219,
+      "label": "Peloid",
+      "centroid": [
+        803,
+        459
+      ],
+      "patch_filename": "grain_000574.png"
+    },
+    {
+      "grain_id": 1044,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 20,
+      "label": "Peloid",
+      "centroid": [
+        49,
+        567
+      ],
+      "patch_filename": "grain_001044.png"
+    },
+    {
+      "grain_id": 2215,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 396,
+      "label": "Peloid",
+      "centroid": [
+        818,
+        102
+      ],
+      "patch_filename": "grain_002215.png"
+    },
+    {
+      "grain_id": 168,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 58,
+      "label": "Peloid",
+      "centroid": [
+        928,
+        52
+      ],
+      "patch_filename": "grain_000168.png"
+    },
+    {
+      "grain_id": 1503,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 38,
+      "label": "Peloid",
+      "centroid": [
+        466,
+        163
+      ],
+      "patch_filename": "grain_001503.png"
+    },
+    {
+      "grain_id": 1639,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 78,
+      "label": "Peloid",
+      "centroid": [
+        416,
+        236
+      ],
+      "patch_filename": "grain_001639.png"
+    },
+    {
+      "grain_id": 338,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 228,
+      "label": "Peloid",
+      "centroid": [
+        63,
+        247
+      ],
+      "patch_filename": "grain_000338.png"
+    },
+    {
+      "grain_id": 1112,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 88,
+      "label": "Peloid",
+      "centroid": [
+        229,
+        69
+      ],
+      "patch_filename": "grain_001112.png"
+    },
+    {
+      "grain_id": 1011,
+      "image_name": "WLC8_ES0026",
+      "grain_idx": 18,
+      "label": "Peloid",
+      "centroid": [
+        1111,
+        636
+      ],
+      "patch_filename": "grain_001011.png"
+    },
+    {
+      "grain_id": 2327,
+      "image_name": "WT13_ES0049",
+      "grain_idx": 18,
+      "label": "Peloid",
+      "centroid": [
+        986,
+        182
+      ],
+      "patch_filename": "grain_002327.png"
+    },
+    {
+      "grain_id": 201,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 91,
+      "label": "Peloid",
+      "centroid": [
+        173,
+        502
+      ],
+      "patch_filename": "grain_000201.png"
+    },
+    {
+      "grain_id": 320,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 210,
+      "label": "Peloid",
+      "centroid": [
+        354,
+        692
+      ],
+      "patch_filename": "grain_000320.png"
+    },
+    {
+      "grain_id": 257,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 147,
+      "label": "Peloid",
+      "centroid": [
+        519,
+        604
+      ],
+      "patch_filename": "grain_000257.png"
+    },
+    {
+      "grain_id": 903,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 105,
+      "label": "Peloid",
+      "centroid": [
+        607,
+        698
+      ],
+      "patch_filename": "grain_000903.png"
+    },
+    {
+      "grain_id": 370,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 15,
+      "label": "Peloid",
+      "centroid": [
+        199,
+        57
+      ],
+      "patch_filename": "grain_000370.png"
+    },
+    {
+      "grain_id": 1138,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 6,
+      "label": "Peloid",
+      "centroid": [
+        974,
+        547
+      ],
+      "patch_filename": "grain_001138.png"
+    },
+    {
+      "grain_id": 902,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 104,
+      "label": "Intraclast",
+      "centroid": [
+        670,
+        740
+      ],
+      "patch_filename": "grain_000902.png"
+    },
+    {
+      "grain_id": 175,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 65,
+      "label": "Peloid",
+      "centroid": [
+        925,
+        321
+      ],
+      "patch_filename": "grain_000175.png"
+    },
+    {
+      "grain_id": 1705,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 144,
+      "label": "Peloid",
+      "centroid": [
+        1070,
+        259
+      ],
+      "patch_filename": "grain_001705.png"
+    },
+    {
+      "grain_id": 343,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 233,
+      "label": "Peloid",
+      "centroid": [
+        699,
+        720
+      ],
+      "patch_filename": "grain_000343.png"
+    },
+    {
+      "grain_id": 1630,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 69,
+      "label": "Peloid",
+      "centroid": [
+        392,
+        149
+      ],
+      "patch_filename": "grain_001630.png"
+    },
+    {
+      "grain_id": 1961,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 142,
+      "label": "Peloid",
+      "centroid": [
+        258,
+        758
+      ],
+      "patch_filename": "grain_001961.png"
+    },
+    {
+      "grain_id": 2453,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 97,
+      "label": "Peloid",
+      "centroid": [
+        757,
+        324
+      ],
+      "patch_filename": "grain_002453.png"
+    },
+    {
+      "grain_id": 1595,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 34,
+      "label": "Peloid",
+      "centroid": [
+        153,
+        102
+      ],
+      "patch_filename": "grain_001595.png"
+    },
+    {
+      "grain_id": 685,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 330,
+      "label": "Peloid",
+      "centroid": [
+        548,
+        687
+      ],
+      "patch_filename": "grain_000685.png"
+    },
+    {
+      "grain_id": 267,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 157,
+      "label": "Peloid",
+      "centroid": [
+        1046,
+        491
+      ],
+      "patch_filename": "grain_000267.png"
+    },
+    {
+      "grain_id": 2489,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 133,
+      "label": "Peloid",
+      "centroid": [
+        513,
+        468
+      ],
+      "patch_filename": "grain_002489.png"
+    },
+    {
+      "grain_id": 1443,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 149,
+      "label": "Peloid",
+      "centroid": [
+        59,
+        577
+      ],
+      "patch_filename": "grain_001443.png"
+    },
+    {
+      "grain_id": 466,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 111,
+      "label": "Peloid",
+      "centroid": [
+        818,
+        212
+      ],
+      "patch_filename": "grain_000466.png"
+    },
+    {
+      "grain_id": 2559,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 203,
+      "label": "Peloid",
+      "centroid": [
+        345,
+        469
+      ],
+      "patch_filename": "grain_002559.png"
+    },
+    {
+      "grain_id": 373,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 18,
+      "label": "Peloid",
+      "centroid": [
+        257,
+        35
+      ],
+      "patch_filename": "grain_000373.png"
+    },
+    {
+      "grain_id": 515,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 160,
+      "label": "Peloid",
+      "centroid": [
+        592,
+        346
+      ],
+      "patch_filename": "grain_000515.png"
+    },
+    {
+      "grain_id": 301,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 191,
+      "label": "Peloid",
+      "centroid": [
+        515,
+        80
+      ],
+      "patch_filename": "grain_000301.png"
+    },
+    {
+      "grain_id": 41,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 41,
+      "label": "Peloid",
+      "centroid": [
+        429,
+        390
+      ],
+      "patch_filename": "grain_000041.png"
+    },
+    {
+      "grain_id": 591,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 236,
+      "label": "Peloid",
+      "centroid": [
+        562,
+        439
+      ],
+      "patch_filename": "grain_000591.png"
+    },
+    {
+      "grain_id": 181,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 71,
+      "label": "Peloid",
+      "centroid": [
+        1146,
+        237
+      ],
+      "patch_filename": "grain_000181.png"
+    },
+    {
+      "grain_id": 1590,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 29,
+      "label": "Peloid",
+      "centroid": [
+        77,
+        59
+      ],
+      "patch_filename": "grain_001590.png"
+    },
+    {
+      "grain_id": 298,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 188,
+      "label": "Peloid",
+      "centroid": [
+        974,
+        784
+      ],
+      "patch_filename": "grain_000298.png"
+    },
+    {
+      "grain_id": 1089,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 65,
+      "label": "Peloid",
+      "centroid": [
+        969,
+        262
+      ],
+      "patch_filename": "grain_001089.png"
+    },
+    {
+      "grain_id": 63,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 63,
+      "label": "Peloid",
+      "centroid": [
+        584,
+        445
+      ],
+      "patch_filename": "grain_000063.png"
+    },
+    {
+      "grain_id": 1239,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 107,
+      "label": "Peloid",
+      "centroid": [
+        199,
+        635
+      ],
+      "patch_filename": "grain_001239.png"
+    },
+    {
+      "grain_id": 2167,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 348,
+      "label": "Peloid",
+      "centroid": [
+        580,
+        30
+      ],
+      "patch_filename": "grain_002167.png"
+    },
+    {
+      "grain_id": 1129,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 105,
+      "label": "Peloid",
+      "centroid": [
+        577,
+        211
+      ],
+      "patch_filename": "grain_001129.png"
+    },
+    {
+      "grain_id": 2397,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 41,
+      "label": "Peloid",
+      "centroid": [
+        257,
+        104
+      ],
+      "patch_filename": "grain_002397.png"
+    },
+    {
+      "grain_id": 1825,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 6,
+      "label": "Ooid",
+      "centroid": [
+        158,
+        521
+      ],
+      "patch_filename": "grain_001825.png"
+    },
+    {
+      "grain_id": 2321,
+      "image_name": "WT13_ES0049",
+      "grain_idx": 12,
+      "label": "Peloid",
+      "centroid": [
+        572,
+        823
+      ],
+      "patch_filename": "grain_002321.png"
+    },
+    {
+      "grain_id": 641,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 286,
+      "label": "Peloid",
+      "centroid": [
+        349,
+        576
+      ],
+      "patch_filename": "grain_000641.png"
+    },
+    {
+      "grain_id": 998,
+      "image_name": "WLC8_ES0026",
+      "grain_idx": 5,
+      "label": "Peloid",
+      "centroid": [
+        858,
+        39
+      ],
+      "patch_filename": "grain_000998.png"
+    },
+    {
+      "grain_id": 64,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 64,
+      "label": "Peloid",
+      "centroid": [
+        559,
+        436
+      ],
+      "patch_filename": "grain_000064.png"
+    },
+    {
+      "grain_id": 847,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 49,
+      "label": "Peloid",
+      "centroid": [
+        1020,
+        286
+      ],
+      "patch_filename": "grain_000847.png"
+    },
+    {
+      "grain_id": 1242,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 110,
+      "label": "Peloid",
+      "centroid": [
+        156,
+        751
+      ],
+      "patch_filename": "grain_001242.png"
+    },
+    {
+      "grain_id": 292,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 182,
+      "label": "Intraclast",
+      "centroid": [
+        586,
+        779
+      ],
+      "patch_filename": "grain_000292.png"
+    },
+    {
+      "grain_id": 1017,
+      "image_name": "WLC8_ES0026",
+      "grain_idx": 24,
+      "label": "Peloid",
+      "centroid": [
+        367,
+        909
+      ],
+      "patch_filename": "grain_001017.png"
+    },
+    {
+      "grain_id": 2313,
+      "image_name": "WT13_ES0049",
+      "grain_idx": 4,
+      "label": "Peloid",
+      "centroid": [
+        657,
+        784
+      ],
+      "patch_filename": "grain_002313.png"
+    },
+    {
+      "grain_id": 1305,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 11,
+      "label": "Ooid",
+      "centroid": [
+        539,
+        97
+      ],
+      "patch_filename": "grain_001305.png"
+    },
+    {
+      "grain_id": 303,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 193,
+      "label": "Peloid",
+      "centroid": [
+        549,
+        110
+      ],
+      "patch_filename": "grain_000303.png"
+    },
+    {
+      "grain_id": 2377,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 21,
+      "label": "Ooid",
+      "centroid": [
+        1017,
+        503
+      ],
+      "patch_filename": "grain_002377.png"
+    },
+    {
+      "grain_id": 2002,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 183,
+      "label": "Peloid",
+      "centroid": [
+        648,
+        746
+      ],
+      "patch_filename": "grain_002002.png"
+    },
+    {
+      "grain_id": 1348,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 54,
+      "label": "Peloid",
+      "centroid": [
+        740,
+        129
+      ],
+      "patch_filename": "grain_001348.png"
+    },
+    {
+      "grain_id": 1586,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 25,
+      "label": "Broken ooid",
+      "centroid": [
+        66,
+        727
+      ],
+      "patch_filename": "grain_001586.png"
+    },
+    {
+      "grain_id": 2247,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 23,
+      "label": "Ooid",
+      "centroid": [
+        267,
+        305
+      ],
+      "patch_filename": "grain_002247.png"
+    },
+    {
+      "grain_id": 105,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 105,
+      "label": "Peloid",
+      "centroid": [
+        1105,
+        391
+      ],
+      "patch_filename": "grain_000105.png"
+    },
+    {
+      "grain_id": 1907,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 88,
+      "label": "Peloid",
+      "centroid": [
+        458,
+        119
+      ],
+      "patch_filename": "grain_001907.png"
+    },
+    {
+      "grain_id": 2197,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 378,
+      "label": "Peloid",
+      "centroid": [
+        847,
+        46
+      ],
+      "patch_filename": "grain_002197.png"
+    },
+    {
+      "grain_id": 1423,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 129,
+      "label": "Peloid",
+      "centroid": [
+        85,
+        825
+      ],
+      "patch_filename": "grain_001423.png"
+    },
+    {
+      "grain_id": 1198,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 66,
+      "label": "Peloid",
+      "centroid": [
+        727,
+        45
+      ],
+      "patch_filename": "grain_001198.png"
+    },
+    {
+      "grain_id": 356,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 1,
+      "label": "Peloid",
+      "centroid": [
+        112,
+        17
+      ],
+      "patch_filename": "grain_000356.png"
+    },
+    {
+      "grain_id": 660,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 305,
+      "label": "Peloid",
+      "centroid": [
+        301,
+        619
+      ],
+      "patch_filename": "grain_000660.png"
+    },
+    {
+      "grain_id": 2135,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 316,
+      "label": "Peloid",
+      "centroid": [
+        604,
+        130
+      ],
+      "patch_filename": "grain_002135.png"
+    },
+    {
+      "grain_id": 2385,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 29,
+      "label": "Ooid",
+      "centroid": [
+        307,
+        696
+      ],
+      "patch_filename": "grain_002385.png"
+    },
+    {
+      "grain_id": 279,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 169,
+      "label": "Peloid",
+      "centroid": [
+        191,
+        718
+      ],
+      "patch_filename": "grain_000279.png"
+    },
+    {
+      "grain_id": 289,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 179,
+      "label": "Peloid",
+      "centroid": [
+        985,
+        732
+      ],
+      "patch_filename": "grain_000289.png"
+    },
+    {
+      "grain_id": 2280,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 56,
+      "label": "Peloid",
+      "centroid": [
+        1186,
+        706
+      ],
+      "patch_filename": "grain_002280.png"
+    },
+    {
+      "grain_id": 142,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 32,
+      "label": "Peloid",
+      "centroid": [
+        550,
+        34
+      ],
+      "patch_filename": "grain_000142.png"
+    },
+    {
+      "grain_id": 1609,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 48,
+      "label": "Peloid",
+      "centroid": [
+        299,
+        74
+      ],
+      "patch_filename": "grain_001609.png"
+    },
+    {
+      "grain_id": 1403,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 109,
+      "label": "Peloid",
+      "centroid": [
+        558,
+        611
+      ],
+      "patch_filename": "grain_001403.png"
+    },
+    {
+      "grain_id": 2040,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 221,
+      "label": "Peloid",
+      "centroid": [
+        1137,
+        767
+      ],
+      "patch_filename": "grain_002040.png"
+    },
+    {
+      "grain_id": 1489,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 24,
+      "label": "Peloid",
+      "centroid": [
+        98,
+        286
+      ],
+      "patch_filename": "grain_001489.png"
+    },
+    {
+      "grain_id": 1486,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 21,
+      "label": "Peloid",
+      "centroid": [
+        1065,
+        697
+      ],
+      "patch_filename": "grain_001486.png"
+    },
+    {
+      "grain_id": 2322,
+      "image_name": "WT13_ES0049",
+      "grain_idx": 13,
+      "label": "Peloid",
+      "centroid": [
+        471,
+        883
+      ],
+      "patch_filename": "grain_002322.png"
+    },
+    {
+      "grain_id": 652,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 297,
+      "label": "Peloid",
+      "centroid": [
+        838,
+        609
+      ],
+      "patch_filename": "grain_000652.png"
+    },
+    {
+      "grain_id": 355,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 0,
+      "label": "Peloid",
+      "centroid": [
+        62,
+        48
+      ],
+      "patch_filename": "grain_000355.png"
+    },
+    {
+      "grain_id": 1047,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 23,
+      "label": "Peloid",
+      "centroid": [
+        742,
+        735
+      ],
+      "patch_filename": "grain_001047.png"
+    },
+    {
+      "grain_id": 2053,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 234,
+      "label": "Peloid",
+      "centroid": [
+        852,
+        664
+      ],
+      "patch_filename": "grain_002053.png"
+    },
+    {
+      "grain_id": 2136,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 317,
+      "label": "Peloid",
+      "centroid": [
+        621,
+        156
+      ],
+      "patch_filename": "grain_002136.png"
+    },
+    {
+      "grain_id": 2429,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 73,
+      "label": "Ooid",
+      "centroid": [
+        1019,
+        244
+      ],
+      "patch_filename": "grain_002429.png"
+    },
+    {
+      "grain_id": 402,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 47,
+      "label": "Peloid",
+      "centroid": [
+        358,
+        245
+      ],
+      "patch_filename": "grain_000402.png"
+    },
+    {
+      "grain_id": 2600,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 244,
+      "label": "Peloid",
+      "centroid": [
+        700,
+        723
+      ],
+      "patch_filename": "grain_002600.png"
+    },
+    {
+      "grain_id": 1043,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 19,
+      "label": "Peloid",
+      "centroid": [
+        715,
+        813
+      ],
+      "patch_filename": "grain_001043.png"
+    },
+    {
+      "grain_id": 2093,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 274,
+      "label": "Peloid",
+      "centroid": [
+        500,
+        474
+      ],
+      "patch_filename": "grain_002093.png"
+    },
+    {
+      "grain_id": 1337,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 43,
+      "label": "Peloid",
+      "centroid": [
+        350,
+        385
+      ],
+      "patch_filename": "grain_001337.png"
+    },
+    {
+      "grain_id": 2106,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 287,
+      "label": "Peloid",
+      "centroid": [
+        767,
+        467
+      ],
+      "patch_filename": "grain_002106.png"
+    },
+    {
+      "grain_id": 2389,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 33,
+      "label": "Ooid",
+      "centroid": [
+        348,
+        86
+      ],
+      "patch_filename": "grain_002389.png"
+    },
+    {
+      "grain_id": 2235,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 11,
+      "label": "Peloid",
+      "centroid": [
+        541,
+        745
+      ],
+      "patch_filename": "grain_002235.png"
+    },
+    {
+      "grain_id": 1458,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 164,
+      "label": "Peloid",
+      "centroid": [
+        793,
+        920
+      ],
+      "patch_filename": "grain_001458.png"
+    },
+    {
+      "grain_id": 2245,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 21,
+      "label": "Ooid",
+      "centroid": [
+        101,
+        549
+      ],
+      "patch_filename": "grain_002245.png"
+    },
+    {
+      "grain_id": 1953,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 134,
+      "label": "Peloid",
+      "centroid": [
+        166,
+        803
+      ],
+      "patch_filename": "grain_001953.png"
+    },
+    {
+      "grain_id": 733,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 378,
+      "label": "Ooid",
+      "centroid": [
+        427,
+        784
+      ],
+      "patch_filename": "grain_000733.png"
+    },
+    {
+      "grain_id": 1204,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 72,
+      "label": "Peloid",
+      "centroid": [
+        235,
+        150
+      ],
+      "patch_filename": "grain_001204.png"
+    },
+    {
+      "grain_id": 673,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 318,
+      "label": "Peloid",
+      "centroid": [
+        529,
+        607
+      ],
+      "patch_filename": "grain_000673.png"
+    },
+    {
+      "grain_id": 852,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 54,
+      "label": "Peloid",
+      "centroid": [
+        1000,
+        344
+      ],
+      "patch_filename": "grain_000852.png"
+    },
+    {
+      "grain_id": 25,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 25,
+      "label": "Peloid",
+      "centroid": [
+        545,
+        338
+      ],
+      "patch_filename": "grain_000025.png"
+    },
+    {
+      "grain_id": 1957,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 138,
+      "label": "Peloid",
+      "centroid": [
+        217,
+        773
+      ],
+      "patch_filename": "grain_001957.png"
+    },
+    {
+      "grain_id": 1721,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 160,
+      "label": "Peloid",
+      "centroid": [
+        668,
+        367
+      ],
+      "patch_filename": "grain_001721.png"
+    },
+    {
+      "grain_id": 1106,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 82,
+      "label": "Peloid",
+      "centroid": [
+        216,
+        266
+      ],
+      "patch_filename": "grain_001106.png"
+    },
+    {
+      "grain_id": 2309,
+      "image_name": "WT13_ES0049",
+      "grain_idx": 0,
+      "label": "Ooid",
+      "centroid": [
+        651,
+        489
+      ],
+      "patch_filename": "grain_002309.png"
+    },
+    {
+      "grain_id": 2459,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 103,
+      "label": "Peloid",
+      "centroid": [
+        612,
+        310
+      ],
+      "patch_filename": "grain_002459.png"
+    },
+    {
+      "grain_id": 1512,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 47,
+      "label": "Peloid",
+      "centroid": [
+        833,
+        406
+      ],
+      "patch_filename": "grain_001512.png"
+    },
+    {
+      "grain_id": 1060,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 36,
+      "label": "Ooid",
+      "centroid": [
+        682,
+        775
+      ],
+      "patch_filename": "grain_001060.png"
+    },
+    {
+      "grain_id": 580,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 225,
+      "label": "Broken ooid",
+      "centroid": [
+        1107,
+        544
+      ],
+      "patch_filename": "grain_000580.png"
+    },
+    {
+      "grain_id": 853,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 55,
+      "label": "Peloid",
+      "centroid": [
+        927,
+        348
+      ],
+      "patch_filename": "grain_000853.png"
+    },
+    {
+      "grain_id": 1200,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 68,
+      "label": "Peloid",
+      "centroid": [
+        662,
+        142
+      ],
+      "patch_filename": "grain_001200.png"
+    },
+    {
+      "grain_id": 11,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 11,
+      "label": "Peloid",
+      "centroid": [
+        391,
+        286
+      ],
+      "patch_filename": "grain_000011.png"
+    },
+    {
+      "grain_id": 1420,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 126,
+      "label": "Peloid",
+      "centroid": [
+        47,
+        687
+      ],
+      "patch_filename": "grain_001420.png"
+    },
+    {
+      "grain_id": 1170,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 38,
+      "label": "Peloid",
+      "centroid": [
+        199,
+        538
+      ],
+      "patch_filename": "grain_001170.png"
+    },
+    {
+      "grain_id": 1787,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 226,
+      "label": "Peloid",
+      "centroid": [
+        536,
+        460
+      ],
+      "patch_filename": "grain_001787.png"
+    },
+    {
+      "grain_id": 2582,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 226,
+      "label": "Peloid",
+      "centroid": [
+        577,
+        589
+      ],
+      "patch_filename": "grain_002582.png"
+    },
+    {
+      "grain_id": 263,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 153,
+      "label": "Peloid",
+      "centroid": [
+        773,
+        602
+      ],
+      "patch_filename": "grain_000263.png"
+    },
+    {
+      "grain_id": 645,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 290,
+      "label": "Peloid",
+      "centroid": [
+        923,
+        563
+      ],
+      "patch_filename": "grain_000645.png"
+    },
+    {
+      "grain_id": 322,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 212,
+      "label": "Peloid",
+      "centroid": [
+        360,
+        857
+      ],
+      "patch_filename": "grain_000322.png"
+    },
+    {
+      "grain_id": 1053,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 29,
+      "label": "Peloid",
+      "centroid": [
+        581,
+        673
+      ],
+      "patch_filename": "grain_001053.png"
+    },
+    {
+      "grain_id": 2282,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 58,
+      "label": "Peloid",
+      "centroid": [
+        952,
+        635
+      ],
+      "patch_filename": "grain_002282.png"
+    },
+    {
+      "grain_id": 1193,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 61,
+      "label": "Ooid",
+      "centroid": [
+        711,
+        265
+      ],
+      "patch_filename": "grain_001193.png"
+    },
+    {
+      "grain_id": 2115,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 296,
+      "label": "Peloid",
+      "centroid": [
+        1034,
+        441
+      ],
+      "patch_filename": "grain_002115.png"
+    },
+    {
+      "grain_id": 152,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 42,
+      "label": "Peloid",
+      "centroid": [
+        828,
+        210
+      ],
+      "patch_filename": "grain_000152.png"
+    },
+    {
+      "grain_id": 1993,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 174,
+      "label": "Peloid",
+      "centroid": [
+        461,
+        843
+      ],
+      "patch_filename": "grain_001993.png"
+    },
+    {
+      "grain_id": 914,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 116,
+      "label": "Peloid",
+      "centroid": [
+        477,
+        726
+      ],
+      "patch_filename": "grain_000914.png"
+    },
+    {
+      "grain_id": 1009,
+      "image_name": "WLC8_ES0026",
+      "grain_idx": 16,
+      "label": "Peloid",
+      "centroid": [
+        1113,
+        889
+      ],
+      "patch_filename": "grain_001009.png"
+    },
+    {
+      "grain_id": 1122,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 98,
+      "label": "Ooid",
+      "centroid": [
+        480,
+        239
+      ],
+      "patch_filename": "grain_001122.png"
+    },
+    {
+      "grain_id": 1514,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 49,
+      "label": "Peloid",
+      "centroid": [
+        851,
+        719
+      ],
+      "patch_filename": "grain_001514.png"
+    },
+    {
+      "grain_id": 1077,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 53,
+      "label": "Peloid",
+      "centroid": [
+        501,
+        524
+      ],
+      "patch_filename": "grain_001077.png"
+    },
+    {
+      "grain_id": 1159,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 27,
+      "label": "Peloid",
+      "centroid": [
+        401,
+        40
+      ],
+      "patch_filename": "grain_001159.png"
+    },
+    {
+      "grain_id": 2349,
+      "image_name": "WT13_ES0056",
+      "grain_idx": 10,
+      "label": "Peloid",
+      "centroid": [
+        1134,
+        325
+      ],
+      "patch_filename": "grain_002349.png"
+    },
+    {
+      "grain_id": 393,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 38,
+      "label": "Peloid",
+      "centroid": [
+        307,
+        208
+      ],
+      "patch_filename": "grain_000393.png"
+    },
+    {
+      "grain_id": 1614,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 53,
+      "label": "Peloid",
+      "centroid": [
+        373,
+        69
+      ],
+      "patch_filename": "grain_001614.png"
+    },
+    {
+      "grain_id": 1842,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 23,
+      "label": "Peloid",
+      "centroid": [
+        290,
+        191
+      ],
+      "patch_filename": "grain_001842.png"
+    },
+    {
+      "grain_id": 1650,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 89,
+      "label": "Peloid",
+      "centroid": [
+        433,
+        197
+      ],
+      "patch_filename": "grain_001650.png"
+    },
+    {
+      "grain_id": 2518,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 162,
+      "label": "Peloid",
+      "centroid": [
+        989,
+        742
+      ],
+      "patch_filename": "grain_002518.png"
+    },
+    {
+      "grain_id": 1121,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 97,
+      "label": "Ooid",
+      "centroid": [
+        532,
+        227
+      ],
+      "patch_filename": "grain_001121.png"
+    },
+    {
+      "grain_id": 2200,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 381,
+      "label": "Peloid",
+      "centroid": [
+        1022,
+        81
+      ],
+      "patch_filename": "grain_002200.png"
+    },
+    {
+      "grain_id": 2554,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 198,
+      "label": "Peloid",
+      "centroid": [
+        311,
+        408
+      ],
+      "patch_filename": "grain_002554.png"
+    },
+    {
+      "grain_id": 736,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 381,
+      "label": "Ooid",
+      "centroid": [
+        775,
+        799
+      ],
+      "patch_filename": "grain_000736.png"
+    },
+    {
+      "grain_id": 1020,
+      "image_name": "WLC8_ES0026",
+      "grain_idx": 27,
+      "label": "Peloid",
+      "centroid": [
+        141,
+        133
+      ],
+      "patch_filename": "grain_001020.png"
+    },
+    {
+      "grain_id": 2206,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 387,
+      "label": "Peloid",
+      "centroid": [
+        1145,
+        40
+      ],
+      "patch_filename": "grain_002206.png"
+    },
+    {
+      "grain_id": 541,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 186,
+      "label": "Peloid",
+      "centroid": [
+        298,
+        401
+      ],
+      "patch_filename": "grain_000541.png"
+    },
+    {
+      "grain_id": 1462,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 168,
+      "label": "Ooid",
+      "centroid": [
+        347,
+        446
+      ],
+      "patch_filename": "grain_001462.png"
+    },
+    {
+      "grain_id": 2010,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 191,
+      "label": "Intraclast",
+      "centroid": [
+        467,
+        566
+      ],
+      "patch_filename": "grain_002010.png"
+    },
+    {
+      "grain_id": 863,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 65,
+      "label": "Peloid",
+      "centroid": [
+        955,
+        566
+      ],
+      "patch_filename": "grain_000863.png"
+    },
+    {
+      "grain_id": 1571,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 10,
+      "label": "Ooid",
+      "centroid": [
+        617,
+        52
+      ],
+      "patch_filename": "grain_001571.png"
+    },
+    {
+      "grain_id": 864,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 66,
+      "label": "Peloid",
+      "centroid": [
+        570,
+        495
+      ],
+      "patch_filename": "grain_000864.png"
+    },
+    {
+      "grain_id": 1816,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 255,
+      "label": "Peloid",
+      "centroid": [
+        504,
+        287
+      ],
+      "patch_filename": "grain_001816.png"
+    },
+    {
+      "grain_id": 1225,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 93,
+      "label": "Peloid",
+      "centroid": [
+        483,
+        468
+      ],
+      "patch_filename": "grain_001225.png"
+    },
+    {
+      "grain_id": 1064,
+      "image_name": "WT10-ES0004",
+      "grain_idx": 40,
+      "label": "Ooid",
+      "centroid": [
+        831,
+        559
+      ],
+      "patch_filename": "grain_001064.png"
+    },
+    {
+      "grain_id": 1616,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 55,
+      "label": "Peloid",
+      "centroid": [
+        425,
+        35
+      ],
+      "patch_filename": "grain_001616.png"
+    },
+    {
+      "grain_id": 1328,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 34,
+      "label": "Peloid",
+      "centroid": [
+        432,
+        180
+      ],
+      "patch_filename": "grain_001328.png"
+    },
+    {
+      "grain_id": 911,
+      "image_name": "WL5_IM10041",
+      "grain_idx": 113,
+      "label": "Peloid",
+      "centroid": [
+        487,
+        796
+      ],
+      "patch_filename": "grain_000911.png"
+    },
+    {
+      "grain_id": 506,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 151,
+      "label": "Peloid",
+      "centroid": [
+        615,
+        277
+      ],
+      "patch_filename": "grain_000506.png"
+    },
+    {
+      "grain_id": 2395,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 39,
+      "label": "Peloid",
+      "centroid": [
+        372,
+        122
+      ],
+      "patch_filename": "grain_002395.png"
+    },
+    {
+      "grain_id": 1661,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 100,
+      "label": "Peloid",
+      "centroid": [
+        558,
+        157
+      ],
+      "patch_filename": "grain_001661.png"
+    },
+    {
+      "grain_id": 1419,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 125,
+      "label": "Peloid",
+      "centroid": [
+        100,
+        676
+      ],
+      "patch_filename": "grain_001419.png"
+    },
+    {
+      "grain_id": 740,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 385,
+      "label": "Peloid",
+      "centroid": [
+        278,
+        806
+      ],
+      "patch_filename": "grain_000740.png"
+    },
+    {
+      "grain_id": 2612,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 256,
+      "label": "Peloid",
+      "centroid": [
+        142,
+        848
+      ],
+      "patch_filename": "grain_002612.png"
+    },
+    {
+      "grain_id": 452,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 97,
+      "label": "Peloid",
+      "centroid": [
+        877,
+        141
+      ],
+      "patch_filename": "grain_000452.png"
+    },
+    {
+      "grain_id": 1175,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 43,
+      "label": "Peloid",
+      "centroid": [
+        308,
+        383
+      ],
+      "patch_filename": "grain_001175.png"
+    },
+    {
+      "grain_id": 1229,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 97,
+      "label": "Peloid",
+      "centroid": [
+        587,
+        396
+      ],
+      "patch_filename": "grain_001229.png"
+    },
+    {
+      "grain_id": 1775,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 214,
+      "label": "Peloid",
+      "centroid": [
+        435,
+        709
+      ],
+      "patch_filename": "grain_001775.png"
+    },
+    {
+      "grain_id": 1717,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 156,
+      "label": "Peloid",
+      "centroid": [
+        912,
+        364
+      ],
+      "patch_filename": "grain_001717.png"
+    },
+    {
+      "grain_id": 788,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 433,
+      "label": "Peloid",
+      "centroid": [
+        1094,
+        788
+      ],
+      "patch_filename": "grain_000788.png"
+    },
+    {
+      "grain_id": 953,
+      "image_name": "WLC8_ES0023",
+      "grain_idx": 5,
+      "label": "Peloid",
+      "centroid": [
+        432,
+        888
+      ],
+      "patch_filename": "grain_000953.png"
+    },
+    {
+      "grain_id": 2255,
+      "image_name": "WT13_ES0045",
+      "grain_idx": 31,
+      "label": "Peloid",
+      "centroid": [
+        167,
+        209
+      ],
+      "patch_filename": "grain_002255.png"
+    },
+    {
+      "grain_id": 371,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 16,
+      "label": "Peloid",
+      "centroid": [
+        199,
+        89
+      ],
+      "patch_filename": "grain_000371.png"
+    },
+    {
+      "grain_id": 1553,
+      "image_name": "WT12-ES0021",
+      "grain_idx": 88,
+      "label": "Peloid",
+      "centroid": [
+        63,
+        660
+      ],
+      "patch_filename": "grain_001553.png"
+    },
+    {
+      "grain_id": 1648,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 87,
+      "label": "Peloid",
+      "centroid": [
+        461,
+        167
+      ],
+      "patch_filename": "grain_001648.png"
+    },
+    {
+      "grain_id": 6,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 6,
+      "label": "Peloid",
+      "centroid": [
+        384,
+        147
+      ],
+      "patch_filename": "grain_000006.png"
+    },
+    {
+      "grain_id": 2471,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 115,
+      "label": "Peloid",
+      "centroid": [
+        1084,
+        15
+      ],
+      "patch_filename": "grain_002471.png"
+    },
+    {
+      "grain_id": 1185,
+      "image_name": "WT10-ES0044",
+      "grain_idx": 53,
+      "label": "Broken ooid",
+      "centroid": [
+        1029,
+        297
+      ],
+      "patch_filename": "grain_001185.png"
+    },
+    {
+      "grain_id": 1939,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 120,
+      "label": "Peloid",
+      "centroid": [
+        227,
+        594
+      ],
+      "patch_filename": "grain_001939.png"
+    },
+    {
+      "grain_id": 1998,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 179,
+      "label": "Peloid",
+      "centroid": [
+        557,
+        791
+      ],
+      "patch_filename": "grain_001998.png"
+    },
+    {
+      "grain_id": 699,
+      "image_name": "MB12_ES0081",
+      "grain_idx": 344,
+      "label": "Peloid",
+      "centroid": [
+        341,
+        737
+      ],
+      "patch_filename": "grain_000699.png"
+    },
+    {
+      "grain_id": 66,
+      "image_name": "GN10-ES0086",
+      "grain_idx": 66,
+      "label": "Peloid",
+      "centroid": [
+        896,
+        393
+      ],
+      "patch_filename": "grain_000066.png"
+    },
+    {
+      "grain_id": 2434,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 78,
+      "label": "Intraclast",
+      "centroid": [
+        1082,
+        293
+      ],
+      "patch_filename": "grain_002434.png"
+    },
+    {
+      "grain_id": 155,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 45,
+      "label": "Peloid",
+      "centroid": [
+        988,
+        243
+      ],
+      "patch_filename": "grain_000155.png"
+    },
+    {
+      "grain_id": 250,
+      "image_name": "HB4_ES0068",
+      "grain_idx": 140,
+      "label": "Peloid",
+      "centroid": [
+        929,
+        491
+      ],
+      "patch_filename": "grain_000250.png"
+    },
+    {
+      "grain_id": 2457,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 101,
+      "label": "Peloid",
+      "centroid": [
+        631,
+        267
+      ],
+      "patch_filename": "grain_002457.png"
+    },
+    {
+      "grain_id": 2162,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 343,
+      "label": "Peloid",
+      "centroid": [
+        647,
+        150
+      ],
+      "patch_filename": "grain_002162.png"
+    },
+    {
+      "grain_id": 1643,
+      "image_name": "WT13-ES0023",
+      "grain_idx": 82,
+      "label": "Peloid",
+      "centroid": [
+        373,
+        302
+      ],
+      "patch_filename": "grain_001643.png"
+    },
+    {
+      "grain_id": 2218,
+      "image_name": "WT13-ES0026",
+      "grain_idx": 399,
+      "label": "Peloid",
+      "centroid": [
+        919,
+        326
+      ],
+      "patch_filename": "grain_002218.png"
+    },
+    {
+      "grain_id": 2426,
+      "image_name": "WT15-ES0042",
+      "grain_idx": 70,
+      "label": "Intraclast",
+      "centroid": [
+        1087,
+        194
+      ],
+      "patch_filename": "grain_002426.png"
+    },
+    {
+      "grain_id": 1329,
+      "image_name": "WT10_ES0039",
+      "grain_idx": 35,
+      "label": "Peloid",
+      "centroid": [
+        432,
+        232
+      ],
+      "patch_filename": "grain_001329.png"
+    }
+  ],
+  "class_distribution": {
+    "Peloid": 460,
+    "Ooid": 42,
+    "Intraclast": 20,
+    "Broken ooid": 6
+  }
+}

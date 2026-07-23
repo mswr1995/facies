@@ -13,7 +13,7 @@ import numpy as np
 from torch.utils.data import DataLoader
 from pathlib import Path
 from tqdm import tqdm
-from sklearn.metrics import balanced_accuracy_score
+from sklearn.metrics import balanced_accuracy_score, confusion_matrix
 
 import sys
 sys.path.append(str(Path(__file__).parent.parent))
@@ -22,17 +22,18 @@ from src.data.dataset_new import GrainDatasetNew
 from src.data.samplers import StageWiseBatchSampler
 from src.models.hierarchical_model import HierarchicalGrainClassifier
 from src.models.focal_loss import FocalLoss
+from src.utils.reproducibility import set_seed
 
 
-def make_oversampled_loader(batch_size, oversample):
-    ds = GrainDatasetNew(split='train')
+def make_oversampled_loader(batch_size, oversample, split_dir):
+    ds = GrainDatasetNew(split='train', split_dir=split_dir)
     sampler = StageWiseBatchSampler(ds, batch_size=batch_size,
                                     broken_ooid_oversample=oversample)
     return DataLoader(ds, batch_sampler=sampler, num_workers=0)
 
 
-def make_val_loader(batch_size):
-    ds = GrainDatasetNew(split='val')
+def make_loader(split, batch_size, split_dir):
+    ds = GrainDatasetNew(split=split, split_dir=split_dir)
     return DataLoader(ds, batch_size=batch_size, shuffle=False, num_workers=0)
 
 
@@ -62,6 +63,43 @@ def train_epoch(model, loader, optimizer, loss_fns, device, active_stages):
     return total_loss / len(loader)
 
 
+def apply_tta(image_tensor):
+    augmented = [
+        image_tensor,
+        torch.flip(image_tensor, dims=[2]),
+        torch.flip(image_tensor, dims=[1]),
+        torch.rot90(image_tensor, k=1, dims=[1, 2]),
+        torch.rot90(image_tensor, k=2, dims=[1, 2]),
+        torch.rot90(image_tensor, k=3, dims=[1, 2]),
+    ]
+    return torch.stack(augmented)
+
+
+def predict_logits(model, image, device, use_tta=False):
+    if use_tta:
+        augmented = apply_tta(image).to(device)
+        logits = model(augmented)
+        return {k: v.mean().reshape(1, 1) for k, v in logits.items()}
+    logits = model(image.unsqueeze(0).to(device))
+    return {k: v[0:1] for k, v in logits.items()}
+
+
+def summarize_predictions(trues, preds):
+    class_names = ['Peloid', 'Ooid', 'Broken ooid', 'Intraclast']
+    trues = np.array(trues)
+    preds = np.array(preds)
+    cm = confusion_matrix(trues, preds, labels=[0, 1, 2, 3])
+    return {
+        'balanced_accuracy': float(balanced_accuracy_score(trues, preds)),
+        'overall_accuracy': float((trues == preds).mean()),
+        'confusion_matrix': cm.tolist(),
+        'per_class_recall': {
+            class_names[i]: float((preds[trues == i] == i).sum() / (trues == i).sum())
+            for i in range(4)
+        },
+    }
+
+
 def evaluate(model, loader, device):
     model.eval()
     label_map = {'Peloid': 0, 'Ooid': 1, 'Broken ooid': 2, 'Intraclast': 3}
@@ -76,11 +114,28 @@ def evaluate(model, loader, device):
     return balanced_accuracy_score(trues, preds)
 
 
+def evaluate_dataset(model, dataset, device, use_tta=False):
+    model.eval()
+    label_map = {'Peloid': 0, 'Ooid': 1, 'Broken ooid': 2, 'Intraclast': 3}
+    preds, trues = [], []
+    with torch.no_grad():
+        for idx in range(len(dataset)):
+            image, _, metadata = dataset[idx]
+            logits = predict_logits(model, image, device, use_tta=use_tta)
+            pred = model.get_predictions(logits).item()
+            preds.append(pred)
+            trues.append(label_map[metadata['label']])
+    return summarize_predictions(trues, preds)
+
+
 def main(args):
+    set_seed(args.seed)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Device: {device}")
+    print(f"Seed: {args.seed}")
+    print(f"Split dir: {args.split_dir}")
 
-    val_loader = make_val_loader(args.batch_size)
+    val_loader = make_loader('val', args.batch_size, args.split_dir)
     model = HierarchicalGrainClassifier(pretrained=True).to(device)
 
     loss_fns = {
@@ -104,7 +159,7 @@ def main(args):
 
         trainable = [p for p in model.parameters() if p.requires_grad]
         optimizer = torch.optim.AdamW(trainable, lr=lr, weight_decay=1e-4)
-        train_loader = make_oversampled_loader(args.batch_size, args.oversample)
+        train_loader = make_oversampled_loader(args.batch_size, args.oversample, args.split_dir)
 
         for epoch in range(1, epochs + 1):
             loss = train_epoch(model, train_loader, optimizer, loss_fns, device, active_stages)
@@ -145,17 +200,43 @@ def main(args):
               unfreeze_fn=unfreeze_all)
 
     torch.save(model.state_dict(), ckpt_dir / 'final_model.pth')
+    model.load_state_dict(torch.load(ckpt_dir / 'best_model.pth', map_location=device))
+    test_dataset = GrainDatasetNew(split='test', split_dir=args.split_dir)
+    test_no_tta = evaluate_dataset(model, test_dataset, device, use_tta=False)
+    test_tta = evaluate_dataset(model, test_dataset, device, use_tta=True)
+
     with open(ckpt_dir / 'training_history.json', 'w') as f:
         json.dump({'history': history, 'best_val_ba': best_ba,
-                   'oversample': args.oversample}, f, indent=2)
+                   'oversample': args.oversample, 'seed': args.seed,
+                   'split_dir': args.split_dir, 'test_without_tta': test_no_tta,
+                   'test_with_tta': test_tta}, f, indent=2)
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w') as f:
+        json.dump({
+            'seed': args.seed,
+            'split_dir': args.split_dir,
+            'checkpoint_dir': str(ckpt_dir),
+            'best_val_ba': best_ba,
+            'test_without_tta': test_no_tta,
+            'test_with_tta': test_tta,
+            'history': history,
+        }, f, indent=2)
 
     print(f"\nDone. Best val balanced accuracy: {best_ba:.4f}")
+    print(f"Test BA without TTA: {test_no_tta['balanced_accuracy']:.4f}")
+    print(f"Test BA with TTA:    {test_tta['balanced_accuracy']:.4f}")
+    print(f"Saved results to: {output_path}")
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch_size',     type=int,   default=32)
     parser.add_argument('--oversample',     type=int,   default=15)
+    parser.add_argument('--seed',           type=int,   default=42)
+    parser.add_argument('--split_dir',      type=str,   default='data/processed')
+    parser.add_argument('--output',         type=str,   default='results/exp_combined_results.json')
     parser.add_argument('--phase1_epochs',  type=int,   default=10)
     parser.add_argument('--phase2_epochs',  type=int,   default=15)
     parser.add_argument('--phase3_epochs',  type=int,   default=15)

@@ -17,6 +17,7 @@ import sys
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.data.dataset_new import GrainDatasetNew
+from src.utils.reproducibility import set_seed
 
 
 CLASS_NAMES = ['Peloid', 'Ooid', 'Broken ooid', 'Intraclast']
@@ -35,8 +36,8 @@ class FlatResNet18(nn.Module):
         return self.model(x)
 
 
-def make_loader(split, batch_size, shuffle):
-    ds = GrainDatasetNew(split=split)
+def make_loader(split, batch_size, shuffle, split_dir):
+    ds = GrainDatasetNew(split=split, split_dir=split_dir)
     return DataLoader(ds, batch_size=batch_size, shuffle=shuffle, num_workers=0), ds
 
 
@@ -87,12 +88,15 @@ def evaluate(model, loader, device):
 
 
 def main(args):
+    set_seed(args.seed)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f'Device: {device}')
+    print(f'Seed: {args.seed}')
+    print(f'Split dir: {args.split_dir}')
 
-    train_loader, _ = make_loader('train', args.batch_size, shuffle=True)
-    val_loader, _   = make_loader('val',   args.batch_size, shuffle=False)
-    test_loader, _  = make_loader('test',  args.batch_size, shuffle=False)
+    train_loader, _ = make_loader('train', args.batch_size, shuffle=True, split_dir=args.split_dir)
+    val_loader, _   = make_loader('val',   args.batch_size, shuffle=False, split_dir=args.split_dir)
+    test_loader, _  = make_loader('test',  args.batch_size, shuffle=False, split_dir=args.split_dir)
 
     model = FlatResNet18(pretrained=True).to(device)
     criterion = nn.CrossEntropyLoss()
@@ -136,6 +140,8 @@ def main(args):
         print(f'{cls:>15}', '  '.join(f'{cm[i,j]:>6}' for j in range(4)))
 
     results = {
+        'seed': args.seed,
+        'split_dir': args.split_dir,
         'test_ba': float(test_ba),
         'test_oa': float(test_oa),
         'confusion_matrix': cm.tolist(),
@@ -146,7 +152,7 @@ def main(args):
         'history': history,
         'best_val_ba': best_ba
     }
-    out = Path('results/flat_baseline_results.json')
+    out = Path(args.output)
     out.parent.mkdir(exist_ok=True)
     with open(out, 'w') as f:
         json.dump(results, f, indent=2)
@@ -158,5 +164,8 @@ if __name__ == '__main__':
     parser.add_argument('--batch_size',     type=int, default=32)
     parser.add_argument('--epochs',         type=int, default=50)
     parser.add_argument('--checkpoint_dir', type=str, default='checkpoints/flat_baseline')
+    parser.add_argument('--split_dir',      type=str, default='data/processed')
+    parser.add_argument('--seed',           type=int, default=42)
+    parser.add_argument('--output',         type=str, default='results/flat_baseline_results.json')
     args = parser.parse_args()
     main(args)

@@ -29,6 +29,7 @@ class GrainDatasetNew(Dataset):
         self,
         split: str = 'train',
         patches_dir: str = 'data/processed/patches',
+        split_dir: str = 'data/processed',
         transform: Optional[A.Compose] = None,
         use_default_transforms: bool = True
     ):
@@ -36,14 +37,16 @@ class GrainDatasetNew(Dataset):
         Args:
             split: 'train', 'val', or 'test'
             patches_dir: Directory containing patch images
+            split_dir: Directory containing train_split.json, val_split.json, and test_split.json
             transform: Custom albumentations transform (overrides default)
             use_default_transforms: Use default transforms if transform=None
         """
         self.patches_dir = Path(patches_dir)
+        self.split_dir = Path(split_dir)
         self.split = split
         
         # Load split data
-        split_path = f'data/processed/{split}_split.json'
+        split_path = self.split_dir / f'{split}_split.json'
         with open(split_path, 'r') as f:
             split_data = json.load(f)
         
@@ -177,6 +180,8 @@ class GrainDatasetNew(Dataset):
 def create_new_dataloaders(
     batch_size: int = 32,
     num_workers: int = 4,
+    split_dir: str = 'data/processed',
+    patches_dir: str = 'data/processed/patches',
     use_default_transforms: bool = True
 ) -> Tuple[torch.utils.data.DataLoader, torch.utils.data.DataLoader, torch.utils.data.DataLoader]:
     """
@@ -187,16 +192,22 @@ def create_new_dataloaders(
     """
     train_dataset = GrainDatasetNew(
         split='train',
+        split_dir=split_dir,
+        patches_dir=patches_dir,
         use_default_transforms=use_default_transforms
     )
     
     val_dataset = GrainDatasetNew(
         split='val',
+        split_dir=split_dir,
+        patches_dir=patches_dir,
         use_default_transforms=use_default_transforms
     )
     
     test_dataset = GrainDatasetNew(
         split='test',
+        split_dir=split_dir,
+        patches_dir=patches_dir,
         use_default_transforms=use_default_transforms
     )
     
